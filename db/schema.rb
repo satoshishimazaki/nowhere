@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140927183940) do
+ActiveRecord::Schema.define(version: 20140927201838) do
+
+  create_table "articles", force: true do |t|
+    t.string   "herenowtitle"
+    t.string   "title"
+    t.string   "content"
+    t.integer  "store_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image"
+  end
+
+  add_index "articles", ["store_id", "created_at"], name: "index_articles_on_store_id_and_created_at"
 
   create_table "stores", force: true do |t|
     t.string   "name"

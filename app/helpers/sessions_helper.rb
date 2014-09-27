@@ -26,9 +26,11 @@ module SessionsHelper
 
   def signed_in_store
     unless signed_in?
+      store_location
       redirect_to signin_url, notice: "Please sign in."
     end
   end
+
 
   def sign_out
     self.current_store = nil

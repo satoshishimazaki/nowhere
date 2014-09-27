@@ -5,6 +5,7 @@ class StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
+    @articles = @store.articles.paginate(page: params[:page])
   end
 
   def new
@@ -14,6 +15,7 @@ class StoresController < ApplicationController
   def create
     @store = Store.new(store_params)
     if @store.save
+      sign_in @store
       flash[:success] = "Welcome to the BeansStreet!"
       redirect_to @store
     else
@@ -48,14 +50,6 @@ class StoresController < ApplicationController
     end
 
     # Before actions
-
-    def signed_in_store
-      unless signed_in?
-       store_location
-       redirect_to signin_url, notice: "Please sign in."
-      end
-    end
-
     def correct_store
       @store = Store.find(params[:id])
       redirect_to(root_path) unless current_store?(@store)

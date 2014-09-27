@@ -1,0 +1,16 @@
+<h1> 詳細情報</h1>
+
+<ul>
+    <p><li>Herenowtitle: <%= @article.herenowtitle %></li></p>
+    <p><li>title: <%= @article.title %></li></p>
+    <p><li>content: </br><%= @article.content %></li></p>
+</ul>
+
+ <section>
+      <h1>店舗基本情報</h1>
+      <p>店舗名:<%= @article.store.name %></p>
+      <p>住所:<%= @article.store.address %></p>
+      <p>電話番号:<%= @article.store.tell %></p>
+      <p>URL:<%= @article.store.url %></p>
+      <p>メールアドレス:<%= @article.store.email %></p>
+ </section>
