@@ -34,4 +34,24 @@ module SessionsHelper
     self.current_store = nil
     cookies.delete(:remember_token)
   end
+
+  def redirect_back_or(default)
+    redirect_to(session[:return_to] || default)
+    session.delete(:return_to)
+  end
+
+  def store_location
+    session[:return_to] = request.url
+  end
+
+  def create
+    store = Store.find_by(email: params[:session][:email].downcase)
+    if store && store.authenticate(params[:session][:password])
+      sign_in store
+      redirect_back_or store
+    else
+      flash.now[:error] = 'Invalid email/password combination'
+      render 'new'
+    end
+  end
 end
