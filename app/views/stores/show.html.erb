@@ -1,0 +1,14 @@
+<% provide(:title, @store.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @store.name %>
+      </h1>
+      <p>基本情報</p>
+      <p>電話番号:<%= @store.tel %></p>
+      <p>URL:<%= @store.url %></p>
+      <p>メールアドレス:<%= @store.email %></p>
+    </section>
+  </aside>
+</div>
