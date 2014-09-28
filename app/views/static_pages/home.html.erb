@@ -5,6 +5,9 @@
    <div class="col-md-6 portfolio-item">
     <% @articles.each do |article| %>
     <li style="list-style:none;">
+      <a href = "#">
+      <img class="img-responsive" 
+      <%= image_tag article.image.thumb.url, :size => '600x300' %> </a>
       <h3><%= link_to article.herenowtitle, article_path(article.id) %></h3> 
       <h3><%= link_to article.title, article_path(article.id) %></h3>
         <%= time_ago_in_words(article.created_at) %> ago.</li></p>

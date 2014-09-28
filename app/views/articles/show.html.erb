@@ -4,13 +4,17 @@
     <p><li>Herenowtitle: <%= @article.herenowtitle %></li></p>
     <p><li>title: <%= @article.title %></li></p>
     <p><li>content: </br><%= @article.content %></li></p>
+    <p><li><% if @article.image? %>
+    	   <%= image_tag @article.image.thumb.url %>
+    	     <% else %>
+    	   <%= image_tag 'noimage.gif' %>
+    	   <% end %><p><li>	
 </ul>
 
  <section>
       <h1>店舗基本情報</h1>
       <p>店舗名:<%= @article.store.name %></p>
-      <p>住所:<%= @article.store.address %></p>
-      <p>電話番号:<%= @article.store.tell %></p>
+      <p>電話番号:<%= @article.store.tel %></p>
       <p>URL:<%= @article.store.url %></p>
       <p>メールアドレス:<%= @article.store.email %></p>
  </section>

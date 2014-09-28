@@ -5,4 +5,5 @@ class Article < ActiveRecord::Base
 	validates :title, presence: true
 	validates :content, presence: true
 	validates :store_id, presence: true
+	mount_uploader :image, ImageUploader
 end

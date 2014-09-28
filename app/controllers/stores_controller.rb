@@ -46,7 +46,7 @@ class StoresController < ApplicationController
   private
 
     def store_params
-      params.require(:store).permit(:name, :email, :tel, :url, :password, :password_confirmation)
+      params.require(:store).permit(:name, :email, :tel, :url, :password, :password_confirmation, :image)
     end
 
     # Before actions
