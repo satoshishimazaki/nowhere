@@ -3,7 +3,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
  include CarrierWave::RMagick
 
-  storage :fog
+  storage :file
 
   process convert: 'jpg'
 

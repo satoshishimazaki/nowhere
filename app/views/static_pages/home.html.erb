@@ -1,11 +1,13 @@
 <% provide(:title, 'Home') %>
   <h1>Let's enjoy HereNow!!</h1>
 <ul>
+  <%# REVIEW each articlesの内容を２列に並べてデザインしたいのですが、やり方が不明です。 %>
   <div class="row">
    <div class="col-md-6 portfolio-item">
-    <% @articles.each do |article| %>
+     <% @articles.each do |article| %>
     <li style="list-style:none;">
-      <a href = "#">
+      <%# REVIEW 写真のpathがうまくいかないです。No route matches [GET] "/article_path(article.id)" %>
+      <a href = article_path(article.id)>
       <img class="img-responsive" 
       <%= image_tag article.image.thumb.url, :size => '600x300' %> </a>
       <h3><%= link_to article.herenowtitle, article_path(article.id) %></h3> 
