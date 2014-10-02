@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140927201838) do
+ActiveRecord::Schema.define(version: 20140929220338) do
 
   create_table "articles", force: true do |t|
     t.string   "herenowtitle"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20140927201838) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",           default: false
+    t.string   "category"
   end
 
   add_index "stores", ["email"], name: "index_stores_on_email", unique: true

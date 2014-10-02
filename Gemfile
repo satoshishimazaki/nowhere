@@ -11,6 +11,7 @@ gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 gem 'carrierwave'
 gem 'rmagick', require: 'RMagick'
+gem 'fog', '~> 1.3.1'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
