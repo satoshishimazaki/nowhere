@@ -2,7 +2,7 @@
 
 class ImageUploader < CarrierWave::Uploader::Base
  include CarrierWave::RMagick
-
+  #fileをfogにするとエラーが発生します。
   storage :file
 
   process convert: 'jpg'
