@@ -3,17 +3,16 @@
 <ul>
   <%# REVIEW each articlesの内容を２列に並べてデザインしたいのですが、やり方が不明です。 %>
   <div class="row">
-   <div class="col-md-6 portfolio-item">
-     <% @articles.each do |article| %>
+    <% @articles.each do |article| %>
+   <div class="col-md-4 portfolio-item">
     <li style="list-style:none;">
-      <%# REVIEW 写真のpathがうまくいかないです。No route matches [GET] "/article_path(article.id)" %>
-      <a href = article_path(article.id)>
+      <a href =<%= article_path(article.id) %> >
       <img class="img-responsive" 
-      <%= image_tag article.image.thumb.url, :size => '600x300' %> </a>
+      <%= image_tag article.image.thumb.url, :size => '700x500' %> </a>
       <h3><%= link_to article.herenowtitle, article_path(article.id) %></h3> 
       <h3><%= link_to article.title, article_path(article.id) %></h3>
         <%= time_ago_in_words(article.created_at) %> ago.</li></p>
+     </div>
     <% end %>
-   </div>
   </div>
 </ul>

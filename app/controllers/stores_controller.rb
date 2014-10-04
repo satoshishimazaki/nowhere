@@ -12,10 +12,12 @@ class StoresController < ApplicationController
     @store = Store.new
   end
   
-  #REVIEW アソシエーションがうまくいかないです。　undefined method `articles' for #<ActiveRecord::Relation::ActiveRecord_Relation_Store:0x007f83fb886ce8>
   def index_eat
-    @store = Store.where(category: '飲食')
-    @articles = @store.articles
+    @articles = Article.joins(:store).where('stores.category'=> '飲食')
+  end
+
+  def index_shopping
+    @articles = Article.joins(:store).where('stores.category'=> 'shopping')
   end
 
   def create

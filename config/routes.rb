@@ -14,4 +14,5 @@ Sample5App::Application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/index_eat',  to: 'stores#index_eat',            via: 'get'
+  match '/index_shopping',  to: 'stores#index_shopping',            via: 'get'
 end
