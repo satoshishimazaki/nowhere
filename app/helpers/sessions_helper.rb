@@ -1,13 +1,13 @@
 module SessionsHelper
 
-  def sign_in(store)
+  def sign_in_(store)
     remember_token = Store.new_remember_token
     cookies.permanent[:remember_token] = remember_token
     store.update_attribute(:remember_token, Store.encrypt(remember_token))
     self.current_store = store
   end
   
-  def signed_in?
+  def signed_in_?
     !current_store.nil?
   end
 
@@ -24,8 +24,8 @@ module SessionsHelper
     store == current_store
   end
 
-  def signed_in_store
-    unless signed_in?
+  def signed_in__store
+    unless signed_in_?
       store_location
       redirect_to signin_url, notice: "Please sign in."
     end
@@ -49,7 +49,7 @@ module SessionsHelper
   def create
     store = Store.find_by(email: params[:session][:email].downcase)
     if store && store.authenticate(params[:session][:password])
-      sign_in store
+      sign_in_ store
       redirect_back_or store
     else
       flash.now[:error] = 'Invalid email/password combination'

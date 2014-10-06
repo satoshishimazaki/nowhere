@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :signed_in_store,  only:[:create, :destroy, :new, :index]
+  before_action :signed_in__store,  only:[:create, :destroy, :new, :index]
 
   def new
   	  @article = Article.new

@@ -10,13 +10,12 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Category
               </a>
-              <ul class="dropdown-menu">
-                
+              <ul class="dropdown-menu"> 
                 <li><%= link_to "飲食", index_eat_path %></li>
                 <li><%= link_to "shopping", index_shopping_path %></li>
               </ul>
           </li>
-           <% if signed_in? %>
+           <% if signed_in_? %>
             <li><%= link_to "投稿", new_article_path %></li>
             <li id="fat-menu" clasrails="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -33,7 +32,7 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "投稿（Sign in）", signin_path %></li>
+            <li><%= link_to "投稿（Sign in）", signin__path %></li>
           <% end %>
         </ul>
       </nav>

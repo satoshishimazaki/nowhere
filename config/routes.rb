@@ -1,4 +1,6 @@
 Sample5App::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :stores
   resources :sessions, only: [:new, :create, :destroy]
   resources :articles, only: [:create, :destroy, :new, :index, :show]
@@ -11,7 +13,7 @@ Sample5App::Application.routes.draw do
   root  'static_pages#home'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/signup',  to: 'stores#new',            via: 'get'
-  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signin_',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/index_eat',  to: 'stores#index_eat',            via: 'get'
   match '/index_shopping',  to: 'stores#index_shopping',            via: 'get'

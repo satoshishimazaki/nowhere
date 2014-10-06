@@ -12,6 +12,8 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'carrierwave'
 gem 'rmagick', require: 'RMagick'
 gem 'fog', '~> 1.3.1'
+gem 'activeadmin', github: 'activeadmin/active_admin'
+gem 'devise'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

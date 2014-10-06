@@ -1,5 +1,5 @@
 class StoresController < ApplicationController
-  before_action :signed_in_store, only: [:edit, :update, :destroy]
+  before_action :signed_in__store, only: [:edit, :update, :destroy]
   before_action :correct_store,   only: [:edit, :update]
   before_action :admin_store,     only: :destroy
 
@@ -10,6 +10,10 @@ class StoresController < ApplicationController
 
   def new
     @store = Store.new
+  end
+
+  def index
+    @stores = Store.all
   end
   
   def index_eat
@@ -23,7 +27,7 @@ class StoresController < ApplicationController
   def create
     @store = Store.new(store_params)
     if @store.save
-      sign_in @store
+      sign_in_ @store
       flash[:success] = "Welcome to the BeansStreet!"
       redirect_to @store
     else
