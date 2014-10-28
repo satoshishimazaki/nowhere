@@ -1,5 +1,4 @@
 Sample5App::Application.routes.draw do
-  get "spots/index"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :stores
