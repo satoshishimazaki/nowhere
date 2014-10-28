@@ -1,4 +1,5 @@
 Sample5App::Application.routes.draw do
+  get "spots/index"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :stores
@@ -17,4 +18,7 @@ Sample5App::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/index_eat',  to: 'stores#index_eat',            via: 'get'
   match '/index_shopping',  to: 'stores#index_shopping',            via: 'get'
+  
+  # ユーザの現在位置の緯度、経度
+  get '/spots/:lat/:lng' => 'spots#index'
 end
