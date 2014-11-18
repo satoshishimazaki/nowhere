@@ -15,6 +15,7 @@ gem 'fog', '~> 1.3.1'
 gem 'activeadmin', github: 'activeadmin/active_admin'
 gem 'devise'
 gem 'geocoder'
+gem 'geokit-rails'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

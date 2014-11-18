@@ -8,9 +8,14 @@ class Store < ActiveRecord::Base
 	validates :url, presence: true
 	has_secure_password
 	validates :password, length: { minimum: 6 }
-
   geocoded_by :address  
   after_validation :geocode 
+
+  acts_as_mappable(:default_units => :kms,
+                   :default_formula => :sphere,
+                   :distance_field_name => :distance,
+                   :lat_column_name => :latitude,
+                   :lng_column_name => :longitude)
 
     def Store.new_remember_token
       SecureRandom.urlsafe_base64
