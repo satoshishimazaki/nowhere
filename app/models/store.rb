@@ -9,6 +9,9 @@ class Store < ActiveRecord::Base
 	has_secure_password
 	validates :password, length: { minimum: 6 }
 
+  geocoded_by :address  
+  after_validation :geocode 
+
     def Store.new_remember_token
       SecureRandom.urlsafe_base64
     end

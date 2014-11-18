@@ -10,6 +10,10 @@
       <p>電話番号:<%= @store.tel %></p>
       <p>URL:<%= @store.url %></p>
       <p>メールアドレス:<%= @store.email %></p>
+      <p>address:<%= @store.address %></p>
+      <p>緯度:<%= @store.latitude %></p>
+      <p>経度:<%= @store.longitude %></p>
+      <p><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@store.latitude}%2C#{@store.longitude}" %></p>  
     </section>
   </aside>
 </div>
