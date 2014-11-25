@@ -17,4 +17,5 @@ Sample5App::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/index_eat',  to: 'stores#index_eat',            via: 'get'
   match '/index_shopping',  to: 'stores#index_shopping',            via: 'get'
+  match '/ajax_index', to: 'stores#ajax_index', via: 'get'
 end

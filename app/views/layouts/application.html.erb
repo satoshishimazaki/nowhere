@@ -28,13 +28,15 @@ navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 /***** ユーザーの現在の位置情報を取得 *****/
 function successCallback(position) {
     $.ajax({
-       type: "POST",
-       url: "/static_pages/home",
-       data: "latitude=position.coords.latitude&longitude=position.coords.longitude",
-       success: function(msg){
-         alert( "Data Saved: " + msg );
-       }
+       type: "GET",
+       url: "/ajax_index",
+       data: "latitude="+position.coords.latitude+"&longitude="+position.coords.longitude,
+    }).success(function(data){
+      console.log(data)
+    }).error(function(data){
+      console.log('error!');
     });
+
   var gl_text = "緯度：" + position.coords.latitude + "<br>";
     gl_text += "経度：" + position.coords.longitude + "<br>";
     gl_text += "高度：" + position.coords.altitude + "<br>";

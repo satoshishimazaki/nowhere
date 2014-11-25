@@ -17,11 +17,15 @@ class StoresController < ApplicationController
   end
   
   def index_eat
-    @articles = Article.joins(:store).where('stores.category'=> '飲食')
+    #@articles = Article.joins(:store).where('stores.category'=> '飲食')
+    @stores = Store.find_by(category: '飲食')
+    @articles = @stores.articles
   end
 
   def index_shopping
-    @articles = Article.joins(:store).where('stores.category'=> 'shopping')
+    #@articles = Article.joins(:store).where('stores.category'=> 'shopping')
+    @stores = Store.find_by(category: 'shopping')
+    @articles = @stores.articles
   end
 
   def create
@@ -53,6 +57,17 @@ class StoresController < ApplicationController
     Store.find(params[:id]).destroy
     flash[:success] = "Store destroyed."
     redirect_to stores_url
+  end
+
+  def ajax_index
+    # ユーザーの現在地から近い順にStoresをとってくる
+    store = Store.new(latitude: params[:latitude], longitude: params[:longitude])
+    @stores = Store.by_distance(origin: store)
+    #render :json => @stores
+    respond_to do |format|
+      format.html
+      format.json {render :json => @stores}
+    end
   end
 
   private
