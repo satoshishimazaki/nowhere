@@ -63,11 +63,8 @@ class StoresController < ApplicationController
     # ユーザーの現在地から近い順にStoresをとってくる
     store = Store.new(latitude: params[:latitude], longitude: params[:longitude])
     @stores = Store.by_distance(origin: store)
-    #render :json => @stores
-    respond_to do |format|
-      format.html
-      format.json {render :json => @stores}
-    end
+    # @articles = @stores.map { |store| store.articles }.map { |articles| articles }.map { |article| article }
+    # logger.debug(@articles)
   end
 
   private
