@@ -1,7 +1,0 @@
-<h1> 投稿記事一覧</h1>
-
-<ul>
-    <% @articles.each do |article| %>
-    <p><li><%= link_to article.herenowtitle+"/", article_path(article.id) %> <%= link_to article.title, article_path(article.id) %></li></p>
-    <% end %>
-</ul>

@@ -23,12 +23,20 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def ajax_index
+    # ユーザーの現在地から近い順にStoresをとってくる
+    article = Article.new(latitude: params[:latitude], longitude: params[:longitude])
+    @articles = Article.by_distance(origin: article)
+    # @articles = @stores.map { |store| store.articles }.map { |articles| articles }.map { |article| article }
+    # logger.debug(@articles)
+  end
+
   def destroy
   end
 
   private
 
     def article_params
-      params.require(:article).permit( :content, :herenowtitle, :title, :image)
+      params.require(:article).permit( :content, :herenowtitle, :title, :image, :address, :latitude, :longitude)
     end
 end

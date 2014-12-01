@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118111437) do
+ActiveRecord::Schema.define(version: 20141130222306) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -54,6 +54,9 @@ ActiveRecord::Schema.define(version: 20141118111437) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
   end
 
   add_index "articles", ["store_id", "created_at"], name: "index_articles_on_store_id_and_created_at"
