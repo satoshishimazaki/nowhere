@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
 
   def new
   	  @article = Article.new
+      @article.address = current_store.address
   end
 
   def show
