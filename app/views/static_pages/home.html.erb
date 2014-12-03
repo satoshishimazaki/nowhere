@@ -1,6 +1,17 @@
 <% provide(:title, 'Home') %>
   <h1>Let's enjoy NowHere!!</h1>
-<ul id="articles">
-  <%# REVIEW each articlesの内容を２列に並べてデザインしたいのですが、やり方が不明です。 %>
-
+  <%= link_to '位置情報取得', '/geo' %>
+<ul>
+  <div id= "result"></div>
+  <% @articles.each do |article| %>
+   <div class="col-md-4 portfolio-item">
+    <li style="list-style:none;">
+      <a href =<%= article_path(article.id) %> >
+      <img class="img-responsive" 
+      <%= image_tag article.image.thumb.url, :size => '500x300' %> </a>
+      <h3><%= link_to article.herenowtitle, article_path(article.id) %></h3> 
+      <h3><%= link_to article.title, article_path(article.id) %></h3>
+        <%= time_ago_in_words(article.created_at) %> ago.</li></p>
+     </div>
+    <% end %>
 </ul>

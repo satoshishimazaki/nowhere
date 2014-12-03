@@ -12,6 +12,7 @@ Sample5App::Application.routes.draw do
   end
   root  'static_pages#home'
   match '/about',   to: 'static_pages#about',   via: 'get'
+  match '/geo',   to: 'static_pages#geo',   via: 'get'
   match '/signup',  to: 'stores#new',            via: 'get'
   match '/signin_',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'

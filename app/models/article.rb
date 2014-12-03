@@ -8,7 +8,6 @@ class Article < ActiveRecord::Base
 	mount_uploader :image, ImageUploader
 	geocoded_by :address
 	after_validation :geocode 
-	
 	acts_as_mappable(:default_units => :kms,
                    :default_formula => :sphere,
                    :distance_field_name => :distance,
