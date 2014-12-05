@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :signed_in__store,  only:[:create, :destroy, :new, :index]
+  before_action :signed_in__store,  only:[:create, :destroy, :new]
 
   def new
   	  @article = Article.new
@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-      @articles = current_store.articles.paginate(page: params[:page])
+      @articles = Article.all.order( created_at: :desc )
   end
 
   def create
