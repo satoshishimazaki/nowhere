@@ -1,4 +1,3 @@
-
 <div class="col-md-4 portfolio-item">
  <li style="list-style:none;">
   <%= link_to '現在位置', "/#index", {:id => 'geo_btn'} %>
@@ -11,7 +10,8 @@
       </a>
       <h3><%= link_to article.herenowtitle, article_path(article.id) %></h3> 
       <h3><%= link_to article.title, article_path(article.id) %></h3>
-        <%= time_ago_in_words(article.created_at) %> ago</p>
+        <%= time_ago_in_words(article.created_at) %> ago
+        <%= (article.created_at + 24.hours - @time).to_i %>
    <% end %>
   </div>
  </li>

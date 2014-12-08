@@ -1,5 +1,5 @@
 $(function(){
-  $('#geo_btn').on("click",function(){
+  $('#geo_btn').on("click", function(){
 //ユーザーの現在の位置情報を取得
 navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 

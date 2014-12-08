@@ -5,6 +5,7 @@ class Article < ActiveRecord::Base
 	validates :title, presence: true
 	validates :content, presence: true
 	validates :store_id, presence: true
+	validates :dead_line, presence: true
 	mount_uploader :image, ImageUploader
 	geocoded_by :address
 	after_validation :geocode 
@@ -13,4 +14,8 @@ class Article < ActiveRecord::Base
                    :distance_field_name => :distance,
                    :lat_column_name => :latitude,
                    :lng_column_name => :longitude)
+
+	def Article.method_name
+		self.where('')
+	end
 end

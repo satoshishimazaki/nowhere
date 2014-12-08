@@ -16,6 +16,7 @@ gem 'activeadmin', github: 'activeadmin/active_admin'
 gem 'devise'
 gem 'geocoder'
 gem 'geokit-rails'
+gem 'devise'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

@@ -1,4 +1,6 @@
 Sample5App::Application.routes.draw do
+  devise_for :users
+  resources :users, :only => [:index, :show]
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :stores
