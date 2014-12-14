@@ -10,14 +10,15 @@ class ArticlesController < ApplicationController
 
   def show
       @article = Article.find(params[:id])
-  #     @artcile.view_count = @article.view_count+1
-  #     @artcile.save
+      @article.view_count = @article.view_count + 1
+      @article.save
   end
 
   def index
       @articles = Article.where('created_at > ?', Time.now - 24.hours).order( created_at: :desc )
       @time = Time.now
   end
+
 
   def create
   	  @article = current_store.articles.build(article_params)

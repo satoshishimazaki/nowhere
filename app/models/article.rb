@@ -19,6 +19,23 @@ class Article < ActiveRecord::Base
     has_many :article_images
     has_many :views
     accepts_nested_attributes_for :article_images
+
+    def left_time
+      self.created_at + 24.hours - Time.now
+    end
+
+    def left_hour
+      self.left_time.div(3600)	
+    end
+
+    def left_minute
+      (self.left_time/3600 - self.left_hour)*60.floor
+    end
+
+    def left_second
+      (self.left_time/60 - left_time.div(60))*60.floor
+    end
+
 	def Article.method_name
 		self.where('')
 	end

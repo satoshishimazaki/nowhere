@@ -12,6 +12,11 @@
     	   <% end %><p><li>	
     <p><li>address: </br><%= @article.address %></li></p>
     <p><li>latitude: </br><%= @article.latitude %></li></p>
+    <p><li><%= @article.view_count %> </li></p>
+    <p><ul>残り時間
+      　 <p><li><%= @article.left_hour.floor %></li></p>
+         <p><li><%= @article.left_minute.floor %></li></p>
+         <p><li><%= @article.left_second.floor %></li></p>
   </div>
 </ul>
 

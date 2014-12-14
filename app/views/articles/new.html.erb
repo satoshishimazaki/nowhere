@@ -23,11 +23,11 @@
 
       <%= f.label :article_images, "画像" %>
       <%= f.fields_for :article_images do |images_form| %>
-        <%= images_form.label :imgage %>
+        <%= images_form.label :image %>
         <%= images_form.file_field :image %>
-        <%= images_form.label :imgage %>
+        <%= images_form.label :image %>
         <%= images_form.file_field :image %>
-        <%= images_form.label :imgage %>
+        <%= images_form.label :image %>
         <%= images_form.file_field :image %>
       <% end %>
 

@@ -48,6 +48,12 @@ group :test do
    # gem 'wdm', '0.1.0'
 end
 
+# エラー画面をわかりやすく整形してくれる
+gem 'better_errors'
+
+  # better_errorsの画面上にirb/pry(PERL)を表示する
+gem 'binding_of_caller'
+
 gem 'sass-rails', '4.0.2'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'
