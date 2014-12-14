@@ -1,5 +1,5 @@
 class StoresController < ApplicationController
-  before_action :signed_in__store, only: [:edit, :update, :destroy]
+  before_action :signed_in_store, only: [:edit, :update, :destroy]
   before_action :correct_store,   only: [:edit, :update]
   before_action :admin_store,     only: :destroy
 

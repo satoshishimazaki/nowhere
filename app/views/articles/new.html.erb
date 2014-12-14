@@ -15,14 +15,21 @@
       <%= f.label :content %>
       <%= f.text_area :content %>
 
-      <%= f.label :image %>
-      <%= f.file_field :image %>
-
       <%= f.label :address %>
       <%= f.text_field :address %>
 
       <%= f.label :dead_line %>
       <%= f.datetime_local_field :dead_line %>
+
+      <%= f.label :article_images, "画像" %>
+      <%= f.fields_for :article_images do |images_form| %>
+        <%= images_form.label :imgage %>
+        <%= images_form.file_field :image %>
+        <%= images_form.label :imgage %>
+        <%= images_form.file_field :image %>
+        <%= images_form.label :imgage %>
+        <%= images_form.file_field :image %>
+      <% end %>
 
       <%= f.submit "Post my acrticle", class: "btn btn-large btn-primary" %>
     <% end %>

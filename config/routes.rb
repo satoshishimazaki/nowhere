@@ -1,6 +1,13 @@
 Sample5App::Application.routes.draw do
-  devise_for :users
-  resources :users, :only => [:index, :show]
+  devise_for :users, :controllers => {
+  :sessions => 'users/sessions',
+  }
+  devise_scope :user do get "/user_signout" => "devise/sessions#destroy" end
+  resources :users, :only => [:index, :show] do
+    member do
+      get :favorite
+    end
+  end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :stores
@@ -12,6 +19,7 @@ Sample5App::Application.routes.draw do
   resources :articles do
     resources :articles_images
   end
+  resources :favorites, only: [:create, :destroy]
   root  'articles#index'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/signup',  to: 'stores#new',            via: 'get'
@@ -21,4 +29,5 @@ Sample5App::Application.routes.draw do
   match '/index_shopping',  to: 'stores#index_shopping',            via: 'get'
   # match '/ajax_index', to: 'stores#ajax_index', via: 'post'
   match '/ajax_index', to: 'articles#ajax_index', via: 'post'
+  match '/upload', to: 'article_images#upload', via: 'get'
 end

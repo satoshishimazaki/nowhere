@@ -1,0 +1,5 @@
+<% if current_user.favorite?(article) %>
+    <%= render 'favorites/destroy', article: article %>
+<% else %>
+    <%= render 'favorites/create', article: article %>
+<% end %>

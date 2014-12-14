@@ -14,7 +14,11 @@ class Article < ActiveRecord::Base
                    :distance_field_name => :distance,
                    :lat_column_name => :latitude,
                    :lng_column_name => :longitude)
-
+    has_many :favorites
+    has_many :favoriting_users, through: :favorites, source: :user
+    has_many :article_images
+    has_many :views
+    accepts_nested_attributes_for :article_images
 	def Article.method_name
 		self.where('')
 	end

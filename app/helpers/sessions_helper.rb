@@ -24,7 +24,7 @@ module SessionsHelper
     store == current_store
   end
 
-  def signed_in__store
+  def signed_in_store
     unless signed_in_?
       store_location
       redirect_to signin_url, notice: "Please sign in."
@@ -32,7 +32,7 @@ module SessionsHelper
   end
 
 
-  def sign_out
+  def store_sign_out
     self.current_store = nil
     cookies.delete(:remember_token)
   end

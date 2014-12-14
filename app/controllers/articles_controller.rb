@@ -1,14 +1,17 @@
 class ArticlesController < ApplicationController
-  before_action :signed_in__store,  only:[:create, :destroy, :new]
+  before_action :signed_in_store,  only:[:create, :destroy, :new]
 
   def new
   	  @article = Article.new
       @article.address = current_store.address
       @article.dead_line = Time.now
+      @article.article_images.build
   end
 
   def show
       @article = Article.find(params[:id])
+  #     @artcile.view_count = @article.view_count+1
+  #     @artcile.save
   end
 
   def index
@@ -26,6 +29,10 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def upload
+    @image = ArticleImage.create(:article_id => params[:id], :image => params[:article_image][:image])
+  end
+
   def ajax_index
     # ユーザーの現在地から近い順にStoresをとってくる
     article = Article.new(latitude: params[:latitude], longitude: params[:longitude])
@@ -40,6 +47,6 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit( :content, :herenowtitle, :title, :image, :address, :latitude, :longitude, :dead_line)
+      params.require(:article).permit( :content, :herenowtitle, :title, :image, :address, :latitude, :longitude, :dead_line, article_image_attributes: [:image])
     end
 end

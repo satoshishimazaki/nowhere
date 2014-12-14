@@ -1,0 +1,2 @@
+$('#article_<%= @article.id %>').html('<%= escape_javascript(render("favorites/favorite_btn", article: @article)) %>');
+$('#fav_<%= @article.id %>').html('<%= @article.favorites.count %>');
