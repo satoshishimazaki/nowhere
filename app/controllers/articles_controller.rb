@@ -19,10 +19,18 @@ class ArticlesController < ApplicationController
       @time = Time.now
   end
 
-
   def create
   	  @article = current_store.articles.build(article_params)
     if @article.save
+      image0 = params[:article][:article_images]['image[0]']
+      image1 = params[:article][:article_images]['image[1]']
+      image2 = params[:article][:article_images]['image[2]']
+      article_image0 = @article.article_images.build(image0)
+      article_image0.save
+      article_image1 = @article.article_images.build(image1)
+      article_image1.save
+      article_image2 = @article.article_images.build(image2)
+      article_image2.save
       flash[:success] = "投稿完了!"
       redirect_to root_url
     else
@@ -48,6 +56,6 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit( :content, :herenowtitle, :title, :image, :address, :latitude, :longitude, :dead_line, article_image_attributes: [:image])
+      params.require(:article).permit( :content, :herenowtitle, :title, :address, :latitude, :longitude, :dead_line, article_image_attributes: [:image])
     end
 end

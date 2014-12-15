@@ -18,6 +18,9 @@ gem 'geocoder'
 gem 'geokit-rails'
 gem 'devise'
 gem 'ruby-duration', '~> 3.2.0'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

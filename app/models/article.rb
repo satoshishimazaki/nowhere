@@ -6,7 +6,7 @@ class Article < ActiveRecord::Base
 	validates :content, presence: true
 	validates :store_id, presence: true
 	validates :dead_line, presence: true
-	mount_uploader :image, ImageUploader
+	# mount_uploader :image, ImageUploader
 	geocoded_by :address
 	after_validation :geocode 
 	acts_as_mappable(:default_units => :kms,
@@ -14,11 +14,11 @@ class Article < ActiveRecord::Base
                    :distance_field_name => :distance,
                    :lat_column_name => :latitude,
                    :lng_column_name => :longitude)
-    has_many :favorites
-    has_many :favoriting_users, through: :favorites, source: :user
-    has_many :article_images
-    has_many :views
-    accepts_nested_attributes_for :article_images
+  has_many :favorites
+  has_many :favoriting_users, through: :favorites, source: :user
+  has_many :article_images
+  has_many :views
+  # accepts_nested_attributes_for :article_images
 
     def left_time
       self.created_at + 24.hours - Time.now
