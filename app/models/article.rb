@@ -17,6 +17,7 @@ class Article < ActiveRecord::Base
   has_many :favorites
   has_many :favoriting_users, through: :favorites, source: :user
   has_many :article_images
+  accepts_nested_attributes_for :article_images
   has_many :views
   # accepts_nested_attributes_for :article_images
 

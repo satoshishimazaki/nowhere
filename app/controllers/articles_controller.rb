@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
       flash[:success] = "投稿完了!"
       redirect_to root_url
     else
-      render 'static_pages/home'
+      render 'articles/index'
     end
   end
 
@@ -56,6 +56,6 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit( :content, :herenowtitle, :title, :address, :latitude, :longitude, :dead_line, article_image_attributes: [:image])
+      params.require(:article).permit( :content, :herenowtitle, :title, :address, :latitude, :longitude, :dead_line, article_image_attributes: :image[])
     end
 end

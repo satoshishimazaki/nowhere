@@ -5,8 +5,8 @@
     <p><li>Herenowtitle: <%= @article.herenowtitle %></li></p>
     <p><li>title: <%= @article.title %></li></p>
     <p><li>content: </br><%= @article.content %></li></p>
-    <p><li><% if @article.article_images.first.image? %>
-    	   <%= image_tag @article.image.thumb.url %>
+    <p><li><% if @article.article_images.first %>
+    	   <%= image_tag @article.article_images.first.image %>
     	     <% else %>
     	   <%= image_tag 'noimage.gif' %>
     	   <% end %><p><li>	

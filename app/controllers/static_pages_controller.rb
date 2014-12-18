@@ -7,4 +7,8 @@ class StaticPagesController < ApplicationController
 
   def geo
   end
+
+  def sample
+  	render layout: false
+  end
 end
