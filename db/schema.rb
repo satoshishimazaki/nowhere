@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141215173247) do
+ActiveRecord::Schema.define(version: 20141218145906) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -66,6 +66,11 @@ ActiveRecord::Schema.define(version: 20141215173247) do
     t.time     "deadline"
     t.datetime "dead_line"
     t.integer  "view_count",   default: 0
+    t.string   "image_one"
+    t.string   "image_two"
+    t.string   "image_three"
+    t.string   "image_four"
+    t.string   "image_five"
   end
 
   add_index "articles", ["store_id", "created_at"], name: "index_articles_on_store_id_and_created_at"

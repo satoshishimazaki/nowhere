@@ -8,7 +8,7 @@
     <li style="list-style:none;">
       <a href =<%= article_path(article.id) %> >
       <img class="img-responsive" 
-      <%= image_tag article.image.thumb.url, :size => '700x500' %> </a>
+      <%= image_tag article.image_one, :size => '700x500' %> </a>
       <h3><%= link_to article.herenowtitle, article_path(article.id) %></h3> 
       <h3><%= link_to article.title, article_path(article.id) %></h3>
         <%= time_ago_in_words(article.created_at) %> ago.</li></p>

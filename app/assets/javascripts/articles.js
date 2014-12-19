@@ -21,7 +21,7 @@ function successCallback(position) {
     gl_text += "高度の誤差：" + position.coords.altitudeAccuracy + "<br>";
     gl_text += "方角：" + position.coords.heading + "<br>";
     gl_text += "速度：" + position.coords.speed + "<br>";
-  document.getElementById("show_result").innerHTML = gl_text;
+    $('#show_result').html(gl_text);
 }
 
 /***** 位置情報が取得できない場合 *****/

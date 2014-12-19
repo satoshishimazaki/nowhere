@@ -5,7 +5,6 @@ class ArticlesController < ApplicationController
   	  @article = Article.new
       @article.address = current_store.address
       @article.dead_line = Time.now
-      @article.article_images.build
   end
 
   def show
@@ -21,20 +20,21 @@ class ArticlesController < ApplicationController
 
   def create
   	  @article = current_store.articles.build(article_params)
+      file1 = params[:article][:image_one]
+      file2 = params[:article][:image_two]
+      file3 = params[:article][:image_three]
+      file4 = params[:article][:image_four]
+      file5 = params[:article][:image_five]
+      @article.set_image_one(file1)
+      @article.set_image_two(file2)
+      @article.set_image_three(file3)
+      @article.set_image_four(file4)
+      @article.set_image_five(file5)
     if @article.save
-      image0 = params[:article][:article_images]['image[0]']
-      image1 = params[:article][:article_images]['image[1]']
-      image2 = params[:article][:article_images]['image[2]']
-      article_image0 = @article.article_images.build(image0)
-      article_image0.save
-      article_image1 = @article.article_images.build(image1)
-      article_image1.save
-      article_image2 = @article.article_images.build(image2)
-      article_image2.save
       flash[:success] = "投稿完了!"
       redirect_to root_url
     else
-      render 'articles/index'
+      render 'new'
     end
   end
 
@@ -56,6 +56,6 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit( :content, :herenowtitle, :title, :address, :latitude, :longitude, :dead_line, article_image_attributes: :image[])
+      params.require(:article).permit( :content, :herenowtitle, :title, :address, :latitude, :longitude, :dead_line, :image_one, :image_two, :image_three, :image_four, :image_five)
     end
 end
