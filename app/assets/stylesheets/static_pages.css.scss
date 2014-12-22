@@ -10,16 +10,38 @@
   box-sizing: border-box;
 }
 
+body #hero {
+background: rgba(153, 237, 243, 0.58);
+}
+
+#portfolio a {
+color: whtite;
+}
+
+body .nav > li > a {
+background-color: rgb(34, 34, 34);
+}
+
+body .navbar {
+position: relative;
+min-height: 50px;
+margin-bottom: 0px;
+border: 1px solid transparent;
+}
 /* universal */
 
 html {
   overflow-y: scroll;
 }
 
+// ヘッダーの文字 
+body #hero a, #portfolio a {
+color: #F2F9F0;
+}
+
 .small-box img{
   width: 100%;
 }
-
 
 // body {
 //   padding-top: 60px;
@@ -108,7 +130,7 @@ p {
   margin-right: 10px;
   font-size: 1.7em;
   color: white;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;

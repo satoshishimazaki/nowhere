@@ -1,27 +1,22 @@
-<h1> 詳細情報</h1>
+<h2> 詳細情報</h2>
 
 <ul>
   <div class = "articles" >
-    <p><li>Herenowtitle: <%= @article.herenowtitle %></li></p>
-    <p><li>title: <%= @article.title %></li></p>
-    <p><li>content: </br><%= @article.content %></li></p>
+    <p><li><%= @article.herenowtitle %></li></p>
+    <p><li><%= @article.title %></li></p>
+    <p><li></br><%= @article.content %></li></p>
     <p><li><% if @article.article_images.first %>
-    	   <%= image_tag @article.article_images.first.image %>
+    	   <%= image_tag  %>
     	     <% else %>
     	   <%= image_tag 'noimage.gif' %>
     	   <% end %><p><li>	
-    <p><li>address: </br><%= @article.address %></li></p>
-    <p><li>latitude: </br><%= @article.latitude %></li></p>
-    <p><li><%= @article.view_count %> </li></p>
-    <p><ul>残り時間
-      　 <p><li><%= @article.left_hour.floor %></li></p>
-         <p><li><%= @article.left_minute.floor %></li></p>
-         <p><li><%= @article.left_second.floor %></li></p>
+    <p>残り時間:<%= @article.left_hour.floor %>時間<%= @article.left_minute.floor %>分</p>
+    <p>View:<%= @article.view_count %></p>
   </div>
 </ul>
 
  <section>
-      <h1>店舗基本情報</h1>
+      <h2>店舗基本情報</h2>
       <p>店舗名:<%= @article.store.name %></p>
       <p>業態:<%= @article.store.category %></p>
       <p>電話番号:<%= @article.store.tel %></p>

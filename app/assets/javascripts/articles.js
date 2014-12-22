@@ -6,7 +6,7 @@ navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 /***** ユーザーの現在の位置情報を取得 *****/
 function successCallback(position) {
     $.ajax({
-       type: "POST",
+       type: "GET",
        url: "/ajax_index",
        data: "latitude="+position.coords.latitude+"&longitude="+position.coords.longitude,
     }).success(function(data){

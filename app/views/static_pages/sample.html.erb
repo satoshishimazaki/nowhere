@@ -61,31 +61,56 @@
       <div id="status">&nbsp;</div>
     </div>
 
-
-    <!-- Off Canvas Navigation
-    ================================================== -->
-    <div id="navigation" class="navmenu navmenu-default navmenu-fixed-left offcanvas"> <!--- Off Canvas Side Menu -->
-      <!-- <a href="index.html"><img src="img/menu-logo.png" alt="..." class="logo"></a> <!- User Icon/ Or Logo Image -->
-    <div class="logo" ><%= link_to '#' do image_tag "menu.png" end %></div>
-      <ul class="nav navmenu-nav"> <!--- Menu -->
-        <li class="active"><a class="page-scroll" href="#hero">Home</a></li>
-        <li><a class="page-scroll" href="#portfolio">Portfolio</a></li>
-        <li><a class="page-scroll" href="#about">About Me</a></li>
-        <li><a class="page-scroll" href="#blog">Blog</a></li>
-        <li><a class="page-scroll" href="#contact">Contact Me</a></li>
-      </ul><!--- End Menu -->
-    </div> <!--- End Off Canvas Side Menu -->
-
-
     <!-- Hero Slider
     ================================================== -->
     <section id="hero"> 
-        
+       <header class="navbar navbar-fixed-top navbar-inverse">
+          <div class="navbar-inner">
+            <div class="container">
+              <%= link_to "now here", root_path, id: "logo" %>
+              <nav>
+                <ul class="nav pull-right"> 
+                  <li><%= link_to "about",  about_path  %></li>
+                  <li><li id="category-menu" class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Category
+                      <ul class="dropdown-menu"> 
+                        <li><%= link_to "飲食", index_eat_path %></li>
+                        <li><%= link_to "shopping", index_shopping_path %></li>
+                      </ul>
+                  </li>
+                   <li><%= link_to '現在位置', "/#index", {:id => 'geo_btn'} %></li>
+                   <li><%= link_to '投稿順', controller: :articles, action: :index, remote: true %></li>
+                   <% if signed_in_? %>
+                    <li><%= link_to "投稿", new_article_path %></li>
+                    <li id="fat-menu" clasrails="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Account <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><%= link_to "Profile", current_store %></li>
+                        <li><%= link_to "Settings", edit_store_path(current_store) %></li>
+                        <li><%= link_to "投稿記事一覧", articles_path %></li>
+                        <li class="divider"></li>
+                        <li>
+                          <%= link_to "Sign out", signout_path, method: "delete" %>
+                        </li>
+                      </ul>
+                    </li>
+                  <% else %>
+                    <li><%= link_to "投稿（Sign in）", signin__path %></li>
+                  <% end %>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </header>
+
         <!-- Menu Toggle for Off Canvas-Menu -->
-        <div id="menu" class="menu" data-toggle="offcanvas" data-target=".navmenu">
+        <!-- <div id="menu" class="menu" data-toggle="offcanvas" data-target=".navmenu"> -->
             <!-- <img src="img/menu.png" alt="menu-logo"> -->
-            <%= image_tag 'menu.png' %>
-        </div>
+            <!-- <%= image_tag 'menu.png' %> -->
+        <!-- </div> -->
 
         <!--Start Sliders -->
         <div id="header-slider" class="carousel slide" data-ride="carousel">
@@ -97,49 +122,13 @@
               <!-- <img src="img/bg/01.jpg" alt="..."> -->
               <%= image_tag 'bg/yousu.jpg'%>
               <div class="carousel-caption">
-                <h1>Now here</h1>
+                <h1>now here</h1>
                 <h4>One Page Minimal Web Design</h4>
                 <a class="page-scroll" href="#portfolio"><span class="fa fa-angle-double-down fa-3x"></span></a>
               </div>
             </div> <!-- End First Slider -->
 
-            <div class="item"> <!-- Second Slider -->
-              <!-- <img src="img/bg/02.jpg" alt="..."> -->
-              <%= image_tag 'bg/02.jpg'%>
-              <div class="carousel-caption">
-                <h1>corporate</h1>
-                <h4>Perfect for Corporate/Agency</h4>
-                <a class="page-scroll" href="#portfolio"><span class="fa fa-angle-double-down fa-3x"></span></a>
-              </div>
-            </div><!-- End Second Slider -->
-
-            <div class="item"> <!-- Third Slider -->
-              <!-- <img src="img/bg/03.jpg" alt="..."> -->
-              <%= image_tag 'bg/03.jpg'%>
-              <div class="carousel-caption">
-                <h1>portfolio</h1>
-                <h4>For Good Presentation of Business Website</h4>
-                <a class="page-scroll" href="#portfolio"><span class="fa fa-angle-double-down fa-3x"></span></a>
-              </div>
-            </div><!-- End Third Slider -->
-
-            <div class="item"> <!-- Fourth Slider -->
-              <!-- <img src="img/bg/04.jpg" alt="..."> -->
-              <%= image_tag 'bg/03.jpg'%>
-              <div class="carousel-caption">
-                <h1>love this?</h1>
-                <h4>Get it Now! For Only $12</h4>
-                <a class="page-scroll" href="#form"><span class="fa fa-angle-double-down fa-3x"></span></a>
-              </div>
-            </div> <!-- End Fourth Slider -->
-          </div> <!-- End Hero Wrapper for slides -->
-
         </div> <!-- End Sliders -->
-
-        <div class="controls">
-            <a href="#header-slider" role="button" data-slide="prev"><span class="arrow-left"></span></a> <!-- Prev Control -->
-            <a href="#header-slider" role="button" data-slide="next"><span class="arrow-right"></span></a> <!-- Next Control -->
-        </div>
 
     </section><!-- End Hero Slider -->
 
@@ -158,10 +147,13 @@
                                     <!-- <img src="img/portfolio/city/01.jpg" alt="img" class="img-responsive"> -->
                                     <div class="hover-text">
                                         <div class="ptitle">
-                                            <a href="portfolio/cityscape.html"><h2><%= article.title %></h2></a>
+                                            <!-- <a href="portfolio/cityscape.html"><h2><%= link_to article.title, article_path(article.id) %></h2></a> -->
+                                          <h2><%= link_to article.title, article_path(article.id) %></h2>
                                         </div>
                                         <p class="excerpt"><%= article.herenowtitle %></p>
-                                        <a href="portfolio/cityscape.html" class="btn btn-default read-more-btn"><span class="fa fa-bars"></span>View More</a>
+                                        <p>残り時間:<%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分</p>
+                                        <p>View:<%= article.view_count %></p>
+                                        <a href="portfolio/cityscape.html" class="btn btn-default read-more-btn"><span class="fa fa-bars"></span>View More<%= link_to article.title, article_path(article.id) %></a>
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +162,6 @@
                 </div> <!-- End First Column -->
 
                 <div class="col-sm-4 col-md-4 col-lg-4 nopadding"> <!-- Second Column -->
-
                     <% @articles.each_with_index do |article, index| %>
                         <% if [1,4,7].include?(index) %>
                             <div class="small-box"> 
@@ -182,6 +173,8 @@
                                             <a href="portfolio/cityscape.html"><h2><%= article.title %></h2></a>
                                         </div>
                                         <p class="excerpt"><%= article.herenowtitle %></p>
+                                        <p>残り時間:<%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分</p>
+                                        <p>View:<%= article.view_count %></p>
                                         <a href="portfolio/cityscape.html" class="btn btn-default read-more-btn"><span class="fa fa-bars"></span>View More</a>
                                     </div>
                                 </div>
@@ -204,6 +197,8 @@
                                             <a href="portfolio/cityscape.html"><h2><%= article.title %></h2></a>
                                         </div>
                                         <p class="excerpt"><%= article.herenowtitle %></p>
+                                        <p>残り時間:<%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分</p>
+                                        <p>View:<%= article.view_count %></p>
                                         <a href="portfolio/cityscape.html" class="btn btn-default read-more-btn"><span class="fa fa-bars"></span>View More</a>
                                     </div>
                                 </div>
