@@ -4,7 +4,7 @@
   <div class = "articles" >
     <p><li><%= @article.herenowtitle %></li></p>
     <p><li><%= @article.title %></li></p>
-    <p><li></br><%= @article.content %></li></p>
+    <p><li><%= @article.content %></li></p>
     <p><li><% if @article.article_images.first %>
     	   <%= image_tag  %>
     	     <% else %>

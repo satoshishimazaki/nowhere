@@ -10,6 +10,71 @@
   box-sizing: border-box;
 }
 
+
+body section#blog.posts {
+  margin-top: 84px;
+}
+
+
+body #blog.posts .blog-box .hover-text {
+background: rgba(24, 27, 9, 0.31);
+}
+
+body .blog-box .hover-text {
+color: white;
+}
+
+//index一覧の左右の余白削除 
+body .container {
+padding-right: 0px;
+padding-left: 0px;
+margin-right: 0px;
+margin-left: 0px;
+width: auto;
+}
+
+body .ptitle {
+  color: white; 
+}
+
+body body {
+  margin: 0;
+}
+
+// index一覧の箱文字
+.title_box {
+  color: white;
+  text-align: left;
+}
+
+.nowheretitle{
+  font-size: 1.5em;
+}
+
+.title_box p{
+  font-weight: 700;
+}
+
+.hover-bg img{
+  width: 100%;
+}
+
+body .blog-box a {
+color: #FCFDFD !important;
+}
+
+body #blog.posts .blog-box .hover-text {
+  background-color: rgba(71, 66, 36, 0.41);
+}
+
+//nowheretitle文字
+body p.excerpt {
+padding-top: 20px;
+font-size: 13px;
+font-size:30px;
+font-weight: 900;
+}
+
 body #hero {
 background: rgba(153, 237, 243, 0.58);
 }
@@ -22,10 +87,11 @@ body .nav > li > a {
 background-color: rgb(34, 34, 34);
 }
 
+// indexヘッダーとの余白削除
 body .navbar {
 position: relative;
-min-height: 50px;
-margin-bottom: 0px;
+min-height: 30px;
+margin-bottom: -84px;
 border: 1px solid transparent;
 }
 /* universal */
@@ -43,10 +109,19 @@ color: #F2F9F0;
   width: 100%;
 }
 
+body a, a:hover {
+color: #A6ABC2;
+text-decoration: none;
+}
+
+li strong {
+  color: #A6ABC2;
+}
 // body {
 //   padding-top: 60px;
 // }
 
+// sample page グラデーション
 .small-box:hover .hover-text.animated {
   display: block;
 }
@@ -54,6 +129,12 @@ color: #F2F9F0;
 body .small-box .hover-text {
   display: block;
   background-color: rgba(255, 255, 255, 0.6);
+}
+
+// indexpageのグラデーション
+body .blog-box .hover-text {
+  background: rgba(255, 255, 255, 0.47);
+  display: block;
 }
 
 section {

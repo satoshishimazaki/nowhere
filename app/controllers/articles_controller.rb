@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
       @articles = Article.all
       # @articles = Article.where('created_at > ?', Time.now - 24.hours).order( created_at: :desc )
       @time = Time.now
+      @articles = Article.page(params[:page])
   end
 
   def create
