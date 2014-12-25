@@ -10,11 +10,153 @@
   box-sizing: border-box;
 }
 
-
-body section#blog.posts {
-  margin-top: 84px;
+body p {
+font-size: 18px;
+letter-spacing: 0.5px;
+line-height: 25px;
+margin-bottom: 15px;
+font-weight: 400;
 }
 
+//indexの現在位置バー
+.select_geo {
+  margin-top: 42px;
+  background-color: rgba(179, 231, 28, 0.15);
+}
+
+.select_geo p {
+  font-size: 10px;
+  margin-bottom: 0px;
+ }
+
+body .title h2 {
+color: #969698;
+}
+
+//show上部箇所の背景
+body .static {
+position: fixed;
+background-color: rgba(138, 247, 185, 0.12);
+overflow: hidden;
+z-index: 0;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+}
+
+body #post h1 {
+font-family: 'sans-serif';
+font-size: 50px;
+}
+
+body .title h3 {
+  margin-top: 0px;
+}
+
+body h1, .h1, h2, .h2, h3, .h3 {
+margin-top: 100px;
+margin-bottom: 30px;
+}
+
+body .featured-content .text-overlay {
+display: block;
+position: absolute;
+top: 0;
+right: 0px;
+}
+
+body .title h2{
+  color: #969698;
+}
+
+body h2 {
+  text-align: left;
+  color: #969698;
+}
+
+body .metas {
+padding: 0px 0;
+}
+
+body {
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 0;
+color: #333;
+background-color: #fff;
+}
+
+// show 右枠文字など調整
+body .metas .meta, ul.meta li, .text-overlay a {
+font-size: 16px;
+letter-spacing: 1px;
+font-weight: 400;
+line-height: 18px;
+text-transform: uppercase;
+font-family: "Lato",sans-serif;
+}
+
+body .name {
+  border-top: 1px solid #D0CFCF;
+}
+
+body .tel {
+  border-top: 1px solid #D0CFCF;
+}
+
+body .time {
+  border-top: 1px solid #D0CFCF;
+}
+
+body .holiday {
+  border-top: 1px solid #D0CFCF;
+}
+body .address {
+  border-top: 1px solid #D0CFCF;
+}
+
+body .address_map {
+  border-top: 1px solid #D0CFCF;
+}
+
+body ul.user-action {
+position: absolute;
+top: 80%;
+}
+
+.text-overay h2 {
+font-size: 100%;
+font-family: 'Great Vibes', cursive;
+text-transform: none;
+letter-spacing: 0;
+font-size: 36px;
+color: #6D6E76;
+text-align: left;
+}
+
+body section#blog.posts {
+  margin-top: 42px;
+}
+
+body .articles {
+list-style: none;
+margin: 0px 0 0 0;
+}
+
+body .nopadding {
+padding: 0;
+margin-top: -5px;
+}
+
+body .text-overlay {
+background: rgba(164, 236, 195, 0.21);
+height: 100%;
+width: 55%;
+// padding: 80px 80px;
+float: right;
+color: #1C1B1F;
+}
 
 body #blog.posts .blog-box .hover-text {
 background: rgba(24, 27, 9, 0.31);
@@ -191,7 +333,6 @@ h3 {
 p {
   font-size: 1.3em;
   line-height: 1.7em;
-  
 }
 
 

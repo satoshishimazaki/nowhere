@@ -24,6 +24,7 @@ Sample5App::Application.routes.draw do
   root  'articles#index'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/sample',   to: 'static_pages#sample',   via: 'get'
+  match '/sample_sample',   to: 'static_pages#sample_sample',   via: 'get'
   match '/signup',  to: 'stores#new',            via: 'get'
   match '/signin_',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'

@@ -1,12 +1,18 @@
-<li>
-   <div class="col-md-4 portfolio-item">
-    <li style="list-style:none;">
-      <a href =<%= article_path(article.id) %> >
-      <!-- <img class="img-responsive" -->
-      <%= article_image_for article.image_one %> </a>
-      <h3><%= link_to article.herenowtitle, article_path(article.id) %></h3> 
-      <h3><%= link_to article.title, article_path(article.id) %></h3>
-        <%= time_ago_in_words(article.created_at) %> ago
-        <%= article.created_at + 24.hours - Time.now %>
-    </div>
-</li>
+                <div class="col-sm-6 col-md-6 col-lg-6 nopadding">
+                  <div class="blog-box">
+                        <div class="hover-bg">
+                          <%= article_image_for article.image_one %>
+                            <!-- <img src="img/blog/02.jpg" alt="img" class="img-responsive"> -->
+                        <div class="hover-text">
+                                        <!-- <a href="portfolio/cityscape.html"><h2><%= link_to article.title, article_path(article.id) %></h2></a> -->
+                          <h2><%= link_to article.title, article_path(article.id) %></h2>
+                            <div class="title_box">
+                              <div class="nowheretitle">
+                              <p class="excerpt"><%= article.herenowtitle %></p></div>
+                              <p>残り時間:<%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分</p>
+                              <p>View:<%= article.view_count %></p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>

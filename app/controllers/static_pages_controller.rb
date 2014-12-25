@@ -14,4 +14,9 @@ class StaticPagesController < ApplicationController
     @time = Time.now
   	render layout: false
   end
+  
+  def sample_sample
+    @article = Article.first
+    # render layout: false
+  end
 end

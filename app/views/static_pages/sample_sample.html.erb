@@ -80,93 +80,13 @@
     <!--Blog Posts
     ================================================== -->
     <section id="blog-post">
-     
         <div class="header-static">
-
             <div class="featured-content static">
-  
+
                 <div class="post-details">
-                   <!-- <div class="col-sm-6 col-md-6 col-lg-6 nopadding">                           -->
-                  　 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                          <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                          <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-                        </ol>
-
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner" role="listbox">
-                          <div class="item active">
-                            <%if @article.article_images %>
-                            <%= article_image_for @article.image_one%>
-                             <% else %>
-                            <%= article_image_for 'noimage.gif' %>
-                            <% end %>
-                            <!-- <img src="....." alt="....."> -->
-                            <div class="carousel-caption">
-                              .....
-                            </div>
-                          </div>
-                          <div class="item">
-                           <%if @article.article_images %>
-                            <%= article_image_for @article.image_two%>
-                             <% else %>
-                            <%= article_image_for 'noimage.gif' %>
-                            <% end %> <!-- <img src="..." alt="..."> -->
-                            <div class="carousel-caption">
-                              .....
-                            </div>
-                          </div>
-                          <div class="item">
-                           <%if @article.article_images %>
-                            <%= article_image_for @article.image_three%>
-                             <% else %>
-                            <%= article_image_for 'noimage.gif' %>
-                            <% end %>      <!-- <img src="..." alt="..."> -->
-                            <div class="carousel-caption">
-                              .....
-                            </div>
-                          </div>
-                          <div class="item">
-                            <%if @article.article_images %>
-                            <%= article_image_for @article.image_four%>
-                             <% else %>
-                            <%= article_image_for 'noimage.gif' %>
-                            <% end %>
-                            <!-- <img src="..." alt="..."> -->
-                            <div class="carousel-caption">
-                              .....
-                            </div>
-                          </div>
-                          <div class="item">
-                            <%if @article.article_images %>
-                            <%= article_image_for @article.image_four%>
-                             <% else %>
-                            <%= article_image_for 'noimage.gif' %>
-                            <% end %>
-                            <!-- <img src="..." alt="..."> -->
-                            <div class="carousel-caption">
-                              .....
-                            </div>
-                          </div>
-                          .....
-                        </div>
-
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                        </a>
-                        <!-- <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                          <span class="sr-only">Next</span>
-                        </a> -->
-                      </div>
-                     <!-- </div> -->
-                      <div class="text-overlay">
+                    <%= article_image_for @article.image_one %>
+                    <!-- <img src="../img/portfolio/food/01.jpg" class="img-responsive" alt="..."> -->
+                     <div class="text-overlay">
                         <div class="title">
                             <h2><%= @article.herenowtitle %></h2>
                         </div>
@@ -176,26 +96,54 @@
                         <div class="metas">
                             <p class="meta">店舗名：<%= @article.store.name %></p>
                             <p class="meta">残り時間：<%= @article.left_hour.floor %>時間<%= @article.left_minute.floor %>分</p>
-                            <p class="meta"><%= @article.content %></p>
+                            <p class="meta">
+
+本日はXmasイブ！明日はXmas！
+もつ屋じゅうに12さんから
+Xmasプレゼント(割引特典)が
+2つございます。
+
+1つ目は、お一人様限定半額割！
+本日と明日の2日間限定で、
+お一人様ご来店に限り、1日先着3名様が
+半額割引を受けられます！
+2つ目は、スパークリングワインの
+1杯無料サービスです。こちらは、
+ご来店の方、全員が対象になります。
+本日と明日の数量限定サービスなので、
+なくなり次第終了となります。
+
+注文の際は、晩酌セットがオススメ
+毎朝〆の刺し盛りに温か牛モツ煮、
+それに食べ放題のお通しの枝豆、
+そして、今の季節にピッタリの
+熱燗は、1合500円！！
+合計でも2,500円程度です。
+仕事帰りにひとときの幸せに浸れます。
+しかも、今回の半額割引を使うと
+1,250円程度で味わえてしまいます！
+
+半額割引は、閲覧者限定になります。
+「武蔵小杉Now here」を見たと
+お伝えください。
+本日12月24日と明日12月25日の
+2日間限定、1日先着3名様ずつです。</p>
                         </div>
-                          <ul class="user-action">
+                        <ul class="user-action">
                             <li><i class="fa fa-eye fa-2x"></i><%= @article.view_count%></li>
                             <li><i class="fa fa-heart fa-2x"></i></li>
-                          </ul>
-                     </div> 
-                   </div>
-                    <!-- <%= article_image_for @article.image_one %>
-                    <! <img src="../img/portfolio/food/01.jpg" class="img-responsive" alt="..."> -->
-                 </div>
-            <!-- </div> -->
-          </div>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
         </div>
 
         <div id="main-text" class="inner">
             <div class="container">
-                <div class="row">                   
-                  
-                  <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+                <div class="row">
+                    <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+
                         <div id="content">
 
                             <h2>基本情報</h2>
@@ -204,7 +152,7 @@
                             <div class="time"><p>営業時間：time(営業時間)</p></div>
                             <div class="holiday"><p>定休日：holiday(定休日)</p></div>
                             <div class="address"><p>住所：<%= @article.address %></p></div>
-                            <div class="address_map"><p>参考地図</br><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@article.store.latitude}%2C#{@article.store.longitude}" %></p></div>
+                            <div class="address_map">参考地図<p><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@article.store.latitude}%2C#{@article.store.longitude}" %></p></div>
                         </div>
 
                     <!-- Comments Block ******************************************
@@ -290,8 +238,8 @@
             </div>
             <div class="space"></div>
             <div class="clearfix"></div>
-        <!-- </div> -->
-    </section>
+        </div>
+    </section> -->
 
     <section id="blog-nav"> <!-- Header Section -->
         <div class="container-fluid">
@@ -320,7 +268,6 @@
             </div> <!-- End Row -->
         </div> <!-- End Container -->
         <div class="clearfix"></div>
-      </div>
     </section>
 
     <!-- Footer Section

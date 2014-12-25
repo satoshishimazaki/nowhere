@@ -77,8 +77,13 @@
     ================================================== -->
     <section id="blog" class="posts"> 
         <div class="container-fluid"> <!-- Start Container -->
-            <div class="row"> <!-- Start Row -->
+          <div class="row"> <!-- Start Row -->
+            <div class = "select_geo">
+              <p><%= link_to '現在位置', "/#index", {:id => 'geo_btn'} %> | <%= link_to '投稿順', "/#articles/index", remote: true %></p>
+            </div>     
+            <div class = 'articles'>
               <% @articles.each_with_index do |article, index| %>
+
                 <div class="col-sm-6 col-md-6 col-lg-6 nopadding">
                   <div class="blog-box">
                         <div class="hover-bg">
@@ -98,11 +103,10 @@
                     </div>
                 </div>
               <% end %>
+            </div>
          </div> <!-- End Row -->
         </div> <!-- End Container -->
         <div class="clearfix"></div>
-      　<%= link_to '現在位置', "/#index", {:id => 'geo_btn'} %>
-        <%= link_to '投稿順', { action: :index }, remote: true %>
     </section>
     <!-- Blog Control Navigation
     ================================================== -->
@@ -134,6 +138,7 @@
             </div> <!-- End Row -->
         </div> <!-- End Container -->
         <div class="clearfix"></div>
+        <%= will_paginate @articles %>
     </section>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
     ================================================== -->
