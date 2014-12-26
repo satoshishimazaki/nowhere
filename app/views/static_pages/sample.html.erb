@@ -16,10 +16,10 @@
     
     <!-- Favicons
     ================================================== -->
-     <!-- <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"> --> 
-     <!-- <link rel="apple-touch-icon" href="img/apple-touch-icon.png"> --> 
-     <!-- <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png"> --> 
-     <!-- <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png"> --> 
+     <!-- <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">  -->
+     <!-- <link rel="apple-touch-icon" href="img/apple-touch-icon.png">  -->
+     <!-- <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">  -->
+     <!-- <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">  -->
 
     <!-- Bootstrap
     ================================================== -->
@@ -70,36 +70,8 @@
               <%= link_to "now here", root_path, id: "logo" %>
               <nav>
                 <ul class="nav pull-right"> 
-                  <li><%= link_to "about",  about_path  %></li>
-                  <li><li id="category-menu" class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        Category
-                      <ul class="dropdown-menu"> 
-                        <li><%= link_to "飲食", index_eat_path %></li>
-                        <li><%= link_to "shopping", index_shopping_path %></li>
-                      </ul>
-                  </li>
-                   <li><%= link_to '現在位置', "/#index", {:id => 'geo_btn'} %></li>
-                   <li><%= link_to '投稿順', controller: :articles, action: :index, remote: true %></li>
-                   <% if signed_in_? %>
-                    <li><%= link_to "投稿", new_article_path %></li>
-                    <li id="fat-menu" clasrails="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        Account <b class="caret"></b>
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><%= link_to "Profile", current_store %></li>
-                        <li><%= link_to "Settings", edit_store_path(current_store) %></li>
-                        <li><%= link_to "投稿記事一覧", articles_path %></li>
-                        <li class="divider"></li>
-                        <li>
-                          <%= link_to "Sign out", signout_path, method: "delete" %>
-                        </li>
-                      </ul>
-                    </li>
-                  <% else %>
-                    <li><%= link_to "投稿（Sign in）", signin__path %></li>
-                  <% end %>
+                  <li><%= link_to "一般ユーザー向け",  articles_path  %></li>
+                  <li><%= link_to "店舗向け", "#" %></li>
                 </ul>
               </nav>
             </div>
@@ -109,7 +81,7 @@
         <!-- Menu Toggle for Off Canvas-Menu -->
         <!-- <div id="menu" class="menu" data-toggle="offcanvas" data-target=".navmenu"> -->
             <!-- <img src="img/menu.png" alt="menu-logo"> -->
-            <!-- <%= image_tag 'menu.png' %> -->
+            
         <!-- </div> -->
 
         <!--Start Sliders -->
@@ -118,99 +90,62 @@
           <!-- Hero Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
 
-            <div class="item active"> <!-- First Slider -->
+            <div class="active item"> <!-- First Slider -->
+            <!-- <div class="hover-bg"> -->
               <!-- <img src="img/bg/01.jpg" alt="..."> -->
-              <%= image_tag 'bg/yousu.jpg'%>
+              <%= image_tag 'bg/gaikan.jpg'%>
               <div class="carousel-caption">
                 <h1>now here</h1>
-                <h4>One Page Minimal Web Design</h4>
-                <a class="page-scroll" href="#portfolio"><span class="fa fa-angle-double-down fa-3x"></span></a>
+                <h4>偶然を選ぼう！</h4>
+                <!-- a class="page-scroll" href="#portfolio"><span class="fa fa-angle-double-down fa-3x"></span></a> -->
               </div>
-            </div> <!-- End First Slider -->
+             </div>
+            </div> <!-- End First Slider -4->
 
-        </div> <!-- End Sliders -->
+        </div> <!- End Sliders -->
 
     </section><!-- End Hero Slider -->
 
 
     <!-- Portfolio Section
     ================================================== -->
-    <section id="portfolio"> 
+   <section id="blog" class="posts"> 
         <div class="container-fluid"> <!-- Start Container -->
-            <div class="row"> <!-- Start Row -->
-                <div class="col-sm-4 col-md-4 col-lg-4 nopadding"> <!-- First Column -->
-                    <% @articles.each_with_index do |article, index| %>
-                        <% if [0,3,6].include?(index) %>
-                            <div class="small-box"> 
-                                <div class="hover-bg">
-                                    <%= article_image_for article.image_one %>
-                                    <!-- <img src="img/portfolio/city/01.jpg" alt="img" class="img-responsive"> -->
-                                    <div class="hover-text">
-                                        <div class="ptitle">
-                                            <!-- <a href="portfolio/cityscape.html"><h2><%= link_to article.title, article_path(article.id) %></h2></a> -->
-                                          <h2><%= link_to article.title, article_path(article.id) %></h2>
-                                        </div>
-                                        <p class="excerpt"><%= article.herenowtitle %></p>
-                                        <p>残り時間:<%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分</p>
-                                        <p>View:<%= article.view_count %></p>
-                                        <a href="portfolio/cityscape.html" class="btn btn-default read-more-btn"><span class="fa fa-bars"></span>View More<%= link_to article.title, article_path(article.id) %></a>
-                                    </div>
-                                </div>
+          <div class="row"> <!-- Start Row -->   
+              <% @articles.each_with_index do |article, index| %>
+
+                <div class="col-sm-6 col-md-6 col-lg-6 nopadding">
+                  <div class="blog-box">
+                        <div class="hover-bg">
+                          <%= article_image_for article.image_one %>
+                            <!-- <img src="img/blog/02.jpg" alt="img" class="img-responsive"> -->
+                        <div class="hover-text">
+                                        <!-- <a href="portfolio/cityscape.html"><h2><%= link_to article.title, article_path(article.id) %></h2></a> -->
+                          <h2><%= link_to article.title, article_path(article.id) %></h2>
+                            <div class="title_box">
+                              <div class="nowheretitle">
+                              <p class="excerpt"><%= article.herenowtitle %></p></div>
+                              <p>残り時間:<%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分</p>
+                              <p>View:<%= article.view_count %></p>
+                              <% if user_signed_in?%>
+                                 <span id="article_<%= article.id %>">
+                                     <%= render 'favorites/favorite_btn', article: article %>
+                                 </span>
+                                 <span id="fav_<%=article.id %>">
+                                     <%= article.favorites.count %>
+                                 </span>
+                              <% end %>
                             </div>
-                        <% end %>
-                    <% end %>
-                </div> <!-- End First Column -->
-
-                <div class="col-sm-4 col-md-4 col-lg-4 nopadding"> <!-- Second Column -->
-                    <% @articles.each_with_index do |article, index| %>
-                        <% if [1,4,7].include?(index) %>
-                            <div class="small-box"> 
-                                <div class="hover-bg">
-                                    <%= article_image_for article.image_one %>
-                                    <!-- <img src="img/portfolio/city/01.jpg" alt="img" class="img-responsive"> -->
-                                    <div class="hover-text">
-                                        <div class="ptitle">
-                                            <a href="portfolio/cityscape.html"><h2><%= article.title %></h2></a>
-                                        </div>
-                                        <p class="excerpt"><%= article.herenowtitle %></p>
-                                        <p>残り時間:<%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分</p>
-                                        <p>View:<%= article.view_count %></p>
-                                        <a href="portfolio/cityscape.html" class="btn btn-default read-more-btn"><span class="fa fa-bars"></span>View More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        <% end %>
-                    <% end %>
-
-                </div> <!-- End Second Column -->
-
-                <div class="col-sm-4 col-md-4 col-lg-4 nopadding"> <!-- Third Column -->
-
-                    <% @articles.each_with_index do |article, index| %>
-                        <% if [2,5,8].include?(index) %>
-                            <div class="small-box"> 
-                                <div class="hover-bg">
-                                    <%= article_image_for article.image_one %>
-                                    <!-- <img src="img/portfolio/city/01.jpg" alt="img" class="img-responsive"> -->
-                                    <div class="hover-text">
-                                        <div class="ptitle">
-                                            <a href="portfolio/cityscape.html"><h2><%= article.title %></h2></a>
-                                        </div>
-                                        <p class="excerpt"><%= article.herenowtitle %></p>
-                                        <p>残り時間:<%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分</p>
-                                        <p>View:<%= article.view_count %></p>
-                                        <a href="portfolio/cityscape.html" class="btn btn-default read-more-btn"><span class="fa fa-bars"></span>View More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        <% end %>
-                    <% end %>
-                </div> <!-- End Third Column -->
-            </div> <!-- End Row -->
+                          </div>
+                        </div>
+                    </div>
+                </div>
+              <% end %>
+            </div>
+         </div> <!-- End Row -->
         </div> <!-- End Container -->
         <div class="clearfix"></div>
     </section>
-    
 
     <!-- About Page
     ================================================== -->
@@ -220,7 +155,7 @@
             <!-- Tabs Controls/Naviagtion -->
             <div class="row"> <!-- Start Row -->
 
-                <div class="col-xs-4 col-sm-4 col-md-4 nopadding">
+               <!--  <div class="col-xs-4 col-sm-4 col-md-4 nopadding">
                     <div data-target="#about-slider" data-slide-to="0"  class="tab">
                         <div class="tmenu">
                             <span class="follow"></span>
@@ -228,19 +163,19 @@
                             <span class="fa fa-angle-double-down fa-2x"></span>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="col-xs-4 col-sm-4 col-md-4 nopadding">
-                    <div data-target="#about-slider" data-slide-to="1" class="tab active">
+                <div class="col-xs-12 col-sm-12 col-md-12 nopadding">
+                    <!-- <div data-target="#about-slider" data-slide-to="1" class="tab active"> -->
                         <div class="tmenu">
                             <span class="about"></span>
                             <h5>About</h5>
-                            <span class="fa fa-angle-double-down fa-2x"></span>
+                            <!-- <span class="fa fa-angle-double-down fa-2x"></span> -->
                         </div>
                     </div>
                 </div>
 
-                <div class="col-xs-4 col-sm-4 col-md-4 nopadding">
+<!--                 <div class="col-xs-4 col-sm-4 col-md-4 nopadding">
                     <div data-target="#about-slider" data-slide-to="2" class="tab">
                         <div class="tmenu">
                             <span class="explore"></span>
@@ -249,7 +184,7 @@
                         </div>
                     </div>
                 </div>
-
+ -->
             </div> <!-- End Row -->
 
             <!-- Tabs Content -->
@@ -262,7 +197,7 @@
                     <div class="carousel-inner" role="listbox">
 
                         <!-- Follow Me Content -->
-                        <div class="item">
+                      <!--   <div class="item">
                           <img src="img/about/02.jpg" alt="...">
                           <div class="carousel-caption">
                             <div class="space"></div>
@@ -280,23 +215,21 @@
                             <p>Tale appareat repudiare quo ut, eum tale perfecto forensibus ad. Inani tibique menandri eum ut. Pro laoreet principes liberavisse ne, has solum corpora ex, an his unum ipsum. Ad vix nominavi salutatus patrioque, ei molestie adversarium eum cu.</p>
 
                           </div>
-                        </div> <!-- End Follow Me Content -->
+                        </div> <! End Follow Me Content --> 
 
                         <!-- About Content -->
                         <div class="item active">
                           <img src="img/about/01.jpg" alt="...">
                           <div class="carousel-caption">
                             <div class="space"></div>
-                            <h2>Lian Plameras, 23</h2>
-                            <p>Lorem ipsum dolor sit amet, et usu saperet habemus, ius nobis deterruisset ea. Cum ludus disputando signiferumque at, his similique assueverit ad. Tale appareat repudiare quo ut, eum tale perfecto forensibus ad. Inani tibique menandri eum ut. Pro laoreet principes liberavisse ne, has solum corpora ex, an his unum ipsum. Ad vix nominavi salutatus patrioque, ei molestie adversarium eum cu.</p>
-
-                            <p>Tale appareat repudiare quo ut, eum tale perfecto forensibus ad. Inani tibique menandri eum ut. Pro laoreet principes liberavisse ne, has solum corpora ex, an his unum ipsum. Ad vix nominavi salutatus patrioque, ei molestie adversarium eum cu.</p>
-
+                            <h2>What is "now here"</h2>
+                            <p>今、ここにしかない」最高な、旬な、お得なものをお届けします。<br>
+                               人と人、店舗と人が繋がって、思わぬ新しい発見、嬉しい出会いを創る、新しい価値を作る、新しい“場”を提供します。</p>
                           </div>
                         </div> <!-- End About Content -->
 
                         <!-- Explore Content -->
-                        <div class="item">
+                <!--         <div class="item">
                           <img src="img/about/03.jpg" alt="...">
                           <div class="carousel-caption">
                             <div class="space"></div>
@@ -325,14 +258,13 @@
                             </ul>
 
                           </div>
-                        </div> <!-- End Explore Content -->
+                        </div> <! End Explore Content --> 
 
                         <!-- Contact Details -->
+
                         <ul class="contact-info">
-                            <li><span class="email">E:SAILORTHEME@GMAIL.ME</span></li>
-                            <li><span class="phone">P:(0) 1111 1234 56</span></li>
-                            <li><span class="address">A:MAKATI CITY, MANILA, PH</span></li>
-                            <li><span class="website">W:TARSIERGRAHICS.COUM</span></li>
+                            <li><class="email">mail:forbeanstry@gmail.com</li>
+                            <li><class="phone">tel:09048244484</li>
                         </ul><!-- End Contact Details -->
                         <div class="space"></div>
 
@@ -350,175 +282,24 @@
 
     <!-- Blog Section
     ================================================== -->
-    <section id="blog">
+  
 
-        <!-- Blog Square Buttons -->
-        <a href="blog.html" class="blog-button">  
-            <span class="yacht"></span>
-            <h5>Blog</h5>
-            <span class="fa fa-angle-double-down fa-2x"></span>
-        </a><!-- End Blog Square Buttons -->
-
-        <div class="container-fluid"> <!-- Start Container -->
-            <div class="row"> <!-- Start Row -->
-
-                <div class="col-sm-6 col-md-6 col-lg-6 nopadding">
-                    <div class="blog-box">
-                        <div class="hover-bg">
-                            <img src="img/blog/02.jpg" alt="img" class="img-responsive">
-                            <div class="hover-text animated">
-                                <h2>See Where the Water Takes You</h2>
-                                <a href="blog/water.html" class="btn btn-default read-more-btn"><span class="fa fa-bars"></span>Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-6 nopadding">
-                    <div class="blog-box">
-                        <div class="hover-bg">
-                            <img src="img/blog/01.jpg" alt="img" class="img-responsive">
-                            <div class="hover-text on">
-                                <h2>Waves in Life</h2>
-                                <a href="blog/waves.html" class="btn btn-default read-more-btn"><span class="fa fa-bars"></span>Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-6 nopadding">
-                    <div class="blog-box">
-                        <div class="hover-bg">
-                            <img src="img/blog/03.jpg" alt="img" class="img-responsive">
-                            <div class="hover-text animated">
-                                <h2>Life Never Runs Dry</h2>
-                                <a href="blog/life.html" class="btn btn-default read-more-btn"><span class="fa fa-bars"></span>Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-6 nopadding">
-                    <div class="blog-box">
-                        <div class="hover-bg">
-                            <img src="img/blog/04.jpg" alt="img" class="img-responsive">
-                            <div class="hover-text animated">
-                                <h2>Looking for Something Deeper</h2>
-                                <a href="blog/something.html" class="btn btn-default read-more-btn"><span class="fa fa-bars"></span>Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div> <!-- End Row -->
-        </div> <!-- End Container -->
-    </section>
-
-    <div class="space"></div>
+   <!--  <div class="space"></div> -->
 
 
     <!-- Mission/Vision/Objective Section
     ================================================== -->
-    <section id="objectives">
-        <div class="container"> <!-- Start Container -->
-            <div class="row"> <!-- Start Row -->
-
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="quote"> <!-- Quote Box -->
-
-                        <!-- Quote Box Slider-->
-                        <div id="quotes" class="carousel slide" data-ride="carousel"> 
-
-                            <!-- Quote Wrapper for slides -->
-                            <div class="carousel-inner" role="listbox">
-
-                                <div class="item active">
-                                    <div class="fancy"><span class="anchor"></span></div>
-                                    <blockquote>“ Photography takes an instant out of time, altering life by holding it still.”
-                                        <footer>Dorothea Lange</footer>
-                                    </blockquote>
-                                </div>
-
-                                <div class="item">
-                                    <div class="fancy"><span class="anchor"></span></div>
-                                    <blockquote>“ Tale appareat repudiare quo ut, eum tale perfecto forensibus ad. Inani tibique. ”
-                                        <footer>Jenn Pereira</footer>
-                                    </blockquote>
-                                </div>
-
-                                <div class="item">
-                                    <div class="fancy"><span class="anchor"></span></div>
-                                    <blockquote>“ Pro laoreet principes liberavisse ne. Ad vix nominavi ei molestie adversarium eum cu.”
-                                        <footer>Lian Joy</footer>
-                                    </blockquote>
-                                </div>
-
-                            </div><!-- End Quote Wrapper for slides -->
-
-                        </div><!-- End Quote Box Slider-->
-
-                    </div> <!-- End Quote Box -->
-
-                    <!-- Controls Navigation -->
-                    <ul class="qcontrols">
-                        <li data-target="#quotes" data-slide-to="0" class="quote-nav active"></li>
-                        <li data-target="#quotes" data-slide-to="1" class="quote-nav"></li>
-                        <li data-target="#quotes" data-slide-to="2" class="quote-nav"></li>
-                    </ul>
-
-                </div>
-
-            </div> <!-- End Row -->
-        </div> <!-- End Container -->
-    </section>
-    <div class="space"></div>
 
 
     <!-- Contact Section
     ================================================== -->
-    <section id="contact">
-
-        <div class="container"> <!-- Start Container -->
-            <div class="row"> <!-- Start Row -->
-                <div class="col-md-10 col-md-offset-1">
-                
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div id="form" class="contact-form">
-                            <span class="coconut"></span>
-                            <h5>Contact</h5>
-                            <span class="fa fa-angle-double-down fa-2x"></span>
-                            <div class="space"></div>
-                            
-                                <div class="form-group">
-                                    <input type="text" autocomplete="off" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" autocomplete="off" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email.">                            
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            
-                            <p>Pro laoreet principes liberavisse ne, has solum corpora ex, an his unum ipsum. Ad vix nominavi salutatus patrioque, ei molestie adversarium eum cu.</p>
-                        </div>
-                        <div class="text-center">
-                            <div id="success"></div>
-                            <button type="submit" class="btn btn-primary contact-btn">Send</button> <!-- Send button -->
-                        </div>
-                    </form>
-
-                </div>
-            </div> <!-- End Row -->
-        </div><!-- End Container -->
-
-    </section>
 
 
 
     <!-- Footer Section
     ================================================== -->
     <footer>
-        <p class="copyright">© 2014 copyright. designed by  jlpmedia</p>
+        <p class="copyright">© 2014 copyright. designed by  forbeans</p>
     </footer>
 
 

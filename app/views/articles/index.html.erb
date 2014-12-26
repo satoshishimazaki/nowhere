@@ -97,6 +97,14 @@
                               <p class="excerpt"><%= article.herenowtitle %></p></div>
                               <p>残り時間:<%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分</p>
                               <p>View:<%= article.view_count %></p>
+                              <% if user_signed_in?%>
+                                 <span id="article_<%= article.id %>">
+                                     <%= render 'favorites/favorite_btn', article: article %>
+                                 </span>
+                                 <span id="fav_<%=article.id %>">
+                                     <%= article.favorites.count %>
+                                 </span>
+                              <% end %>
                             </div>
                           </div>
                         </div>
@@ -110,36 +118,7 @@
     </section>
     <!-- Blog Control Navigation
     ================================================== -->
-    <section id="blog-nav"> <!-- Header Section -->
-        <div class="container-fluid">
-
-            <div class="row">
-
-                <!-- Previous Posts -->
-                <div class="col-xs-6 col-sm-6 col-md-6 nopadding">
-                    <a href="#">
-                        <div class="prev-btn control-nav text-left">
-                            <i class="fa fa-angle-double-left fa-2x"></i>
-                            <h5>Oldest Posts</h5>
-                        </div>
-                    </a>
-                </div> <!-- End Previous Posts -->
-
-                <!-- Next Posts -->
-                <div class="col-xs-6 col-sm-6 col-md-6 nopadding">
-                    <a href="#">
-                        <div class="next-btn control-nav text-right">
-                            <i class="fa fa-angle-double-right fa-2x"></i>
-                            <h5>Newest Posts</h5>
-                        </div>
-                    </a>
-                </div><!-- End Next Posts -->
-
-            </div> <!-- End Row -->
-        </div> <!-- End Container -->
-        <div class="clearfix"></div>
-        <%= will_paginate @articles %>
-    </section>
+    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
     ================================================== -->
     <!-- // <script type="text/javascript" src="js/jquery.1.11.1.js"></script> -->
