@@ -5,7 +5,7 @@ class StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
-    # @articles = @store.articles
+    @articles = @store.articles
     @articles = @store.articles.paginate(page: params[:page])
   end
 

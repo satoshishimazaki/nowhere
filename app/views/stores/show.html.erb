@@ -20,7 +20,7 @@
   <div class="store_article">
     <% @articles.each do | article | %>
      <ul>
-      <li><%=link_to article.title[0..25], article_path %></br></li>
+      <li><%=link_to article.title[0..25], article_path(article.id) %></br></li>
      </ul>
     <% end %>
   </div>

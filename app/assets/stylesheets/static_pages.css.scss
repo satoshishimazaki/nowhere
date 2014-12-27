@@ -26,6 +26,7 @@ font-weight: 400;
 
 .navbar-inner .container{
   background-color: black;
+  padding-top: 30px;
 }
 
 section #blog .post {
@@ -162,7 +163,8 @@ width: 100%;
 
 //indexの現在位置バー
 .select_geo {
-  margin-top: 80px;
+  margin-top: 110px;
+  padding-top: 30px;
   background-color: rgba(179, 231, 28, 0.15);
 }
 
@@ -176,6 +178,10 @@ color: #969698;
 }
 
 //show上部箇所の背景
+
+.featured-content.static {
+margin-top: 57px;
+}
 
 .explain{
 padding-top: 50px;
