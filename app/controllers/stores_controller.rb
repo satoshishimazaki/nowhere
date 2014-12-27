@@ -5,6 +5,7 @@ class StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
+    # @articles = @store.articles
     @articles = @store.articles.paginate(page: params[:page])
   end
 
@@ -18,12 +19,16 @@ class StoresController < ApplicationController
   
   def index_eat
     @articles = Article.joins(:store).where('stores.category'=> '飲食')
+    @articles = Article.where('created_at > ?', Time.now - 24.hours).order( created_at: :desc )
+    @time = Time.now
     #@stores = Store.find_by(category: '飲食')
     #@articles = @stores.articles
   end
 
   def index_shopping
     @articles = Article.joins(:store).where('stores.category'=> 'shopping')
+    @articles = Article.where('created_at > ?', Time.now - 24.hours).order( created_at: :desc )
+    @time = Time.now
     #@stores = Store.find_by(category: 'shopping')
     #@articles = @stores.articles
   end

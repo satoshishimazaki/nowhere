@@ -19,4 +19,8 @@ class StaticPagesController < ApplicationController
     @article = Article.first
     # render layout: false
   end
+
+  def menu_sample
+    # render layout: false
+  end
 end

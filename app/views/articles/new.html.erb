@@ -1,8 +1,8 @@
 <% provide(:title, 'post') %>
-<div id="post"><h1>投稿</h1></div>
+<div id="post"><div id="word"><h1>投稿</h1></div></div>
 
 <div class="row">
-  <div class="span6 offset3">
+  <div class="span6">
     <%= form_for @article, html: { multipart: true} do |f| %>
      <%= render 'shared/error_messages', object: f.object %>
 

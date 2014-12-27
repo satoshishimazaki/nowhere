@@ -65,7 +65,7 @@
       <!-- <a href="../index.html"><img src="../img/menu-logo.png" alt="..." class="logo"></a> <!- User Icon/Image --> 
       <!-- <ul class="nav navmenu-nav"> <!- Menu --> 
         <!-- <li><a href="../index.html#hero">Home</a></li> -->
-        <!-- <li><a href="../portfolio.html">Portfolio</a></li> -->
+       <!-- <li><a href="../portfolio.html">Portfolio</a></li> -->
         <!-- <li><a href="../index.html#about">About Me</a></li>
         <li class="active"><a href="../blog.html">Blog</a></li>
         <li><a href="../index.html#contact">Contact Me</a></li>
@@ -79,116 +79,116 @@
   -->
     <!--Blog Posts
     ================================================== -->
-    <section id="blog-post">
-     
-        <div class="header-static">
+ <section id="blog-post"> 
+   <div class="header-static">
+          <div class="featured-content static">
+            <div class="post-details">
+      <div class="col-md-7 col-lg-7 col-md-offset-0 col-lg-offset-0">
+    　 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->   
+            <ol class="carousel-indicators">
+              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+              <div class="item active">
+                <%if @article.article_images %>
+                <%= article_image_for @article.image_one %>
+                 <% else %>
+                <%= article_image_for 'noimage.gif' %>
+                <% end %>
+              <!-- <img src="....." alt="....."> -->
+                <div class="carousel-caption">
+                  .....
+                </div>
+              </div>
+              <div class="item">
+               <%if @article.article_images %>
+                <%= article_image_for @article.image_two %>
+                 <% else %>
+                <%= article_image_for 'noimage.gif' %>
+                <% end %> <!-- <img src="..." alt="..."> -->
+                <div class="carousel-caption">
+                  .....
+                </div>
+              </div>
+              <div class="item">
+               <%if @article.article_images %>
+                <%= article_image_for @article.image_three %>
+                 <% else %>
+                <%= article_image_for 'noimage.gif' %>
+                <% end %>      <!-- <img src="..." alt="..."> -->
+                <div class="carousel-caption">
+                  .....
+                </div>
+              </div>
+              <div class="item">
+                <%if @article.article_images %>
+                <%= article_image_for @article.image_four%>
+                 <% else %>
+                <%= article_image_for 'noimage.gif' %>
+                <% end %>
+                <!-- <img src="..." alt="..."> -->
+                <div class="carousel-caption">
+                  .....
+                </div>
+              </div>
+              <div class="item">
+                <%if @article.article_images %>
+                <%= article_image_for @article.image_five%>
+                 <% else %>
+                <%= article_image_for 'noimage.gif' %>
+                <% end %>
+                <!-- <img src="..." alt="..."> -->
+                <div class="carousel-caption">
+                  .....
+                </div>
+              </div>
+              .....
+           </div>
 
-            <div class="featured-content static">
-  
-                <div class="post-details">
-                   <!-- <div class="col-sm-6 col-md-6 col-lg-6 nopadding">                           -->
-                  　 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                          <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                          <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-                        </ol>
-
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner" role="listbox">
-                          <div class="item active">
-                            <%if @article.article_images %>
-                            <%= article_image_for @article.image_one%>
-                             <% else %>
-                            <%= article_image_for 'noimage.gif' %>
-                            <% end %>
-                            <!-- <img src="....." alt="....."> -->
-                            <div class="carousel-caption">
-                              .....
-                            </div>
-                          </div>
-                          <div class="item">
-                           <%if @article.article_images %>
-                            <%= article_image_for @article.image_two%>
-                             <% else %>
-                            <%= article_image_for 'noimage.gif' %>
-                            <% end %> <!-- <img src="..." alt="..."> -->
-                            <div class="carousel-caption">
-                              .....
-                            </div>
-                          </div>
-                          <div class="item">
-                           <%if @article.article_images %>
-                            <%= article_image_for @article.image_three%>
-                             <% else %>
-                            <%= article_image_for 'noimage.gif' %>
-                            <% end %>      <!-- <img src="..." alt="..."> -->
-                            <div class="carousel-caption">
-                              .....
-                            </div>
-                          </div>
-                          <div class="item">
-                            <%if @article.article_images %>
-                            <%= article_image_for @article.image_four%>
-                             <% else %>
-                            <%= article_image_for 'noimage.gif' %>
-                            <% end %>
-                            <!-- <img src="..." alt="..."> -->
-                            <div class="carousel-caption">
-                              .....
-                            </div>
-                          </div>
-                          <div class="item">
-                            <%if @article.article_images %>
-                            <%= article_image_for @article.image_four%>
-                             <% else %>
-                            <%= article_image_for 'noimage.gif' %>
-                            <% end %>
-                            <!-- <img src="..." alt="..."> -->
-                            <div class="carousel-caption">
-                              .....
-                            </div>
-                          </div>
-                          .....
-                        </div>
-
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                        </a>
-                        <!-- <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                          <span class="sr-only">Next</span>
-                        </a> -->
-                      </div>
-                     <!-- </div> -->
-                      <div class="text-overlay">
-                        <div class="title">
-                            <h2><%= @article.herenowtitle %></h2>
-                        </div>
-                        <div class="title">
-                            <h3><%= @article.title %></h3>
-                        </div>
-                        <div class="metas">
-                            <p class="meta">店舗名：<%= @article.store.name %></p>
-                            <p class="meta">残り時間：<%= @article.left_hour.floor %>時間<%= @article.left_minute.floor %>分</p>
-                            <p class="meta"><%= @article.content %></p>
-                            <p class="fa fa-eye fa-2x"></i><%= @article.view_count%></p>
-                            <p class="fa fa-heart fa-2x"></i></p>
-                         </div>
-                         
-                     </div> 
-                   </div>
-                    <!-- <%= article_image_for @article.image_one %>
-                    <! <img src="../img/portfolio/food/01.jpg" class="img-responsive" alt="..."> -->
-                 </div>
-            <!-- </div> -->
-          </div>
-        </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+        </div>                               
+      </div>　 
+        <!-- <div class="text-overlay"> -->
+            <div class="explain">
+                <div class="title">
+                    <h2><%= @article.herenowtitle %></h2>
+                </div>
+                <div class="title">
+                    <h3><%= @article.title %></h3>
+                </div>
+                <div class="metas">
+                    <p class="meta">店舗名：<%= @article.store.name %></p>
+                    <p class="meta">残り時間：<%= @article.left_hour.floor %>時間<%= @article.left_minute.floor %>分</p>
+                    <p class="meta"><%= @article.content %></p>
+                    <p class="fa fa-eye fa-2x"></i><%= @article.view_count%></p>
+                    <p> <% if user_signed_in?%>
+                         <span id="article_<%= @article.id %>">
+                             <%= render 'favorites/favorite_btn', article: @article %>
+                         </span>
+                         <span id="fav_<%=@article.id %>">
+                             <%= @article.favorites.count %>
+                         </span>
+                    　  <% end %></p>
+                </div>
+             </div>
+           <!-- </div> -->
+          　</div>
+        　</div>
+      　</div>
 
         <div id="main-text" class="inner">
             <div class="container">
@@ -196,7 +196,6 @@
                   
                   <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
                         <div id="content">
-
                             <h2>基本情報</h2>
                             <div class="name"><p>店舗名：<%= @article.store.name %></p></div>
                             <div class="tel"><p>電話番号：<%= @article.store.tel %></p></div>

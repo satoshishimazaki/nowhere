@@ -1,10 +1,10 @@
 <% provide(:title, @store.name) %>
-<div class="row">
-  <aside class="span4">
-    <section>
+<section>
+ <div class="show">
       <h1>
         <%= @store.name %>
       </h1>
+      <p><%=link_to '投稿', new_article_path %></p>
       <p>基本情報</p>
       <p>業態:<%= @store.category %></p>
       <p>電話番号:<%= @store.tel %></p>
@@ -14,6 +14,14 @@
       <p>緯度:<%= @store.latitude %></p>
       <p>経度:<%= @store.longitude %></p>
       <p><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@store.latitude}%2C#{@store.longitude}" %></p>  
-    </section>
-  </aside>
-</div>
+      <p><%=link_to '編集', edit_store_path %></p>
+  </div>
+
+  <div class="store_article">
+    <% @articles.each do | article | %>
+     <ul>
+      <li><%=link_to article.title[0..25], article_path %></br></li>
+     </ul>
+    <% end %>
+  </div>
+</section>
