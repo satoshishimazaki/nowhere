@@ -77,10 +77,9 @@
         <div class="container-fluid"> <!-- Start Container -->
           <div class="row"> <!-- Start Row -->
             <div class = "select_geo">
-              <ul>
-                <li class="tab1on"><%= link_to '現在位置', "/#index", {:id => 'geo_btn'} %></li>
-                <li class="tab2on"><%= link_to '投稿順', "/#articles/index", remote: true %></li>
-              </ul>
+             <!--  <ul> -->
+                <a><%= link_to '現在位置', "/#index", {:id => 'geo_btn'} %> | <%= link_to '投稿順', "/#articles/index", remote: true %></a>
+              <!-- </ul> -->
             </div>     
             <div class = 'articles'>
               <% @articles.each_with_index do |article, index| %>

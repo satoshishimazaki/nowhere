@@ -26,11 +26,52 @@ font-weight: 400;
 
 .navbar-inner .container{
   background-color: black;
-  padding-top: 30px;
+  padding-top: 15px;
+}
+
+body .nav pull-right a:hover {
+color: #F1F2F4;
 }
 
 section #blog .post {
 margin-top: -50px;
+}
+
+body a.dropdown-toggle {
+font-size: 20px;
+}
+
+body #fat-menu a.dropdown-toggle {
+color: white;
+}
+
+ul.nav.pull-right{
+font-size: 20px;
+color: white;
+}
+
+
+//indexの現在位置バー
+.select_geo {
+  margin-top: 95px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: rgba(179, 231, 28, 0.15);
+  font-size: 20px;
+  color:black;
+}
+
+body a, a:hover{
+color: black;
+}
+
+.select_geo p {
+  font-size: 30px;
+  margin-bottom: 0px;
+ }
+
+body .title h2 {
+color: #969698;
 }
 
 // 店舗signin画面
@@ -160,22 +201,6 @@ width: 100%;
 // background-size: cover;
 // width: 100%;
 // }
-
-//indexの現在位置バー
-.select_geo {
-  margin-top: 110px;
-  padding-top: 30px;
-  background-color: rgba(179, 231, 28, 0.15);
-}
-
-.select_geo p {
-  font-size: 10px;
-  margin-bottom: 0px;
- }
-
-body .title h2 {
-color: #969698;
-}
 
 //show上部箇所の背景
 
@@ -421,6 +446,11 @@ color: #A6ABC2;
 text-decoration: none;
 }
 
+body .select-geo a, a:hover {
+// color: #A6ABC2;
+text-decoration: none;
+}
+
 li strong {
   color: #A6ABC2;
 }
@@ -510,7 +540,7 @@ p {
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 2.5em;
   color: white;
   // text-transform: uppercase;
   letter-spacing: -1px;
