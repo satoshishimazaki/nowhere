@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
 
   def index
       @articles = Article.all
-      # @articles = Article.where('created_at > ?', Time.now - 24.hours).order( created_at: :desc )
+      @articles = Article.where('created_at > ?', Time.now - 24.hours).order( created_at: :desc )
       @time = Time.now
       @articles = Article.paginate(page: params[:page])
   end
