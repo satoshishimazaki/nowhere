@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
   def new
   	  @article = Article.new
       @article.address = current_store.address
-      @article.dead_line = Time.now
   end
 
   def show
@@ -17,7 +16,7 @@ class ArticlesController < ApplicationController
       @articles = Article.all
       @articles = Article.where('created_at > ?', Time.now - 24.hours).order( created_at: :desc )
       @time = Time.now
-      @articles = Article.paginate(page: params[:page])
+      # @articles = Article.paginate(page: params[:page])
   end
 
   def create
@@ -40,9 +39,9 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def upload
-    @image = ArticleImage.create(:article_id => params[:id], :image => params[:article_image][:image])
-  end
+  # def upload
+  #   @image = ArticleImage.create(:article_id => params[:id], :image => params[:article_image][:image])
+  # end
 
   def ajax_index
     # ユーザーの現在地から近い順にStoresをとってくる

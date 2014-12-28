@@ -1,5 +1,5 @@
 class AddViewCountToArticles < ActiveRecord::Migration
   def change
-    change_column_default :articles, :view_count, 0
+    add_column :articles, :view_count, :integer, default: 0
   end
 end

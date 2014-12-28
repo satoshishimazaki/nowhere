@@ -5,7 +5,7 @@ class Article < ActiveRecord::Base
 	validates :title, presence: true
 	validates :content, presence: true
 	validates :store_id, presence: true
-	validates :dead_line, presence: true
+	# validates :dead_line, presence: true
 	# mount_uploader :image, ImageUploader
 	geocoded_by :address
 	after_validation :geocode 
