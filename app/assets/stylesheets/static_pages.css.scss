@@ -26,7 +26,7 @@ font-weight: 400;
 
 .navbar-inner .container{
   background-color: black;
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
 body .nav pull-right a:hover {
@@ -38,7 +38,7 @@ margin-top: -50px;
 }
 
 body a.dropdown-toggle {
-font-size: 20px;
+font-size: 15px;
 }
 
 body #fat-menu a.dropdown-toggle {
@@ -46,18 +46,18 @@ color: white;
 }
 
 ul.nav.pull-right{
-font-size: 20px;
+font-size: 15px;
 color: white;
 }
 
 
 //indexの現在位置バー
 .select_geo {
-  margin-top: 95px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  margin-top: 85px;
+  padding-top: 60px;
+  padding-bottom: 20px;
   background-color: rgba(179, 231, 28, 0.15);
-  font-size: 20px;
+  font-size: 17px;
   color:black;
 }
 
@@ -66,7 +66,7 @@ color: black;
 }
 
 .select_geo p {
-  font-size: 30px;
+  font-size: 20px;
   margin-bottom: 0px;
  }
 
@@ -202,7 +202,7 @@ width: 100%;
 // width: 100%;
 // }
 
-//show上部箇所の背景
+//article_show上部箇所の背景
 
 .featured-content.static {
 margin-top: 57px;
@@ -403,6 +403,59 @@ body #blog.posts .blog-box .hover-text {
   background-color: rgba(71, 66, 36, 0.41);
 }
 
+//store_show
+
+.storeshow h2{
+  margin-top: 100px;
+  font-size: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.storeshow {
+  margin-top: 100px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+//store_article
+.store_article{
+  margin-top: 100px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+
+.sample_02{
+width:100%;
+border-collapse: separate;
+border-spacing: 0px;
+border-top: 1px solid #ccc;
+border-left: 1px solid #ccc;
+}
+.sample_02 th{
+width: 25%;
+padding: 10px;
+text-align: left;
+vertical-align: top;
+color: #444;
+background-color: #ccc;
+border-top: 1px solid #fff;
+border-left: 1px solid #fff;
+border-right: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+}
+
+
+.sample_02 td{
+padding: 10px;
+background-color: #fafafa;
+border-right: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+}
+
+
+
 //nowheretitle文字
 body p.excerpt {
 padding-top: 20px;
@@ -540,7 +593,7 @@ p {
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 2.5em;
+  font-size: 1.5em;
   color: white;
   // text-transform: uppercase;
   letter-spacing: -1px;
@@ -704,15 +757,25 @@ aside {
 
 // footer
 .footer {
-margin-top: 200px;
+margin-top: 100px;
 border-top-style: solid;
 text-align: center;
 text-transform: uppercase;
-padding: 40px 0px 30px 0px;
+// padding: 40px 0px 30px 0px;
 background: #ffffff;
 position: relative;
 z-index: 10;
 }
+
+div#small {
+  float: right;
+  padding-top: 50px;
+}
+#postinfo {
+  float: left;
+}
+
+
 
 
 

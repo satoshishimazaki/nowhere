@@ -13,9 +13,9 @@ Sample5App::Application.routes.draw do
   ActiveAdmin.routes(self)
   resources :stores
   resources :sessions, only: [:new, :create, :destroy]
-  resources :articles, only: [:create, :destroy, :new, :index, :show]
+  resources :articles
   resources :stores do 
-    resources :articles, only: :index
+    resources :articles, only: [:new, :show, :index, :create, :edit, :update]
   end
   resources :articles do
     resources :articles_images

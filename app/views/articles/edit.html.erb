@@ -1,5 +1,5 @@
-<% provide(:title, 'post') %>
-<div id="post"><div id="word"><h1>投稿</h1></div></div>
+<% provide(:title, 'edit') %>
+<div id="post"><div id="word"><h1>投稿編集</h1></div></div>
 
 <div class="row">
   <div class="span6">
@@ -13,7 +13,7 @@
       <%= f.text_field :title %>
 
       <%= f.label :content %>
-      <%= f.text_area(:content, cols: 60, rows: 8 ) %>
+      <%= f.text_area(:content, cols: 60, rows: 10 ) %>
 
       <%= f.label :address %>
       <%= f.text_field :address %>

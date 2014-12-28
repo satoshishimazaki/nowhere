@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :signed_in_store,  only:[:create, :destroy, :new]
+  before_action :signed_in_store,  only:[:create, :destroy, :new, :edit, :update]
 
   def new
   	  @article = Article.new
@@ -52,12 +52,26 @@ class ArticlesController < ApplicationController
     # logger.debug(@articles)
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    if @article.update_attributes(article_params)
+       flash[:success] = "Article updated"
+       redirect_to @article
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
   end
 
   private
 
     def article_params
-      params.require(:article).permit( :content, :herenowtitle, :title, :address, :latitude, :longitude, :dead_line, :image_one, :image_two, :image_three, :image_four, :image_five)
+      params.require(:article).permit( :content, :herenowtitle, :title, :address, :latitude, :longitude, :image_one, :image_two, :image_three, :image_four, :image_five)
     end
 end
