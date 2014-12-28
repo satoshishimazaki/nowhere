@@ -4,8 +4,8 @@
 
 // $grayMediumLight: #eaeaea;
 
-body textarea{
-  line-height: 1
+body textarea#article_content {
+line-height: 1;
 }
 
 @mixin box_sizing {
