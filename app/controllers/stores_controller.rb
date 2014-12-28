@@ -18,9 +18,9 @@ class StoresController < ApplicationController
   end
   
   def index_eat
-    @articles = Article.joins(:store).where('stores.category'=> '飲食')
-    # @articles = Article.where('created_at > ?', Time.now - 24.hours).order( created_at: :desc )
-    # @time = Time.now
+    @articles = Article.joins(:store).where!('stores.category'=> '飲食')
+    # @articles = @articles.where!('created_at > ?', Time.now - 24.hours).order( created_at: :desc )
+    @time = Time.now
     # #@stores = Store.find_by(category: '飲食')
     #@articles = @stores.articles
   end

@@ -57,6 +57,16 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+      file1 = params[:article][:image_one]
+      file2 = params[:article][:image_two]
+      file3 = params[:article][:image_three]
+      file4 = params[:article][:image_four]
+      file5 = params[:article][:image_five]
+      @article.set_image_one(file1)
+      @article.set_image_two(file2)
+      @article.set_image_three(file3)
+      @article.set_image_four(file4)
+      @article.set_image_five(file5)
     if @article.update_attributes(article_params)
        flash[:success] = "Article updated"
        redirect_to @article
@@ -71,6 +81,6 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit( :content, :herenowtitle, :title, :address, :latitude, :longitude, :image_one, :image_two, :image_three, :image_four, :image_five)
+      params.require(:article).permit( :content, :herenowtitle, :title, :address, :latitude, :longitude)
     end
 end
