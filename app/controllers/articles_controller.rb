@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :signed_in_store,  only:[:create, :destroy, :new, :edit, :update]
+  # before_action :time_valid, only:[:ajax_index]
 
   def new
   	  @article = Article.new
@@ -47,6 +48,7 @@ class ArticlesController < ApplicationController
     # ユーザーの現在地から近い順にStoresをとってくる
     article = Article.new(latitude: params[:latitude], longitude: params[:longitude])
     @articles = Article.by_distance(origin: article)
+    @articles = @articles.where('created_at > ?', Time.now - 24.hours).order( created_at: :desc )
     # @articles = @stores.map { |store| store.articles }.map { |articles| articles }.map { |article| article }
     # logger.debug(@articles)
   end
