@@ -83,6 +83,6 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit( :content, :herenowtitle, :title, :address, :latitude, :longitude, :image_one, :image_two, :image_three, :image_four, :image_five)
+      params.require(:article).permit( :content, :herenowtitle, :title, :address, :latitude, :longitude)
     end
 end
