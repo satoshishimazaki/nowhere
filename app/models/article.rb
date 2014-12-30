@@ -41,11 +41,6 @@ class Article < ActiveRecord::Base
 		self.where('')
 	end
 
-  def time_valid
-    @articles = Article.all
-    @articles = Article.where('created_at > ?', Time.now - 24.hours).order( created_at: :desc )
-  end
-
   def set_image_one(file1)
     if !file1.nil?
        file_name = file1.original_filename + Time.now.to_s

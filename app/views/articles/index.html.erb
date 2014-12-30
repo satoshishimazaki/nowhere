@@ -94,9 +94,9 @@
                           <h2><%= link_to article.title, article_path(article.id) %></h2>
                             <div class="title_box">
                               <div class="nowheretitle">
-                              <p class="excerpt"><%= article.herenowtitle %></p></div>
+                              <p><%= article.herenowtitle %></p>
                               <p>残り時間:<%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分</p>
-                              <p>View:<%= article.view_count %></p>
+                              <p>View:<%= article.view_count %>
                               <% if user_signed_in?%>
                                  <span id="article_<%= article.id %>">
                                      <%= render 'favorites/favorite_btn', article: article %>
@@ -104,7 +104,8 @@
                                  <span id="fav_<%=article.id %>">
                                      <%= article.favorites.count %>
                                  </span>
-                              <% end %>
+                              <% end %></p>
+                              </div>
                             </div>
                           </div>
                         </div>
