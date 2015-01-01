@@ -26,6 +26,16 @@ class ArticlesController < ApplicationController
       @articles = Article.where('created_at > ? AND category = ?', Time.now - 24.hours, '飲食').order( created_at: :desc )
   end
 
+  def index_shopping
+      @articles = Article.all
+      @articles = Article.where('created_at > ? AND category = ?', Time.now - 24.hours, 'shopping').order( created_at: :desc )
+  end
+
+  def index_other
+      @articles = Article.all
+      @articles = Article.where('created_at > ? AND category = ?', Time.now - 24.hours, 'その他').order( created_at: :desc )
+  end
+
   def create
   	  @article = current_store.articles.build(article_params)
       file1 = params[:article][:image_one]
