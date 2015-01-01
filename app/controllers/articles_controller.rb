@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
   def new
   	  @article = Article.new
       @article.address = current_store.address
+      @article.category = current_store.category
   end
 
   def show
@@ -18,6 +19,11 @@ class ArticlesController < ApplicationController
       @articles = Article.where('created_at > ?', Time.now - 24.hours).order( created_at: :desc )
       @time = Time.now
       # @articles = Article.paginate(page: params[:page])
+  end
+
+  def index_eating
+      @articles = Article.all
+      @articles = Article.where('created_at > ? AND category = ?', Time.now - 24.hours, '飲食').order( created_at: :desc )
   end
 
   def create
@@ -83,6 +89,6 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit( :content, :herenowtitle, :title, :address, :latitude, :longitude)
+      params.require(:article).permit( :content, :herenowtitle, :title, :address, :latitude, :longitude, :category)
     end
 end
