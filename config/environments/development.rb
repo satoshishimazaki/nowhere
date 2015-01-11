@@ -28,4 +28,17 @@ Sample5App::Application.configure do
   config.assets.debug = true
   # deviseの設定
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
+  :enable_starttls_auto => true,
+  :address => "smtp.gmail.com",
+  :port => 587,
+  :domain => "smtp.gmail.com",
+  :authentication => "plain",
+  :user_name => "sattori06010601@gmail.com",
+  :password => "sattori09010901"
+  # :ssl => true,
+  # :tls => true,
+  }
 end

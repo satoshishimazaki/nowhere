@@ -12,6 +12,12 @@ class ArticlesController < ApplicationController
       @article = Article.find(params[:id])
       @article.view_count = @article.view_count + 1
       @article.save
+      @hash = Gmaps4rails.build_markers(@article) do |article, marker|
+        marker.lat article.latitude          
+        marker.lng article.longitude
+        marker.infowindow article.title
+        marker.json({title: article.title})
+      end
   end
 
   def index

@@ -200,13 +200,27 @@
                         <div id="content">
                             <h2>基本情報</h2>
                             <div class="name"><p>店舗名：<%= @article.store.name %></p></div>
-                            <div class="tel"><p>電話番号：<%= link_to @article.store.tel, @article.store.tel %></p></div>
+                            <div class="tel"><p>電話番号：<%= link_to @article.store.tel, "tel:@article.store.tel" %></p></div>
                             <div class="time"><p>営業時間：time(営業時間)</p></div>
                             <div class="holiday"><p>定休日：holiday(定休日)</p></div>
                             <div class="holiday"><p>URL：<%= link_to @article.store.url, @article.store.url %></p></div>
                             <div class="holiday"><p>定休日：holiday(定休日)</p></div>
                             <div class="address"><p>住所：<%= @article.address %></p></div>
-                            <div class="address_map"><p>参考地図</br><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@article.store.latitude}%2C#{@article.store.longitude}" %></p></div>
+
+                            <!-- googlemap -->
+                            <div stylee='width: 800px;'>
+                              <div id="map" style='width: 800px; height: 400px;'></div>
+                            </div>
+                            <!-- google map -->
+                            <script type="text/javascript">
+                                handler = Gmaps.build('Google');
+                                handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
+                                function(){
+                                  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+                                  handler.bounds.extendWith(markers);
+                                  handler.fitMapToBounds();
+                                });
+                            </script>
                         </div>
 
                     <!-- Comments Block ******************************************
