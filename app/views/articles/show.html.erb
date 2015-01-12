@@ -200,7 +200,7 @@
                         <div id="content">
                             <h2>基本情報</h2>
                             <div class="name"><p>店舗名：<%= @article.store.name %></p></div>
-                            <div class="tel"><p>電話番号：<%= link_to @article.store.tel, @article.store.tel %></p></div>
+                            <div class="tel"><p>電話番号：<%= link_to @article.store.tel, tel:@article.store.tel %></p></div>
                             <div class="time"><p>営業時間：time(営業時間)</p></div>
                             <div class="holiday"><p>定休日：holiday(定休日)</p></div>
                             <div class="holiday"><p>URL：<%= link_to @article.store.url, @article.store.url %></p></div>
