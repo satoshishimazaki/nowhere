@@ -1,6 +1,15 @@
 <footer class="footer">
   <div id="postinfo"><%=link_to '情報発信希望の方', signin__path %></div>
   <p><%=link_to '問い合せ', new_inquiry_path %></p>
+  <div class="fb-like-box" data-href="https://www.facebook.com/nowhere.musashikosugi" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=1507363059540946&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
   <!-- <div id="small">
     Copyright (C) 2014 forbeans. All Rights Reserved.
   </div> -->
