@@ -27,6 +27,18 @@ class ArticlesController < ApplicationController
       # @articles = Article.paginate(page: params[:page])
   end
 
+  def index_gmap
+      @articles = Article.all
+      @articles = Article.where('created_at > ?', Time.now - 24.hours).order( created_at: :desc )
+      @hash = Gmaps4rails.build_markers(@articles) do |article, marker|
+        marker.lat article.latitude          
+        marker.lng article.longitude
+        marker.infowindow article.title
+        marker.json({title: article.title})
+      end 
+      @time = Time.now
+  end
+
   def index_eating
       @articles = Article.all
       @articles = Article.where('created_at > ? AND category = ?', Time.now - 24.hours, '飲食').order( created_at: :desc )

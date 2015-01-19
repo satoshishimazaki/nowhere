@@ -1,4 +1,5 @@
 Sample5App::Application.routes.draw do
+  get "search/index"
   resources :inquiries
 
   devise_for :users, :controllers => {
@@ -35,8 +36,10 @@ Sample5App::Application.routes.draw do
   # match '/index_eat',  to: 'stores#index_eat',            via: 'get'
   match '/index_shopping',  to: 'articles#index_shopping',            via: 'get'
   match '/index_other',  to: 'articles#index_other',            via: 'get'
+  match '/index_gmap',  to: 'articles#index_gmap',            via: 'get'
   # match '/index_shopping',  to: 'stores#index_shopping',            via: 'get'
   # match '/ajax_index', to: 'stores#ajax_index', via: 'post'
   match '/ajax_index', to: 'articles#ajax_index', via: 'get'
   match '/upload', to: 'article_images#upload', via: 'get'
+  match '/search', to: 'search#index', via: 'get'
 end

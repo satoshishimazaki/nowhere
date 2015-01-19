@@ -11,6 +11,6 @@ class UsersController < ApplicationController
   def favorite
   	@article = user.articles.build
     @feed_articles = user.favorite_articles.paginate(page: params[:page])
-    render template: 'article/index'
+    # render template: 'article/index'
   end
 end

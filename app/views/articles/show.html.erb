@@ -206,7 +206,7 @@
                             <div class="holiday"><p>URL：<%= link_to @article.store.url, @article.store.url %></p></div>
                             <div class="holiday"><p>定休日：holiday(定休日)</p></div>
                             <div class="address"><p>住所：<%= @article.address %></p></div>
-                            <%= link_to 'map', 'http://maps.apple.com/maps?:ll {@article.latitude,@article.longitude}&amp;daddr {@article.latitude,@article.longitude}' %> 
+                            <%= link_to 'map', "http://maps.apple.com/maps?ll=#{@article.latitude},#{@article.longitude}&daddr=#{@article.latitude},#{@article.longitude}" %> 
                             <!-- <a href="http://maps.apple.com/maps?ll=35.571139,139.655062&amp;daddr=35.571139,139.655062" target="blank">Map</a>
  -->
                             <!-- googlemap -->
@@ -344,7 +344,7 @@
             handler = Gmaps.build('Google');
             handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
             function(){
-              markers = handler.addMarkers([{lat: position.coords.latitude, lng: position.coords.longitude, title: "test"}].concat(<%=raw @hash.to_json %>));
+              markers = handler.addMarkers([{lat: position.coords.latitude, lng: position.coords.longitude, infowindow: 'test'}].concat(<%=raw @hash.to_json %>));
               handler.bounds.extendWith(markers);
               handler.fitMapToBounds();
             });
