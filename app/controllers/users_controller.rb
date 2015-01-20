@@ -9,8 +9,8 @@ class UsersController < ApplicationController
   end
 
   def favorite
-  	@article = user.articles.build
-    @feed_articles = user.favorite_articles.paginate(page: params[:page])
-    # render template: 'article/index'
+  	@article = current_user.articles.build
+    @feed_articles = current_user.favorite_articles.paginate(page: params[:page])
+  　render template: 'article/index'
   end
 end

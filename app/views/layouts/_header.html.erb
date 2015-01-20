@@ -24,7 +24,6 @@
               <button type="submit"><i class="fa fa-search"></i></button>
             <% end %>
           </li>
-          <li><%= link_to "お気に入り", favorite_user_path(current_user.id) %></li>
           <li><%= link_to "map", index_gmap_path %></li>
           <li id="category-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -48,6 +47,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
+                <li><%= link_to "お気に入り", favorite_user_path(current_user.id) %></li>
                 <li class="divider"></li>
                 <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
               </ul>
