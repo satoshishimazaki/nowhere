@@ -15,8 +15,8 @@ class ArticlesController < ApplicationController
       @hash = Gmaps4rails.build_markers(@article) do |article, marker|
         marker.lat article.latitude          
         marker.lng article.longitude
-        marker.infowindow article.title
-        marker.json({title: article.title})
+        marker.infowindow '<h3>'+article.title+"</h3><hr><br>"+article.content 
+        marker.json({title: article.title, herenowtitle: article.herenowtitle})
       end
   end
 
