@@ -1,28 +1,28 @@
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
-</div>
-
+  <div class="map_container">
+    <div id="map" class="map_canvas"></div>
+  </div>
    <script type="text/javascript">
-          // handler = Gmaps.build('Google');
-          // handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
-          // function(){
-          //   markers = handler.addMarkers(<%=raw @hash.to_json %>);
-          //   handler.bounds.extendWith(markers);
-          //   handler.fitMapToBounds();
-          // });
-          //ユーザーの現在の位置情報を取得
-          navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-          /***** ユーザーの現在の位置情報を取得 *****/
-          function successCallback(position) {
-            handler = Gmaps.build('Google');
-            handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
-            function(){
-              markers = handler.addMarkers([{lat: position.coords.latitude, lng: position.coords.longitude, infowindow: 'test'}].concat(<%=raw @hash.to_json %>));
-              handler.bounds.extendWith(markers);
-              handler.fitMapToBounds();
-            });
-          }
-          /***** 位置情報が取得できない場合 *****/
-          function errorCallback(error) {
-          }
+          handler = Gmaps.build('Google');
+          handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
+          function(){
+            markers = handler.addMarkers(<%=raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            // handler.getMap().setZoom(15);
+          });
+          //ユーザーの現在の位置情報を取得Ver
+          // navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+          // /***** ユーザーの現在の位置情報を取得 *****/
+          // function successCallback(position) {
+          //   handler = Gmaps.build('Google');
+          //   handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
+          //   function(){
+          //     markers = handler.addMarkers([{lat: position.coords.latitude, lng: position.coords.longitude, infowindow: 'test'}].concat(<%=raw @hash.to_json %>));
+          //     handler.bounds.extendWith(markers);
+          //     handler.fitMapToBounds();
+          //   });
+          // }
+          // /***** 位置情報が取得できない場合 *****/
+          // function errorCallback(error) {
+          // }
       </script>

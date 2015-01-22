@@ -15,8 +15,8 @@ class ArticlesController < ApplicationController
       @hash = Gmaps4rails.build_markers(@article) do |article, marker|
         marker.lat article.latitude          
         marker.lng article.longitude
-        marker.infowindow '<h3>'+article.title+"</h3><hr><br>"+article.content 
-        marker.json({title: article.title, herenowtitle: article.herenowtitle})
+        marker.infowindow  "<a href='/articles/#{article.id}/'>"'<h3>'+article.title+"</h3></a><hr><br>"+"<a href='http://maps.google.com/maps?ll=#{article.latitude},#{article.longitude}&daddr=#{article.latitude},#{article.longitude}', target=blank >"'map'"</a>"+article.content
+        # marker.json({title: article.title, herenowtitle: article.herenowtitle})
       end
   end
 
@@ -33,8 +33,9 @@ class ArticlesController < ApplicationController
       @hash = Gmaps4rails.build_markers(@articles) do |article, marker|
         marker.lat article.latitude          
         marker.lng article.longitude
-        marker.infowindow article.title
-        marker.json({title: article.title})
+        marker.infowindow "<a href='/articles/#{article.id}/'>"'<h3>'+article.title+"</h3></a><hr><br>"+"<a href='http://maps.google.com/maps?ll=#{article.latitude},#{article.longitude}&daddr=#{article.latitude},#{article.longitude}', target=blank >"'行き方'"</a>"+article.content+"<img  height='100' width='100' src='/docs/#{article.image_one}'>"
+        # marker.picture "#sample5_app/public/docs/ショコラ.jpg"
+        # marker.json({title: article.title})
       end 
       @time = Time.now
   end

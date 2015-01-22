@@ -905,7 +905,20 @@ div#small {
   margin-top: 120px;
 }
 
+// g map responsive
+.map_container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 0px;
+    padding-bottom: 80%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
+}
 
-
-
-
+.map_container .map_canvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
