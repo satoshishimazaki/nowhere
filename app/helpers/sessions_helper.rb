@@ -11,6 +11,10 @@ module SessionsHelper
     !current_store.nil?
   end
 
+  # def signed_in?
+  #   !current_user.nil?
+  # end
+
   def current_store=(store)
     @current_store = store
   end

@@ -12,9 +12,13 @@ Sample5App::Application.routes.draw do
       get :favorite
     end
   end
+  resources :users do
+    resources :comments
+  end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :stores
+  resources :comments
   resources :sessions, only: [:new, :create, :destroy]
   resources :articles
   resources :stores do 
@@ -22,6 +26,9 @@ Sample5App::Application.routes.draw do
   end
   resources :articles do
     resources :articles_images
+  end
+  resources :articles do
+    resources :comments
   end
   resources :favorites, only: [:create, :destroy]
   root  'articles#index'

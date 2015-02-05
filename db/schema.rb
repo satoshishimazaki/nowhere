@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150103144419) do
+ActiveRecord::Schema.define(version: 20150128141848) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -74,6 +74,15 @@ ActiveRecord::Schema.define(version: 20150103144419) do
   end
 
   add_index "articles", ["store_id", "created_at"], name: "index_articles_on_store_id_and_created_at"
+
+  create_table "comments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "article_id"
+    t.string   "user_name"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "favorites", force: true do |t|
     t.integer  "user_id"

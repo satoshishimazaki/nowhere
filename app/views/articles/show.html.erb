@@ -84,7 +84,7 @@
           <div class="featured-content static">
             <div class="post-details">
       <div class="col-md-7 col-lg-7 col-md-offset-0 col-lg-offset-0">
-    　 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->   
             <ol class="carousel-indicators">
               <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -163,7 +163,7 @@
               <span class="sr-only">Next</span>
             </a>
         </div>                               
-      </div>　 
+      </div>
         <!-- <div class="text-overlay"> -->
             <div class="explain">
                 <div class="title">
@@ -184,13 +184,43 @@
                          <span id="fav_<%=@article.id %>">
                              <%= @article.favorites.count %>
                          </span>
-                    　  <% end %></p>
+                      <% end %></p>
+                   <a href="http://www.facebook.com/sharer.php?u=[&t=[ホームページ・ブログのタイトル]" target="_blank" rel="nofollow" data-layout="button_count">
+                      Facebookでシェア
+                  </a>
+                    <h2>Add a comment:</h2>
+                        <%= form_for([@article, @article.comments.build]) do |f| %>
+                          <p>
+                            <%= f.label :user_name %><br>
+                            <%= f.text_field :user_name %>
+                          </p>
+                          <p>
+                            <%= f.label :body %><br>
+                            <%= f.text_area :body %>
+                          </p>
+                          <p>
+                            <%= f.submit %>
+                          </p>
+                        <% end %>
+
+                    <h2>Comments</h2>
+                        <% @article.comments.each do |comment| %>
+                          <p>
+                            <strong>Commenter:</strong>
+                            <%= comment.user_name %>
+                          </p>
+
+                          <p>
+                            <strong>Comment:</strong>
+                            <%= comment.body %>
+                          </p>
+                        <% end %>
                 </div>
              </div>
-           　</div>
-          　</div>　
-        　</div>
-      　</div>
+            </div>
+           </div>
+         </div>
+       </div>
 
         <div id="main-text" class="inner">
             <div class="container">
@@ -206,6 +236,19 @@
                             <div class="holiday"><p>URL：<%= link_to @article.store.url, @article.store.url %></p></div>
                             <div class="holiday"><p>定休日：holiday(定休日)</p></div>
                             <div class="address"><p>住所：<%= @article.address %></p></div>
+                            <% if user_signed_in?%>
+                              <ul>
+                                <% @articles.each do |article| %>
+                                  <li><%= link_to article.title, article %>
+                                     <span id="article_<%= article.id %>">
+                                         <%= render 'favorites/favorite_btn', article: article %>
+                                     </span>
+                                     <span id="fav_<%= article.id %>">
+                                         <%= article.favorites.count %>
+                                     </span>
+                                <% end %>
+                              </ul>
+                            <% end %>
                             <%= link_to '経路', "http://maps.google.com/maps?ll=#{@article.latitude},#{@article.longitude}&daddr=#{@article.latitude},#{@article.longitude}", :target => "_blank" %> 
                             <!-- <a href="http://maps.apple.com/maps?ll=35.571139,139.655062&amp;daddr=35.571139,139.655062" target="blank">Map</a>
  -->
@@ -214,7 +257,6 @@
                                 <div id="map" class="map_canvas"></div>
                               </div>
                         </div>
-
                     <!-- Comments Block ******************************************
                         *********************************************************** -->
                    <!--      <div id="comments">
@@ -354,6 +396,5 @@
           // function errorCallback(error) {
           // }
       </script>
-
   </body>
 </html>

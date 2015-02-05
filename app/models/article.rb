@@ -20,6 +20,8 @@ class Article < ActiveRecord::Base
   accepts_nested_attributes_for :article_images
   has_many :views
   # accepts_nested_attributes_for :article_images
+  has_many :comments
+  # has_many :comments_users, through: :comments, source: :user
 
     def left_time
       self.created_at + 24.hours - Time.now

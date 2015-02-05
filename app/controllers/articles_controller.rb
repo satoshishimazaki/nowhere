@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
         marker.infowindow  "<a href='/articles/#{article.id}/'>"'<h3>'+article.title+"</h3></a><hr><br>"+"<a href='http://maps.google.com/maps?ll=#{article.latitude},#{article.longitude}&daddr=#{article.latitude},#{article.longitude}', target=blank >"'map'"</a>"+article.content
         # marker.json({title: article.title, herenowtitle: article.herenowtitle})
       end
+      @articles = Article.where(params[:store_id]).order( created_at: :desc )
   end
 
   def index
@@ -37,6 +38,10 @@ class ArticlesController < ApplicationController
         # marker.picture "#sample5_app/public/docs/ショコラ.jpg"
         # marker.json({title: article.title})
       end 
+      # @articles.each do |article|
+      #   article.address
+      # end  
+      @article_address = Article.find(:all, :select => "address")
       @time = Time.now
   end
 

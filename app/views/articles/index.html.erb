@@ -79,32 +79,29 @@
             <div class = "select_geo">
              <!--  <ul> -->
                 <a><%= link_to '現在位置', "/#index", {:id => 'geo_btn'} %> | <%= link_to '投稿順', "/#articles/index", remote: true %></a>
-                         <li>
-                          <%= form_tag search_path, method: :get do %>
-                            <div class="search-input">
-                              <%= text_field_tag :word, '', size: '30' %>
-                            </div>
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                          <% end %>
-                        </li>
               <!-- </ul> -->
             </div>     
             <div class = 'articles'>
               <% @articles.each_with_index do |article, index| %>
 
                 <div class="col-sm-6 col-md-6 col-lg-6 nopadding">
-                  <div class="blog-box">
+                  <div class="blog-box" id="article_<%= index %>">
                         <div class="hover-bg">
                           <%= article_image_for article.image_one %>
                             <!-- <img src="img/blog/02.jpg" alt="img" class="img-responsive"> -->
                         <div class="hover-text">
                                         <!-- <a href="portfolio/cityscape.html"><h2><%= link_to article.title, article_path(article.id) %></h2></a> -->
+                          <% if Time.now - article.created_at < 24*60*60 %>
+                               <h5><%= "new" %></h5>
+                          <% end %>              
                           <h2><%= link_to article.title, article_path(article.id) %></h2>
                             <div class="title_box">
                               <div class="nowheretitle">
-                              <p><%= article.herenowtitle %></p>
-                              <p>残り時間:<%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分</p>
-                              <p>View:<%= article.view_count %>
+                              <ul>
+                              <li><%= article.herenowtitle %></li>
+                              <li>残り時間:<%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分</li>
+                              <li>View:<%= article.view_count %></li>
+                              </ul>
                               <% if user_signed_in?%>
                                  <span id="article_<%= article.id %>">
                                      <%= render 'favorites/favorite_btn', article: article %>
@@ -125,6 +122,145 @@
         </div> <!-- End Container -->
         <div class="clearfix"></div>
     </section>
+
+    <script>
+    // $(function() {
+    //     var distance = 3 * 86400000; // 3日間のミリ秒数で求める
+    //     var today = new Date(); // 現在の年月日のDateオブジェクトを生成
+    //     var baseTime = today.getTime(); // 現在の年月日のミリ秒数を求める
+    //     $('#').each(function() {
+    //         var textVal = $(this).text(); // dtに記述された年月日を取得
+    //         var dateArr = textVal.split('-'); // 年月日に分けて配列に入れる
+    //         var entryDay = new Date(dateArr[0], dateArr[1]-1, dateArr[2]); // dtに記述された年月日のDateオブジェクトを生成
+    //         var entryTime = entryDay.getTime(); // ミリ秒数を求める
+    //         var dist = baseTime - entryTime; // 現在の年月日（ミリ秒数）との差分
+    //         // 3日経っていなければNEWマークを付ける
+    //         if(dist <= distance) {
+    //             $(this).next('dd').append('<i class="icon__new">NEW</i>');
+    //         }
+    //     });
+    // }); 
+    </script>
+
+    <script type="text/javascript">
+          handler = Gmaps.build('Google');
+          handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
+          function(){
+            markers = handler.addMarkers(<%=raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            // handler.getMap().setZoom(15);
+          });
+          //ユーザーの現在の位置情報を取得Ver
+          // navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+          // /***** ユーザーの現在の位置情報を取得 *****/
+          // function successCallback(position) {
+          //   handler = Gmaps.build('Google');
+          //   handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
+          //   function(){
+          //     markers = handler.addMarkers([{lat: position.coords.latitude, lng: position.coords.longitude, infowindow: 'test'}].concat(<%=raw @hash.to_json %>));
+          //     handler.bounds.extendWith(markers);
+          //     handler.fitMapToBounds();
+          //   });
+          // }
+          // /***** 位置情報が取得できない場合 *****/
+          // function errorCallback(error) {
+          // }
+
+          var map;
+          var geocoder;
+          var bounds = new google.maps.LatLngBounds();
+          var markersArray = [];
+
+          // var origin1 = 'Yokohama, Japan';
+          // var origin2 = 'Greenwich, England';
+          // var destinationA = 'Osaka, Japan';
+          // var destinationB = new google.maps.LatLng(50.087, 14.421);
+
+          var destinationIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=D|FF0000|000000';
+          var originIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=O|FFFF00|000000';
+
+          function initialize() {
+            var opts = {
+              center: new google.maps.LatLng(55.53, 9.4),
+              zoom: 10
+            };
+            map = new google.maps.Map(document.getElementById('map-canvas'), opts);
+            geocoder = new google.maps.Geocoder();
+          }
+
+          function calculateDistances() {
+            var service = new google.maps.DistanceMatrixService();
+            service.getDistanceMatrix(
+              {
+                origins: [origin1],
+                destinations: [<%= @addresses %>],
+                travelMode: google.maps.TravelMode.DRIVING,
+                unitSystem: google.maps.UnitSystem.METRIC,
+                avoidHighways: false,
+                avoidTolls: false
+              }, callback);
+          }
+
+          function callback(response, status) {
+            if (status != google.maps.DistanceMatrixStatus.OK) {
+              alert('Error was: ' + status);
+            } else {
+              var origins = response.originAddresses;
+              var destinations = response.destinationAddresses;
+              // var outputDiv = document.getElementById('outputDiv');
+              outputDiv.innerHTML = '';
+              // deleteOverlays();
+
+              for (var i = 0; i < destinations.length; i++) {
+                var results = response.rows[i].elements;
+                // addMarker(origins[i], false);
+                for (var j = 0; j < results.length; j++) {
+                  // addMarker(destinations[j], true);
+                  $("#article_" + i) += origins[i] + ' to ' + destinations[j]
+                      + ': ' + results[j].distance.text + ' in '
+                      + results[j].duration.text + '<br>';
+                }
+              }
+            }
+          }
+
+          // function addMarker(location, isDestination) {
+          //   var icon;
+          //   if (isDestination) {
+          //     icon = destinationIcon;
+          //   } else {
+          //     icon = originIcon;
+          //   }
+          //   geocoder.geocode({'address': location}, function(results, status) {
+          //     if (status == google.maps.GeocoderStatus.OK) {
+          //       bounds.extend(results[0].geometry.location);
+          //       map.fitBounds(bounds);
+          //       var marker = new google.maps.Marker({
+          //         map: map,
+          //         position: results[0].geometry.location,
+          //         icon: icon
+          //       });
+          //       markersArray.push(marker);
+          //     } else {
+          //       alert('Geocode was not successful for the following reason: '
+          //         + status);
+          //     }
+          //   });
+          // }
+
+          // function deleteOverlays() {
+          //   for (var i = 0; i < markersArray.length; i++) {
+          //     markersArray[i].setMap(null);
+          //   }
+          //   markersArray = [];
+          // }
+
+          // google.maps.event.addDomListener(window, 'load', initialize);
+
+        
+
+      </script>
     <!-- Blog Control Navigation
     ================================================== -->
     

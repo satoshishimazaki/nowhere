@@ -21,21 +21,16 @@ function main() {
     });
     //]]>
 
-    $(function(){
-        $("#toggle").click(function(){
-          $("#menu").slideToggle();
-          return false;
-        });
-        $(window).resize(function(){
-          var win = $(window).width();
-          var p = 480;
-          if(win > p){
-            $("#menu").show();
-          } else {
-            $("#menu").hide();
-          }
-        });
-      });
+    // meanmenu
+      // $(document).ready(function() {
+      //   $('nav').meanmenu({
+      //       meanMenuClose: "x", // クローズボタン
+      //       meanMenuCloseSize: "18px", // クローズボタンのフォントサイズ
+      //       meanMenuOpen: "<span /><span /><span />", // 通常ボタン
+      //       meanRevealPosition: "right", // 表示位置
+      //       meanRevealColour: "", // 背景色
+      //       meanScreenWidth: "480", // 表示させるウィンドウサイズ(ブレイクポイント)
+      //   });
 
     // Smooth Scrolling
     //==========================================
@@ -96,8 +91,19 @@ function main() {
       });
     });
 
+    // $(document).ready(function() {
+    //   $("nav").naver({
+    //     labels: {
+    //       closed: "めにゅーだよ",
+    //       open: "閉じるよ"
+    //     },
+    //     maxWidth: "980px"
+    //   });
+    // });
 
 }());
 
+
 }
 main();
+
