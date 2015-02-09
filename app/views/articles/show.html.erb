@@ -59,7 +59,9 @@
       js = d.createElement(s); js.id = id;
       js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
       fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+    }(document, 'script', 'facebook-jssdk'));
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    </script>
     <!-- Preloader
     ================================================== -->
     <div id="preloader">
@@ -193,8 +195,8 @@
                              <%= @article.favorites.count %>
                          </span>
                       <% end %></p>
-                    <%= link_to "rnk", @article, { :class => "fb-share-button", :target => "blank" } %>
-                    <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
+                    <%= link_to "", @article, { :class => "fb-share-button", :target => "blank", "data-layout" => "button_count" } %>
+                    <%= link_to "Tweet", @article, { :class => "twitter-share-button", :target => "blank" } %>
                     <h2>Add a comment:</h2>
                         <%= form_for([@article, @article.comments.build]) do |f| %>
                           <p>
