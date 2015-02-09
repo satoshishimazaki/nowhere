@@ -23,7 +23,7 @@ $(function(){
     // gl_text += "方角：" + position.coords.heading + "<br>";
     // gl_text += "速度：" + position.coords.speed + "<br>";
     // $('#show_result').html(gl_text);
-    
+
     
   }
 

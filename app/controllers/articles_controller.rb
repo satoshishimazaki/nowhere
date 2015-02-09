@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
   def index
       @articles = Article.all
       @articles = Article.where('created_at > ?', Time.now - 24.hours).order( created_at: :desc )
+      @article_address = Article.select(:address).limit(15).map{|article| '"'+article.address+'"'}
       @time = Time.now
       # @articles = Article.paginate(page: params[:page])
   end
@@ -41,7 +42,7 @@ class ArticlesController < ApplicationController
       # @articles.each do |article|
       #   article.address
       # end  
-      @article_address = Article.find(:all, :select => "address")
+      @article_address = Article.select(:address).limit(15).map{|article| '"'+article.address+'"'}
       @time = Time.now
   end
 

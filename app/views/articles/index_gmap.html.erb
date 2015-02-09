@@ -3,21 +3,16 @@
   </div>
   <div id="content-pane">
       <div id="inputs">
-        <pre>
-var origin1 = new google.maps.LatLng(55.930, -3.118);
-var origin2 = 'Greenwich, England';
-var destinationA = 'Stockholm, Sweden';
-var destinationB = new google.maps.LatLng(50.087, 14.421);
-        </pre>
-        <p><button type="button" onclick="calculateDistances();">Calculate
+        <p><button type="button" id="calculate">Calculate
           distances</button></p>
       </div>
       <div id="outputDiv"></div>
+      <li><%= @article_address %></li>
     </div>
     <div id="map-canvas"></div>
-  
    <script type="text/javascript">
-          handler = Gmaps.build('Google');
+   $(function(){
+      handler = Gmaps.build('Google');
           handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
           function(){
             markers = handler.addMarkers(<%=raw @hash.to_json %>);
@@ -25,113 +20,91 @@ var destinationB = new google.maps.LatLng(50.087, 14.421);
             handler.fitMapToBounds();
             // handler.getMap().setZoom(15);
           });
-          //ユーザーの現在の位置情報を取得Ver
-          // navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-          // /***** ユーザーの現在の位置情報を取得 *****/
-          // function successCallback(position) {
-          //   handler = Gmaps.build('Google');
-          //   handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
-          //   function(){
-          //     markers = handler.addMarkers([{lat: position.coords.latitude, lng: position.coords.longitude, infowindow: 'test'}].concat(<%=raw @hash.to_json %>));
-          //     handler.bounds.extendWith(markers);
-          //     handler.fitMapToBounds();
-          //   });
-          // }
-          // /***** 位置情報が取得できない場合 *****/
-          // function errorCallback(error) {
-          // }
 
           var map;
           var geocoder;
           var bounds = new google.maps.LatLngBounds();
           var markersArray = [];
 
-          var origin1 = 'Yokohama, Japan';
+          // var origin1 = position;
           // var origin2 = 'Greenwich, England';
-          var destinationA = 'Osaka, Japan';
+          // var destinationA = <%= raw @article_address.to_json %>;
           // var destinationB = new google.maps.LatLng(50.087, 14.421);
 
           var destinationIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=D|FF0000|000000';
           var originIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=O|FFFF00|000000';
 
-          function initialize() {
-            var opts = {
-              center: new google.maps.LatLng(55.53, 9.4),
-              zoom: 10
-            };
-            map = new google.maps.Map(document.getElementById('map-canvas'), opts);
-            geocoder = new google.maps.Geocoder();
-          }
+          // function initialize() {
+          //   var opts = {
+          //     center: new google.maps.LatLng(55.53, 9.4),
+          //     zoom: 10
+          //   };
+          //   map = new google.maps.Map(document.getElementById('map-canvas'), opts);
+          //   geocoder = new google.maps.Geocoder();
+          // }
 
-          function calculateDistances() {
-            var service = new google.maps.DistanceMatrixService();
-            service.getDistanceMatrix(
-              {
-                origins: [origin1],
-                destinations: [destinationA],
-                travelMode: google.maps.TravelMode.DRIVING,
-                unitSystem: google.maps.UnitSystem.METRIC,
-                avoidHighways: false,
-                avoidTolls: false
-              }, callback);
-          }
+          $('#calculate').click(function(){
+            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
-          function callback(response, status) {
-            if (status != google.maps.DistanceMatrixStatus.OK) {
-              alert('Error was: ' + status);
-            } else {
-              var origins = response.originAddresses;
-              var destinations = response.destinationAddresses;
-              var outputDiv = document.getElementById('outputDiv');
-              outputDiv.innerHTML = '';
-              // deleteOverlays();
+            /***** ユーザーの現在の位置情報を取得 *****/
+            function successCallback(position) {
 
-              for (var i = 0; i < origins.length; i++) {
-                var results = response.rows[i].elements;
-                // addMarker(origins[i], false);
-                for (var j = 0; j < results.length; j++) {
-                  // addMarker(destinations[j], true);
-                  outputDiv.innerHTML += origins[i] + ' to ' + destinations[j]
-                      + ': ' + results[j].distance.text + ' in '
-                      + results[j].duration.text + '<br>';
+
+              function callback(response, status) {
+                if (status != google.maps.DistanceMatrixStatus.OK) {
+                  alert('Error was: ' + status);
+                } else {
+                  var origins = response.originAddresses;
+                  var destinations = response.destinationAddresses;
+                  var outputDiv = document.getElementById('outputDiv');
+                  outputDiv.innerHTML = '';
+                  // deleteOverlays();
+
+                  for (var i = 0; i < destinations.length; i++) {
+                    var results = response.rows[i].elements;
+                    // addMarker(origins[i], false);
+                    for (var j = 0; j < results.length; j++) {
+                      // addMarker(destinations[j], true);
+                      outputDiv.innerHTML += origins[i] + ' to ' + destinations[j]
+                          + ': ' + results[j].distance.text + ' in '
+                          + results[j].duration.text + '<br>';
+                    }
+                  }
                 }
               }
+
+              var service = new google.maps.DistanceMatrixService();
+              service.getDistanceMatrix(
+                {
+                  origins: [new google.maps.LatLng(position.coords.latitude, position.coords.longitude)],
+                  destinations: [<%= raw @article_address.join(",") %>],
+                  travelMode: google.maps.TravelMode.DRIVING,
+                  unitSystem: google.maps.UnitSystem.METRIC,
+                  avoidHighways: false,
+                  avoidTolls: false
+                }, callback);
             }
-          }
 
-          // function addMarker(location, isDestination) {
-          //   var icon;
-          //   if (isDestination) {
-          //     icon = destinationIcon;
-          //   } else {
-          //     icon = originIcon;
-          //   }
-          //   geocoder.geocode({'address': location}, function(results, status) {
-          //     if (status == google.maps.GeocoderStatus.OK) {
-          //       bounds.extend(results[0].geometry.location);
-          //       map.fitBounds(bounds);
-          //       var marker = new google.maps.Marker({
-          //         map: map,
-          //         position: results[0].geometry.location,
-          //         icon: icon
-          //       });
-          //       markersArray.push(marker);
-          //     } else {
-          //       alert('Geocode was not successful for the following reason: '
-          //         + status);
-          //     }
-          //   });
-          // }
-
-          // function deleteOverlays() {
-          //   for (var i = 0; i < markersArray.length; i++) {
-          //     markersArray[i].setMap(null);
-          //   }
-          //   markersArray = [];
-          // }
-
-          // google.maps.event.addDomListener(window, 'load', initialize);
-
+            /***** 位置情報が取得できない場合 *****/
+            function errorCallback(error) {
+              var err_msg = "";
+              switch(error.code)
+              {
+                case 1:
+                  err_msg = "位置情報の利用が許可されていません";
+                  break;
+                case 2:
+                  err_msg = "デバイスの位置が判定できません";
+                  break;
+                case 3:
+                  err_msg = "タイムアウトしました";
+                  break;
+              }
+              document.getElementById("show_result").innerHTML = err_msg;
+              //デバッグ用→ document.getElementById("show_result").innerHTML = error.message;
+            }
+          });
+   });
         
 
       </script>
