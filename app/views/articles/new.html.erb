@@ -18,23 +18,17 @@
       <%= f.label :address %>
       <%= f.text_field :address %>
 
-       <%= f.label :category %>
+      <%= f.label :category %>
       <%= f.select :category, ['飲食', 'shopping', 'その他'], { include_blank: '選択してください' }, class: 'category' %>
 
-      <%= f.label :image_one, "画像" %>
-      <%= f.file_field :image_one %>
+      <%= f.label :article_images, '画像' %>
+      <%= f.fields_for :article_images do |builder| %>      
 
-      <%= f.label :image_two, "画像" %>
-      <%= f.file_field :image_two %>
+          <%= render "article_image_fields", f: builder %>
 
-      <%= f.label :image_three, "画像" %>
-      <%= f.file_field :image_three %>
+      <% end %>    
 
-      <%= f.label :image_four, "画像" %>
-      <%= f.file_field :image_four %>
-
-      <%= f.label :image_five, "画像" %>
-      <%= f.file_field :image_five %>
+          <%= link_to_add_fields "写真追加", f, :article_images %>
 
       <%= f.submit "Post my acrticle", class: "btn btn-large btn-primary" %>
     <% end %>

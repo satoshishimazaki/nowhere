@@ -11,7 +11,6 @@ $(function(){
        url: "/ajax_index",
        data: "latitude="+position.coords.latitude+"&longitude="+position.coords.longitude,
     }).success(function(data){
-      console.log(data)
     }).error(function(data){
       console.log('error!');
     });

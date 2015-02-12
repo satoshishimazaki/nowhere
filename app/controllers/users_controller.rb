@@ -10,7 +10,8 @@ class UsersController < ApplicationController
 
   def favorite
   	# @article = current_user.articles.build
-    @articles = current_user.favorite_articles.paginate(page: params[:page])
-    render 'articles/index'
+    @articles = current_user.favorite_articles.paginate(page: params[:page]).order( created_at: :desc )
+    @article_address = Article.select(:address).limit(15).map{|article| '"'+article.address+'"'}
+    render 'users/index'
   end
 end

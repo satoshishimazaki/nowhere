@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :views
   has_many :comments
   # has_many :comments_articles, through: :comments, source: :article
+  has_and_belongs_to_many :article_images
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first

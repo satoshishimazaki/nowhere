@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150128141848) do
+ActiveRecord::Schema.define(version: 20150212174657) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -51,6 +51,12 @@ ActiveRecord::Schema.define(version: 20150128141848) do
     t.integer  "article_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_one"
+    t.string   "image_two"
+    t.string   "image_three"
+    t.string   "image_four"
+    t.string   "image_five"
+    t.string   "image_six"
   end
 
   create_table "articles", force: true do |t|
@@ -74,6 +80,14 @@ ActiveRecord::Schema.define(version: 20150128141848) do
   end
 
   add_index "articles", ["store_id", "created_at"], name: "index_articles_on_store_id_and_created_at"
+
+  create_table "articles_article_images", id: false, force: true do |t|
+    t.integer "article_id",       null: false
+    t.integer "article_image_id", null: false
+  end
+
+  add_index "articles_article_images", ["article_id"], name: "index_articles_article_images_on_article_id"
+  add_index "articles_article_images", ["article_image_id"], name: "index_articles_article_images_on_article_image_id"
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
@@ -139,6 +153,14 @@ ActiveRecord::Schema.define(version: 20150128141848) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
+
+  create_table "users_article_images", id: false, force: true do |t|
+    t.integer "user_id",          null: false
+    t.integer "article_image_id", null: false
+  end
+
+  add_index "users_article_images", ["article_image_id"], name: "index_users_article_images_on_article_image_id"
+  add_index "users_article_images", ["user_id"], name: "index_users_article_images_on_user_id"
 
   create_table "views", force: true do |t|
     t.integer  "user_id"

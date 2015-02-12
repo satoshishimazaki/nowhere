@@ -14,6 +14,10 @@ line-height: 1;
   box-sizing: border-box;
 }
 
+li {
+  list-style: none;
+}
+
 body p {
 font-size: 18px;
 letter-spacing: 0.5px;
@@ -650,11 +654,24 @@ textarea {
 }
 
 //inedx page 投稿一覧の表記
-body .blog-box .hover-text h2 {
-padding-top: 40px;
-font-size: 22px;
+body .blog-box .hover-text h5{
+  padding-bottom: 0px;
 }
 
+body .blog-box .hover-text {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+body .blog-box .hover-text h2 {
+  font-size: 22px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
 
 /* typography */
 

@@ -1,5 +1,14 @@
-<h1>Users#index</h1>
-<ul><% @users.each do |user| %>
-    <%= link_to user.email, user_path(user.id) %>   
-<% end %>
-</ul>
+<div class="store_article">
+    <p><strong>お気に入り一覧</strong></p>
+	        <% @articles.each do | article | %>
+	        <hr><ul>  
+		         <li><%=article_image_for article.image_one, :size => '100x80' %>タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...
+　　　　　　　　　　　　タイトル：<%=link_to article.store.name, article_path(article.id) %>...
+		         </li>
+		         <li><span>タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...</span></li>
+		         <li><span><%=link_to article.store.name, article_path(article.id) %>...</span></li>
+		         <li><span><%=article.view_count %></span></li>
+		         <li><span><%=article.favorites.count %></span></li>
+	         </ul></hr> 
+	         <% end %>
+</div>
