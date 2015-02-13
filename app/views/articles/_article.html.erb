@@ -1,32 +1,37 @@
 <div class="col-sm-6 col-md-6 col-lg-6 nopadding">
-<div class="blog-box">
-    <div class="hover-bg">                     
-      <%= article_image_for article.article_images.map{|articleimage| articleimage.image }.first %>
-        <!-- <img src="img/blog/02.jpg" alt="img" class="img-responsive"> -->
-    <div class="hover-text">
-                    <!-- <a href="portfolio/cityscape.html"><h2><%= link_to article.title, article_path(article.id) %></h2></a> -->
-      <% if Time.now - article.created_at < 24*60*60 %>
-           <h5><%= "new" %></h5>
-      <% end %>            
-      <h2><%= link_to article.title, article_path(article.id) %></h2>
-        <div class="title_box">
-          <div class="nowheretitle">
-          <ul>
-          <li><%= article.herenowtitle %></li>
-          <li>残り時間:<%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分</li>
-          <li>View:<%= article.view_count %></li>
-      </ul>
-          <% if user_signed_in?%>
-             <span id="article_<%= article.id %>">
-                 <%= render 'favorites/favorite_btn', article: article %>
-             </span>
-             <span id="fav_<%=article.id %>">
-                 <%= article.favorites.count %>
-             </span>
-          <% end %></p>
+  <div class="blog-box" >
+        <div class="hover-bg">                     
+          <%= article_image_for article.article_images.map{|articleimage| articleimage.image }.first %>
+            <!-- <img src="img/blog/02.jpg" alt="img" class="img-responsive"> -->
+        <div class="hover-text">
+                        <!-- <a href="portfolio/cityscape.html"><h2><%= link_to article.title, article_path(article.id) %></h2></a> -->
+          <% if Time.now - article.created_at < 24*60*60 %>
+               <h5><%= "new" %></h5>
+          <% end %>            
+          <h2><%= link_to article.title, article_path(article.id) %></h2>
+            <div class="title_box">
+              <div class="nowheretitle">
+              <ul>
+              <li><%= article.herenowtitle %></li>
+              <li>残り時間:
+                <% if article.left_time > 24.hours %>
+                 <%= article.left_day.floor %>日
+                <% else %>
+                 <%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分</li>
+                <% end %>
+              <li>View:<%= article.view_count %></li>
+              </ul>
+              <% if user_signed_in?%>
+                 <span id="article_<%= article.id %>">
+                     <%= render 'favorites/favorite_btn', article: article %>
+                 </span>
+                 <span id="fav_<%=article.id %>">
+                     <%= article.favorites.count %>
+                 </span>
+              <% end %></p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
     </div>
-</div>
 </div>

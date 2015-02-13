@@ -2,12 +2,24 @@
     <div id="map" class="map_canvas"></div>
   </div>
   <div id="content-pane">
-      <div id="inputs">
+      <!-- <div id="inputs">
         <p><button type="button" id="calculate">Calculate
           distances</button></p>
-      </div>
-      <div id="outputDiv"></div>
-      <li><%= @article_address %></li>
+      </div> -->
+        <div class="store_article">
+          <div id="favorite_index" >
+            <p><strong>記事一覧</strong></p>
+                    <% @articles.each do | article | %> 
+                  <hr>  
+                     <li><%=article_image_for article.article_images.map{|articleimage| articleimage.image }.first %>
+                      　<span><%=article.herenowtitle+" "%>タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...  </span><br>
+                      　<span>店舗名：<%=link_to article.store.name, article_path(article.id) %>...</span><br>
+                        <span>Like数：<%=article.favorites.count %></span>
+                     </li>
+                   </hr>
+                   <% end %>
+            </div>
+          </div>
     </div>
     <div id="map-canvas"></div>
    <script type="text/javascript">

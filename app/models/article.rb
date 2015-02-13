@@ -25,7 +25,11 @@ class Article < ActiveRecord::Base
   # has_and_belongs_to_many :article_images
 
     def left_time
-      self.created_at + 24.hours - Time.now
+      self.created_at + 24*14.hours - Time.now
+    end
+
+    def left_day
+      self.left_time.div(24*3600)
     end
 
     def left_hour

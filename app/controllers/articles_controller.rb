@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
 
   def index
       @articles = Article.all
-      @articles = Article.where('created_at > ?', Time.now - 24.hours).order( created_at: :desc )
+      @articles = Article.where('created_at > ?', Time.now - 24*7.hours).order( created_at: :desc )
       @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
       @time = Time.now
       # @articles = Article.paginate(page: params[:page])
@@ -36,7 +36,7 @@ class ArticlesController < ApplicationController
       @hash = Gmaps4rails.build_markers(@articles) do |article, marker|
         marker.lat article.latitude          
         marker.lng article.longitude
-        marker.infowindow "<a href='/articles/#{article.id}/'>"'<h3>'+article.title+"</h3></a><hr><br>"+"<a href='http://maps.google.com/maps?ll=#{article.latitude},#{article.longitude}&daddr=#{article.latitude},#{article.longitude}', target=blank >"'行き方'"</a>"+article.content+"<img  height='100' width='100' src='/docs/#{article.image_one}'>"
+        marker.infowindow "<a href='/articles/#{article.id}/'>"'<p5>'+article.herenowtitle+":"+article.title+"</p5></a><br>"+article.store.name+'<br>'+"<a href='http://maps.google.com/maps?ll=#{article.latitude},#{article.longitude}&daddr=#{article.latitude},#{article.longitude}', target=blank >"'経路'"'</a><br>"+"<img  height='30' width='30' src='/docs/#{article.article_images.map{|articleimage| articleimage.image }.first}'>"
         # marker.picture "#sample5_app/public/docs/ショコラ.jpg"
         # marker.json({title: article.title})
       end 
