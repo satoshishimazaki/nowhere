@@ -1,14 +1,14 @@
 <div class="store_article">
+	<div id="favorite_index" >
     <p><strong>お気に入り一覧</strong></p>
-	        <% @articles.each do | article | %>
-	        <hr><ul>  
-		         <li><%=article_image_for article.image_one, :size => '100x80' %>タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...
-　　　　　　　　　　　　タイトル：<%=link_to article.store.name, article_path(article.id) %>...
+            <% @articles.each do | article | %> 
+	        <hr>  
+		         <li><%=article_image_for article.article_images.map{|articleimage| articleimage.image }.first %>
+		         	　<span><%=article.herenowtitle+" "%>タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...  </span><br>
+		         	　<span>店舗名：<%=link_to article.store.name, article_path(article.id) %>...</span><br>
+		         	  <span>Like数：<%=article.favorites.count %></span>
 		         </li>
-		         <li><span>タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...</span></li>
-		         <li><span><%=link_to article.store.name, article_path(article.id) %>...</span></li>
-		         <li><span><%=article.view_count %></span></li>
-		         <li><span><%=article.favorites.count %></span></li>
-	         </ul></hr> 
+	         </hr>
 	         <% end %>
+	  </div>
 </div>
