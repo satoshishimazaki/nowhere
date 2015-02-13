@@ -103,8 +103,8 @@
                                 <% if article.left_time > 24.hours %>
                                  <%= article.left_day.floor %>日
                                 <% else %>
-                                 <%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分</li>
-                                <% end %>
+                                 <%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分
+                                <% end %></li>
                               <li>View:<%= article.view_count %></li>
                               <li><span id="article_distance_<%= index %>"></span></li>
                               </ul>
