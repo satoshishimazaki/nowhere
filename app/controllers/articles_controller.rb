@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
 
   def index_gmap
       @articles = Article.all
-      @articles = Article.where('created_at > ?', Time.now - 24.hours).order( created_at: :desc )
+      @articles = Article.where('created_at > ?', Time.now - 24*7.hours).order( created_at: :desc )
       @hash = Gmaps4rails.build_markers(@articles) do |article, marker|
         marker.lat article.latitude          
         marker.lng article.longitude
