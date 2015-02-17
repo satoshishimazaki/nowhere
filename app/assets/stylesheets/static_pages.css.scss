@@ -1015,15 +1015,27 @@ div#small {
 
 #favorite_index img{
   width: 70px;
+  height: 70px;
   vertical-align: top;
   float: left;
   text-align: left
 }
 
-//map
+//gmap infovar
 
 style{
   overflow: scroll;;
+}
+
+//article_show
+
+#addcomment {
+  margin-top: 200px;
+}
+
+.carousel-inner > .item > img{
+ width: 580px;
+ // height: 580px;
 }
 
 

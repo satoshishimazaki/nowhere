@@ -21,6 +21,7 @@ class Article < ActiveRecord::Base
   has_many :views
   # accepts_nested_attributes_for :article_images
   has_many :comments
+  accepts_nested_attributes_for :comments
   # has_many :comments_users, through: :comments, source: :user
   # has_and_belongs_to_many :article_images
 

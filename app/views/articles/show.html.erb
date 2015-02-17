@@ -6,7 +6,8 @@
     <!-- <meta charset="utf-8"> -->
     <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-    <% provide(:title, '詳細') %>
+    <% provide(:title, @article.title) %>
+    <meta name="description" content=<% @article.content %>>
  <!--    <meta name="description" content="Sailor is a Creative and Unique Corporate and Portfolio Web Template">
     <meta name="keywords" content="portfolio, creative, corporate, responsive, bootstrap">
     <meta name="author" content="JLP Media">
@@ -106,54 +107,36 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
               <div class="item active">
-                <%if @article.article_images %>
-                <%= article_image_for @article.image_one %>
-                 <% else %>
-                <%= article_image_for 'noimage.gif' %>
-                <% end %>
-              <!-- <img src="....." alt="....."> -->
+                <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.first, :size =>'100*100'  %>
+                <!-- <img src="....." alt="....."> -->
                 <div class="carousel-caption">
                   .....
                 </div>
               </div>
               <div class="item">
-               <%if @article.article_images %>
-                <%= article_image_for @article.image_two %>
-                 <% else %>
-                <%= article_image_for 'noimage.gif' %>
-                <% end %> <!-- <img src="..." alt="..."> -->
-                <div class="carousel-caption">
-                  .....
-                </div>
-              </div>
-              <div class="item">
-               <%if @article.article_images %>
-                <%= article_image_for @article.image_three %>
-                 <% else %>
-                <%= article_image_for 'noimage.gif' %>
-                <% end %>      <!-- <img src="..." alt="..."> -->
-                <div class="carousel-caption">
-                  .....
-                </div>
-              </div>
-              <div class="item">
-                <%if @article.article_images %>
-                <%= article_image_for @article.image_four%>
-                 <% else %>
-                <%= article_image_for 'noimage.gif' %>
-                <% end %>
+                <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.second %>
                 <!-- <img src="..." alt="..."> -->
                 <div class="carousel-caption">
                   .....
                 </div>
               </div>
               <div class="item">
-                <%if @article.article_images %>
-                <%= article_image_for @article.image_five%>
-                 <% else %>
-                <%= article_image_for 'noimage.gif' %>
-                <% end %>
+                <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.third %>
+               <!-- <img src="..." alt="..."> -->
+                <div class="carousel-caption">
+                  .....
+                </div>
+              </div>
+              <div class="item">
+                <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.fourth %>
                 <!-- <img src="..." alt="..."> -->
+                <div class="carousel-caption">
+                  .....
+                </div>
+              </div>
+              <div class="item">
+                 <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.fifth %>
+                 <!-- <img src="..." alt="..."> -->
                 <div class="carousel-caption">
                   .....
                 </div>
@@ -197,33 +180,31 @@
                       <% end %></p>
                     <%= link_to "", @article, { :class => "fb-share-button", :target => "blank", "data-layout" => "button_count" } %>
                     <%= link_to "Tweet", @article, { :class => "twitter-share-button", :target => "blank" } %>
-                    <h2>Add a comment:</h2>
-                        <%= form_for([@article, @article.comments.build]) do |f| %>
-                          <p>
-                            <%= f.label :user_name %><br>
-                            <%= f.text_field :user_name %>
-                          </p>
-                          <p>
-                            <%= f.label :body %><br>
-                            <%= f.text_area :body %>
-                          </p>
-                          <p>
-                            <%= f.submit %>
-                          </p>
-                        <% end %>
+                    <div id="comment">
+                      <div id="addcomment">
+                      <h2>Add a comment:</h2>
+                          <%= form_for([@article, @article.comments.build]) do |f| %>
+                            <p>
+                              <%= f.label :user_name %><br>
+                              <%= f.text_field :user_name %>
+                            </p>
+                            <p>
+                              <%= f.label :body %><br>  
+                              <%= f.text_area :body %>
+                            </p>
+                            <p>
+                              <%= f.submit %>
+                            </p>
+                          <% end %>
+                        </div>
 
-                    <h2>Comments</h2>
-                        <% @article.comments.each do |comment| %>
-                          <p>
-                            <strong>Commenter:</strong>
-                            <%= comment.user_name %>
-                          </p>
-
-                          <p>
-                            <strong>Comment:</strong>
-                            <%= comment.body %>
-                          </p>
-                        <% end %>
+                      <h2>Comments</h2>
+                          <% @article.comments.each do |comment| %>
+                          　　<hr>
+                              <p><%= comment.user_name %></p>
+                              <p><%= comment.body %></p>                 
+                          <% end %>      
+                    </div>
                 </div>
              </div>
             </div>

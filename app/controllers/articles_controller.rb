@@ -20,6 +20,12 @@ class ArticlesController < ApplicationController
         # marker.json({title: article.title, herenowtitle: article.herenowtitle})
       end
       @articles = Article.all.where(store_id: @article.store.id).order( created_at: :desc )
+      # @comments = @article.comments.all
+      # @article.comments.build
+      # raise
+      # @comment = Comment.new
+      # @comment.user_name = current_user.name
+      # # raise
   end
 
   def index
@@ -32,7 +38,7 @@ class ArticlesController < ApplicationController
 
   def index_gmap
       @articles = Article.all
-      @articles = Article.where('created_at > ?', Time.now - 24*7.hours).order( created_at: :desc )
+      @articles = Article.where('created_at > ?', Time.now - 24*7.hours)
       @hash = Gmaps4rails.build_markers(@articles) do |article, marker|
         marker.lat article.latitude          
         marker.lng article.longitude
@@ -43,6 +49,9 @@ class ArticlesController < ApplicationController
       # @articles.each do |article|
       #   article.address
       # end  
+      # raise
+      @articles = Article.all
+      @articles = Article.where('created_at > ?', Time.now - 24*7.hours).order( created_at: :desc )
       @article_address = Article.select(:address).limit(15).map{|article| '"'+article.address+'"'}
       @time = Time.now
   end
@@ -103,16 +112,16 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-      file1 = params[:article][:image_one]
-      file2 = params[:article][:image_two]
-      file3 = params[:article][:image_three]
-      file4 = params[:article][:image_four]
-      file5 = params[:article][:image_five]
-      @article.set_image_one(file1)
-      @article.set_image_two(file2)
-      @article.set_image_three(file3)
-      @article.set_image_four(file4)
-      @article.set_image_five(file5)
+      # file1 = params[:article][:image_one]
+      # file2 = params[:article][:image_two]
+      # file3 = params[:article][:image_three]
+      # file4 = params[:article][:image_four]
+      # file5 = params[:article][:image_five]
+      # @article.set_image_one(file1)
+      # @article.set_image_two(file2)
+      # @article.set_image_three(file3)
+      # @article.set_image_four(file4)
+      # @article.set_image_five(file5)
     if @article.update_attributes(article_params)
        flash[:success] = "Article updated"
        redirect_to @article
@@ -127,6 +136,6 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit( :content, :herenowtitle, :title, :address, :latitude, :longitude, :category, article_images_attributes: [:image])
+      params.require(:article).permit( :content, :herenowtitle, :title, :address, :latitude, :longitude, :category, :body, :user_name, article_images_attributes: [:image])
     end
 end

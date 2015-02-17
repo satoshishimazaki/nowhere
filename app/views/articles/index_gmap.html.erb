@@ -30,6 +30,7 @@
             markers = handler.addMarkers(<%=raw @hash.to_json %>);
             handler.bounds.extendWith(markers);
             handler.fitMapToBounds();
+            handler.getMap().setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
             // handler.getMap().setZoom(15);
           });
 
@@ -55,7 +56,7 @@
           //   geocoder = new google.maps.Geocoder();
           // }
 
-          $('#calculate').click(function(){
+          $(document).ready(function(){
             navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
             /***** ユーザーの現在の位置情報を取得 *****/
