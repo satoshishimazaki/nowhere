@@ -673,6 +673,12 @@ body .blog-box .hover-text h2 {
   padding-left: 0px;
 }
 
+body .row li {
+  padding: 3px;
+  border-top: none;
+}
+
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -712,6 +718,13 @@ p {
 
 /* header */
 
+#mobile-bar{
+  float: left;
+}
+
+.map {
+  float: right;
+}
 
 .nav>li {
   float: left;
@@ -735,6 +748,69 @@ p {
     color: white;
     text-decoration: none;
   }
+}
+
+body .navbar {
+  background-color: rgb(110, 226, 160);
+  min-height: 30px;
+  margin-bottom: -84px;
+}
+
+body .navbar-inner .container {
+  background-color: rgb(110, 226, 160);
+}
+
+//検索
+.search-input #word{
+  color:black;
+  float: right;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-bottom: 3px;
+  width: 102px;
+}
+
+#searchbutton {
+  float: right;
+}
+
+.map {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.select_geo{
+  margin-top: 0px;
+  padding-top: 90px;
+  margin-bottom: 0px;
+  width: 200px;  
+  // margin-top: 0px;
+  // padding-top: 0px;
+  // width: 30px;
+  // height: 18px;
+  // float: right;
+  // background-color: black;
+}
+
+.select_geogeo{
+  float: right;
+  padding-right: 20px;
+  
+}
+
+.sort {
+  margin-top: 0px;
+  padding-top: 0px;
+  padding-right: 10px;
+  float: right;
+ }
+
+//menu bar
+#word {
+  width: 130px;
+  height: 10px;
 }
 
 /* footer */
@@ -913,11 +989,6 @@ div#small {
   margin-right: 50px;
 }
 
-//検索
-.search-input{
-  color:black;
-}
-
 #search_output{
   margin-top: 120px;
 }
@@ -1038,4 +1109,13 @@ style{
  // height: 580px;
 }
 
+#inquery {
+  padding-top: 100px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+#notice{
+  margin-top: 100px;
+}
 

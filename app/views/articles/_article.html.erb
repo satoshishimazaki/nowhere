@@ -20,15 +20,14 @@
                      <%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分
                  <% end %></li>
               <li>View:<%= article.view_count %></li>
-              </ul>
               <% if user_signed_in?%>
-                 <span id="article_<%= article.id %>">
+                 <li><span id="article_<%= article.id %>">
                      <%= render 'favorites/favorite_btn', article: article %>
                  </span>
                  <span id="fav_<%=article.id %>">
                      <%= article.favorites.count %>
                  </span>
-              <% end %></p>
+              <% end %></li>
               </div>
             </div>
           </div>

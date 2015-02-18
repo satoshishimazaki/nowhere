@@ -29,7 +29,7 @@ class InquiriesController < ApplicationController
     respond_to do |format|
       if @inquiry.save
       InquiryMailer.send_mail(@inquiry).deliver
-        format.html { redirect_to @inquiry, notice: 'Inquiry was successfully created.' }
+        format.html { redirect_to @inquiry, notice: '問い合せ送信済' }
         format.json { render action: 'show', status: :created, location: @inquiry }
       else
         format.html { render action: 'new' }
