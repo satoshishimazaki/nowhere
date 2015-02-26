@@ -13,6 +13,7 @@
               <div class="nowheretitle">
               <ul>
               <li><%= article.herenowtitle %></li>
+              <li><%= article.store.name %></li>
               <li>残り時間:
                  <% if article.left_time > 24.hours %>
                      <%= article.left_day.floor %>日

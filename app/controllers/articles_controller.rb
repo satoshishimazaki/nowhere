@@ -30,15 +30,18 @@ class ArticlesController < ApplicationController
 
   def index
       @articles = Article.all
-      @articles = Article.where('created_at > ?', Time.now - 24*7.hours).order( created_at: :desc )
+      @articles = Article.where('created_at > ?', Time.now - 24*14.hours).order( created_at: :desc )
       @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
       @time = Time.now
+      # raise
+      render layout: 'index'
       # @articles = Article.paginate(page: params[:page])
+      @users = User.all
   end
 
   def index_gmap
       @articles = Article.all
-      @articles = Article.where('created_at > ?', Time.now - 24*7.hours)
+      @articles = Article.where('created_at > ?', Time.now - 24*14.hours)
       @hash = Gmaps4rails.build_markers(@articles) do |article, marker|
         marker.lat article.latitude          
         marker.lng article.longitude
@@ -51,24 +54,27 @@ class ArticlesController < ApplicationController
       # end  
       # raise
       @articles = Article.all
-      @articles = Article.where('created_at > ?', Time.now - 24*7.hours).order( created_at: :desc )
+      @articles = Article.where('created_at > ?', Time.now - 24*14.hours).order( created_at: :desc )
       @article_address = Article.select(:address).limit(15).map{|article| '"'+article.address+'"'}
       @time = Time.now
   end
 
   def index_eating
       @articles = Article.all
-      @articles = Article.where('created_at > ? AND category = ?', Time.now - 24*7.hours, '飲食').order( created_at: :desc )
+      @articles = Article.where('created_at > ? AND category = ?', Time.now - 24*14.hours, '飲食').order( created_at: :desc )
+      # raise
   end
 
   def index_shopping
       @articles = Article.all
-      @articles = Article.where('created_at > ? AND category = ?', Time.now - 24*7.hours, 'shopping').order( created_at: :desc )
+      @articles = Article.where('created_at > ? AND category = ?', Time.now - 24*14.hours, 'shopping').order( created_at: :desc )
   end
 
   def index_other
+      # @articles = 'nil'
       @articles = Article.all
-      @articles = Article.where('created_at > ? AND category = ?', Time.now - 24*7.hours, 'その他').order( created_at: :desc )
+      @articles = Article.where('created_at > ? AND category = ?', Time.now - 24*14.hours, 'その他').order( created_at: :desc )
+      # raise 
   end
 
   def create
@@ -100,7 +106,7 @@ class ArticlesController < ApplicationController
     # ユーザーの現在地から近い順にStoresをとってくる
     article = Article.new(latitude: params[:latitude], longitude: params[:longitude])
     @articles = Article.by_distance(origin: article)
-    @articles = @articles.where('created_at > ?', Time.now - 24*7.hours).order( created_at: :desc )
+    @articles = @articles.where('created_at > ?', Time.now - 24*14.hours).order( created_at: :desc )
     # @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
     # @articles = @stores.map { |store| store.articles }.map { |articles| articles }.map { |article| article }
     # logger.debug(@articles)

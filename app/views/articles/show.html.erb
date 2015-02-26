@@ -183,7 +183,7 @@
                     <div id="comment">
                       <div id="addcomment">
                       <h2>Add a comment:</h2>
-                          <%= form_for([@article, @article.comments.build]) do |f| %>
+                          <%= form_for ( [@article.comments.build] ) do |f| %>
                             <p>
                               <%= f.label :user_name %><br>
                               <%= f.text_field :user_name %>
@@ -200,6 +200,7 @@
 
                       <h2>Comments</h2>
                           <% @article.comments.each do |comment| %>
+                          
                           　　<hr>
                               <p><%= comment.user_name %></p>
                               <p><%= comment.body %></p>                 

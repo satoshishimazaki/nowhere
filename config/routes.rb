@@ -12,9 +12,9 @@ Sample5App::Application.routes.draw do
       get :favorite
     end
   end
-  resources :users do
-    resources :comments
-  end
+  # resources :users do
+  #   resources :comments
+  # end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :stores

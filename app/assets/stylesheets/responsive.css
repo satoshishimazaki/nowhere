@@ -252,14 +252,14 @@
 
 /* Mobile/Smartphones (portrait) ----------- */
 @media only screen and (max-width:360px) and (orientation:portrait) { 
-    #hero .carousel-caption {top: 20%}
-    .space{padding 10px 0;}
+    #hero .carousel-caption {top: 20%;}
+    .space{padding: 10px 0;}
     #portfolio .small-box {height: 250px;}
     p.excerpt {
         padding-top: 12px;
     }
     .small-box .hover-text .ptitle{
-        .padding: 0px 5px
+        padding: 0px 5px;
     }
     .small-box .hover-text,
     .large-box .hover-text {
@@ -278,7 +278,7 @@
     .fa-3x {font-size: 2em;}
     .blog-button{display:none;}
     .page-title-bar h2 {font-size: 14px;}
-    div#main-text { margin-top: 520px }
+    div#main-text { margin-top: 520px; }
     .featured-content img.img-responsive {
         width: -webkit- calc(100% + 520px);
         width: calc(100% + 520px);

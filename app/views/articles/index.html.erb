@@ -90,12 +90,13 @@
                                         <!-- <a href="portfolio/cityscape.html"><h2><%= link_to article.title, article_path(article.id) %></h2></a> -->
                           <% if Time.now - article.created_at < 24*60*60 %>
                                <h5><%= "new" %></h5>
-                          <% end %>            
+                           <% end %>            
                           <h2><%= link_to article.title, article_path(article.id) %></h2>
                             <div class="title_box">
                               <div class="nowheretitle">
                               <ul>
                               <li><%= article.herenowtitle %></li>
+                              <li><%= article.store.name %></li>
                               <li>残り時間:
                                 <% if article.left_time > 24.hours %>
                                  <%= article.left_day.floor %>日
