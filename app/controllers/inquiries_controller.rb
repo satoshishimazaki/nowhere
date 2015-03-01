@@ -15,8 +15,6 @@ class InquiriesController < ApplicationController
   # GET /inquiries/new
   def new
     @inquiry = Inquiry.new
-       @users = User.all
-    raise
   end
 
   # GET /inquiries/1/edit
