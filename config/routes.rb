@@ -40,7 +40,7 @@ Sample5App::Application.routes.draw do
   match '/signin_',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/index_eating',  to: 'articles#index_eating',            via: 'get'
-  # match '/index_eat',  to: 'stores#index_eat',            via: 'get'
+  match '/index_eat',  to: 'stores#index_eat',            via: 'get'
   match '/index_shopping',  to: 'articles#index_shopping',            via: 'get'
   match '/index_other',  to: 'articles#index_other',            via: 'get'
   match '/index_gmap',  to: 'articles#index_gmap',            via: 'get'
