@@ -1,0 +1,39 @@
+<% provide(:title, 'edit') %>
+<div id="post"><div id="word"><h1>投稿編集</h1></div></div>
+
+<div class="row">
+  <div class="span6">
+    <%= form_for @article, html: { multipart: true} do |f| %>
+     <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :herenowtitle %>
+      <%= f.select :herenowtitle, ['旬', 'お得'], { include_blank: '選択してください' }, class: 'herenow' %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+      <%= f.label :content %>
+      <%= f.text_area(:content, cols: 60, rows: 10 ) %>
+
+      <%= f.label :address %>
+      <%= f.text_field :address %>
+
+      <%= f.label :image_one, "画像" %>
+      <%= f.file_field :image_one %>
+
+      <%= f.label :image_two, "画像" %>
+      <%= f.file_field :image_two %>
+
+      <%= f.label :image_three, "画像" %>
+      <%= f.file_field :image_three %>
+
+      <%= f.label :image_four, "画像" %>
+      <%= f.file_field :image_four %>
+
+      <%= f.label :image_five, "画像" %>
+      <%= f.file_field :image_five %>
+
+      <%= f.submit "Post my acrticle", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

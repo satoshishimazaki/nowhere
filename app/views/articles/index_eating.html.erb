@@ -1,0 +1,155 @@
+        <!-- Favicons
+    ================================================== -->
+    <!-- <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png"> -->
+
+    <!-- Bootstrap
+    ================================================== -->
+<!--     <link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+ -->
+    <!-- Other Css Files
+    ================================================== -->
+<!--     <link rel="stylesheet" type="text/css" href="font-awesome-4.2.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/jasny-bootstrap.min.css"> -->
+
+    <!-- Stylesheet
+    ================================================== -->
+ <!--    <link rel="stylesheet" type="text/css"  href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css"> -->
+
+    <!-- Google Fonts
+    ================================================== -->
+    <link href='http://fonts.googleapis.com/css?family=Great+Vibes&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Modernizr
+    ================================================== -->
+    <!-- <script type="text/javascript" src="js/modernizr.custom.js"></script> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<!--   </head>
+
+  <body> -->
+
+    <!-- Preloader
+    ================================================== -->
+<!--     <div id="preloader">
+      <div id="status">&nbsp;</div>
+    </div>
+ -->
+
+    <!-- Off Canvas Navigation
+    ================================================== -->
+    <!-- <div id="navigation" class="navmenu navmenu-default navmenu-fixed-left offcanvas"> <! Off Canvas Side Menu -->
+      <!-- <a href="index.html"><img src="img/menu-logo.png" alt="..." class="logo"></a> <! User Icon/Image --> 
+     <!-->  <ul class="nav navmenu-nav"> <! Menu --> 
+        <!-- <li><a href="index.html#hero">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="index.html#about">About Me</a></li>
+        <li class="active"><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#contact">Contact Me</a></li>
+      </ul><!- End Menu -->
+    <!-- </div> - End Off Canvas Side Menu  -->
+
+    <!-- Menu Toggle for Off Canvas-Menu -->
+    <!-- <div id="menu" class="menu" data-toggle="offcanvas" data-target=".navmenu">
+        <img src="img/menu.png" alt="menu-logo">
+    </div>
+ -->
+    <!-- Top Page Title Bar -->
+   <!--  <div class="page-title-bar">
+        <div class="page-title text-right">
+            <h2>Blog</h2>
+        </div>
+    </div> -->
+
+    <!--Blog Posts
+    ================================================== -->
+      <section id="blog" class="posts"> 
+        <div class="container-fluid"> <!-- Start Container -->
+          <div class="row"> <!-- Start Row -->
+            <div class = "select_geo">
+            </div>
+            <div class = 'articles'>
+            <% if @articles.empty? %>  
+              <div class="nothing"><p>投稿情報は現在ございません</p></div>
+            <%else%>   
+              <% @articles.each_with_index do |article, index| %>
+                <div class="col-sm-6 col-md-6 col-lg-6 nopadding">
+                  <div class="blog-box" id="article_<%= index %>">
+                        <div class="hover-bg">                     
+                          <%= article_image_for article.article_images.map{|articleimage| articleimage.image }.first %>
+                            <!-- <img src="img/blog/02.jpg" alt="img" class="img-responsive"> -->
+                        <div class="hover-text">
+                                        <!-- <a href="portfolio/cityscape.html"><h2><%= link_to article.title, article_path(article.id) %></h2></a> -->
+                          <% if Time.now - article.created_at < 24*60*60 %>
+                               <h5><%= "new" %></h5>
+                          <% end %>            
+                          <h2><%= link_to article.title, article_path(article.id) %></h2>
+                            <div class="title_box">
+                              <div class="nowheretitle">
+                              <ul>
+                              <li><%= article.herenowtitle %></li>
+                              <li><%= article.store.name %></li>
+                              <li>残り時間:
+                                <% if article.left_time > 24.hours %>
+                                 <%= article.left_day.floor %>日
+                                <% else %>
+                                 <%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分
+                                <% end %></li>
+                              <li>View:<%= article.view_count %></li>
+                              <li><span id="article_distance_<%= index %>"></span></li>
+                            
+                              <% if user_signed_in?%>
+                                 <li><span id="article_<%= article.id %>">
+                                     <%= render 'favorites/favorite_btn', article: article %>
+                                 </span>
+                                 <span id="fav_<%=article.id %>">
+                                     <%= article.favorites.count %>
+                                 </span>
+                              <% end %></li>
+                              </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+         </div> <!-- End Row -->
+        </div> <!-- End Container -->
+        <div class="clearfix"></div>
+    </section>
+    <!-- Blog Control Navigation
+    ================================================== -->
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
+    ================================================== -->
+    <!-- // <script type="text/javascript" src="js/jquery.1.11.1.js"></script> -->
+
+    <!-- // <!- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- // <script type="text/javascript" src="js/bootstrap.js"></script> -->
+
+    <!-- // Other JS Files -->
+    <!-- // <script type="text/javascript" src="js/jquery.easing.min.js"></script> -->
+    <!-- // <script type="text/javascript" src="js/jasny-bootstrap.min.js"></script> -->
+    <!-- // <script type="text/javascript" src="js/SmoothScroll.js"></script> -->
+    <!-- // <script type="text/javascript" src="js/nivo-lightbox.js"></script> -->
+
+    <!-- // Custom Javascripts -->
+    <!-- // ================================================== -->
+    <!-- // <script type="text/javascript" src="js/main.js"></script> --> 
+<!-- 
+  </body>
+</html>
+ -->

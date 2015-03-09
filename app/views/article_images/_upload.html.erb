@@ -1,0 +1,5 @@
+<%= form_for(@image, :url => update_image_member_path(:id => params[:id])) do |f| %>
+    <%= f.label :image, '写真をアップロード' %>
+    <%= f.file_field :image %>
+    <%= f.submit '送信' %>
+<% end %>

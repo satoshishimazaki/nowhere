@@ -1,56 +1,52 @@
-Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+Sample5App::Application.routes.draw do
+  get "search/index"
+  resources :inquiries
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  devise_for :users, :controllers => {
+  :sessions => 'users/sessions',
+  :omniauth_callbacks => "users/omniauth_callbacks" 
+  }
+  devise_scope :user do get "/user_signout" => "devise/sessions#destroy" end
+  resources :users, :only => [:index, :show] do
+    member do
+      get :favorite
+    end
+  end
+  # resources :users do
+  #   resources :comments
+  # end
+  # devise_for :admin_users, ActiveAdmin::Devise.config
+  # ActiveAdmin.routes(self)
+  resources :stores
+  resources :comments
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :articles
+  resources :stores do 
+    resources :articles, only: [:new, :show, :index, :create, :edit, :update]
+  end
+  resources :articles do
+    resources :articles_images
+  end
+  resources :articles do
+    resources :comments
+  end
+  resources :favorites, only: [:create, :destroy]
+  root  'articles#index'
+  match '/about',   to: 'static_pages#about',   via: 'get'
+  match '/sample',   to: 'static_pages#sample',   via: 'get'
+  match '/sample_sample',   to: 'static_pages#sample_sample',   via: 'get'
+  match '/menu_sample',   to: 'static_pages#menu_sample',   via: 'get'
+  match '/signup',  to: 'stores#new',            via: 'get'
+  match '/signin_',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match '/index_eating',  to: 'articles#index_eating',            via: 'get'
+  match '/index_eat',  to: 'stores#index_eat',            via: 'get'
+  match '/index_shopping',  to: 'articles#index_shopping',            via: 'get'
+  match '/index_other',  to: 'articles#index_other',            via: 'get'
+  match '/index_gmap',  to: 'articles#index_gmap',            via: 'get'
+  # match '/index_shopping',  to: 'stores#index_shopping',            via: 'get'
+  # match '/ajax_index', to: 'stores#ajax_index', via: 'post'
+  match '/ajax_index', to: 'articles#ajax_index', via: 'get'
+  match '/upload', to: 'article_images#upload', via: 'get'
+  match '/search', to: 'search#index', via: 'get'
 end

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <!-- <meta charset="utf-8"> -->
+    <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <title>Sailor Corporate/Agency/Portfolio - Blog Page</title>
+ <!--    <meta name="description" content="Sailor is a Creative and Unique Corporate and Portfolio Web Template">
+    <meta name="keywords" content="portfolio, creative, corporate, responsive, bootstrap">
+    <meta name="author" content="JLP Media">
+  -->   
+    <!-- Favicons
+    ================================================== -->
+ <!--    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+
+  -->   <!-- Bootstrap
+    ================================================== -->
+ <!--    <link rel="stylesheet" type="text/css"  href="../css/bootstrap.css">
+ -->
+    <!-- Other Css Files
+    ================================================== -->
+<!--     <link rel="stylesheet" type="text/css" href="../font-awesome-4.2.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../css/jasny-bootstrap.min.css">
+
+ -->    <!-- Stylesheet
+    ================================================== -->
+<!--     <link rel="stylesheet" type="text/css"  href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/responsive.css">
+ -->
+    <!-- Google Fonts
+    ================================================== -->
+    <link href='http://fonts.googleapis.com/css?family=Great+Vibes&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Modernizr
+    ================================================== -->
+    <!-- // <script type="text/javascript" src="../js/modernizr.custom.js"></script> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Preloader
+    ================================================== -->
+    <div id="preloader">
+      <div id="status">&nbsp;</div>
+    </div>
+
+
+    <!-- Off Canvas Navigation
+    ================================================ -->
+    <!-- <div id="navigation" class="navmenu navmenu-default navmenu-fixed-left offcanvas"> <!- Off Canvas Side Menu -->
+      <!-- <a href="../index.html"><img src="../img/menu-logo.png" alt="..." class="logo"></a> <!- User Icon/Image --> 
+      <!-- <ul class="nav navmenu-nav"> <!- Menu --> 
+        <!-- <li><a href="../index.html#hero">Home</a></li> -->
+        <!-- <li><a href="../portfolio.html">Portfolio</a></li> -->
+        <!-- <li><a href="../index.html#about">About Me</a></li>
+        <li class="active"><a href="../blog.html">Blog</a></li>
+        <li><a href="../index.html#contact">Contact Me</a></li>
+      </ul><!- End Menu -->
+    <!-- </div> - End Off Canvas Side Menu  -->
+ 
+    <!-- Menu Toggle for Off Canvas-Menu -->
+ <!--    <div id="menu" class="menu" data-toggle="offcanvas" data-target=".navmenu">
+        <img src="../img/menu.png" alt="menu-logo">
+    </div>
+  -->
+    <!--Blog Posts
+    ================================================== -->
+    <section id="blog-post">
+        <div class="header-static">
+            <div class="featured-content static">
+
+                <div class="post-details">
+                    <%= article_image_for @article.image_one %>
+                    <!-- <img src="../img/portfolio/food/01.jpg" class="img-responsive" alt="..."> -->
+                     <div class="text-overlay">
+                        <div class="title">
+                            <h2><%= @article.herenowtitle %></h2>
+                        </div>
+                        <div class="title">
+                            <h3><%= @article.title %></h3>
+                        </div>
+                        <div class="metas">
+                            <p class="meta">店舗名：<%= @article.store.name %></p>
+                            <p class="meta">残り時間：<%= @article.left_hour.floor %>時間<%= @article.left_minute.floor %>分</p>
+                            <p class="meta">
+
+本日はXmasイブ！明日はXmas！
+もつ屋じゅうに12さんから
+Xmasプレゼント(割引特典)が
+2つございます。
+
+1つ目は、お一人様限定半額割！
+本日と明日の2日間限定で、
+お一人様ご来店に限り、1日先着3名様が
+半額割引を受けられます！
+2つ目は、スパークリングワインの
+1杯無料サービスです。こちらは、
+ご来店の方、全員が対象になります。
+本日と明日の数量限定サービスなので、
+なくなり次第終了となります。
+
+注文の際は、晩酌セットがオススメ
+毎朝〆の刺し盛りに温か牛モツ煮、
+それに食べ放題のお通しの枝豆、
+そして、今の季節にピッタリの
+熱燗は、1合500円！！
+合計でも2,500円程度です。
+仕事帰りにひとときの幸せに浸れます。
+しかも、今回の半額割引を使うと
+1,250円程度で味わえてしまいます！
+
+半額割引は、閲覧者限定になります。
+「武蔵小杉Now here」を見たと
+お伝えください。
+本日12月24日と明日12月25日の
+2日間限定、1日先着3名様ずつです。</p>
+                        </div>
+                        <ul class="user-action">
+                            <li><i class="fa fa-eye fa-2x"></i><%= @article.view_count%></li>
+                            <li><i class="fa fa-heart fa-2x"></i></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="main-text" class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+
+                        <div id="content">
+
+                            <h2>基本情報</h2>
+                            <div class="name"><p>店舗名：<%= @article.store.name %></p></div>
+                            <div class="tel"><p>電話番号：<%= @article.store.tel %></p></div>
+                            <div class="time"><p>営業時間：time(営業時間)</p></div>
+                            <div class="holiday"><p>定休日：holiday(定休日)</p></div>
+                            <div class="address"><p>住所：<%= @article.address %></p></div>
+                            <div class="address_map">参考地図<p><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@article.store.latitude}%2C#{@article.store.longitude}" %></p></div>
+                        </div>
+
+                    <!-- Comments Block ******************************************
+                        *********************************************************** -->
+                   <!--      <div id="comments">
+                          <div class="comments-num ">
+                            <hr>
+                            <h4><span class="fa fa-comment"></span> 3 Comments</h4>
+                            <hr>
+                          </div>
+
+                          <div class="comment-lists">
+                            <ul class="media-list">
+
+                              <li class="commenter media">
+                                <img class="pull-left media-object" src="../img/clients/04.jpg" alt="...">
+                                <div class="media-body">
+                                  <div class="media-heading">
+                                    <span class="commenter-name">Lian Plamer </span>
+                                    <span class="comment-date"> 13 min ago</span>
+                                    <span class="pull-right"><a class="btn btn-xs btn1" href="#">Replay</a></span>
+                                  </div>
+                                  <p>Turpis ut mollis, elit et vestibulum mattis integer aenean nulla, in vitae id augue vitae. Lacus eu nulla ante lorem, viverra pretium ipsum etiam, platea nec purus malesuada id leo, aliquam metus, ac velit viverra.</p>
+                                  <hr>
+                                </div>
+                              </li>
+
+                              <li class="commenter media">
+                                <a class="pull-left" href="#">
+                                  <img class="media-object" src="../img/clients/01.jpg" alt="...">
+                                </a>
+                                <div class="media-body">
+                                  <div class="media-heading">
+                                    <span class="commenter-name">Leo Plamer </span>
+                                    <span class="comment-date"> 3 min ago</span>
+                                    <span class="pull-right"><a class="btn btn-xs btn1" href="#">Replay</a></span>
+                                  </div>
+                                  <p>Turpis ut mollis, elit et vestibulum mattis integer aenean nulla, in vitae id augue vitae. Lacus eu nulla ante lorem, viverra pretium ipsum etiam, platea nec purus malesuada id leo, aliquam metus, ac velit viverra.</p>
+                                  <hr>
+                                </div>
+                              </li>
+
+                              <li class="commenter media">
+                                <a class="pull-left" href="#">
+                                  <img class="media-object" src="../img/clients/03.jpg" alt="...">
+                                </a>
+                                <div class="media-body">
+                                  <div class="media-heading">
+                                    <span class="commenter-name">Errow Luke </span>
+                                    <span class="comment-date"> 3 min ago</span>
+                                    <span class="pull-right"><a class="btn btn-xs btn1" href="#">Replay</a></span>
+                                  </div>
+                                  <p>Turpis ut mollis, elit et vestibulum mattis integer aenean nulla, in vitae id augue vitae. Lacus eu nulla ante lorem, viverra pretium ipsum etiam, platea nec purus malesuada id leo, aliquam metus, ac velit viverra.</p>
+                                </div>
+                              </li>
+
+                            </ul>
+                          </div>
+                        </div>
+
+                        <!- Comment Form Block ******************************************
+                        *********************************************************** -->
+                        <!-- <div id="contact-form"> <! Form Wrapper -->
+                          <!-- <!- <hr>
+                          <! <! <! <h4>Leave a Comment</h4>
+                          <hr>
+                          <div class="row"> <! Inner Row -->
+                            <!-- <div class="col-md-10 form">
+                              <input type="text" class="form-control" placeholder="Name">
+                            </div> -->
+                           <!--  <div class="col-md-10 form">
+                              <input type="email" class="form-control" placeholder="Website">
+                            </div>
+                            --><!-- <div class="col-md-10 form">
+                              <textarea class="form-control" placeholder="Your Comment"></textarea>
+                              <button class="btn btn-primary contact-btn">Submit</button>
+                            </div>
+                          </div> --> <!-- End Inner Row -->
+                        <!-- </div> End Form Wrapper  -->
+
+                    </div>
+                </div>
+            </div>
+            <div class="space"></div>
+            <div class="clearfix"></div>
+        </div>
+    </section> -->
+
+    <section id="blog-nav"> <!-- Header Section -->
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <div class="col-xs-6 col-sm-6 col-md-6 nopadding">
+                    <a href="something.html">
+                        <div class="prev-btn control-nav text-left">
+                            <i class="fa fa-angle-double-left fa-2x"></i>
+                            <h5>Oldest Posts</h5>
+                        </div>
+                    </a>
+                </div> <!-- End Previous Posts -->
+
+                <!-- Next Posts -->
+                <div class="col-xs-6 col-sm-6 col-md-6 nopadding">
+                    <a href="delicious.html">
+                        <div class="next-btn control-nav text-right">
+                            <i class="fa fa-angle-double-right fa-2x"></i>
+                            <h5>Newest Posts</h5>
+                        </div>
+                    </a>
+                </div><!-- End Next Posts -->
+
+            </div> <!-- End Row -->
+        </div> <!-- End Container -->
+        <div class="clearfix"></div>
+    </section>
+
+    <!-- Footer Section
+    ================================================== -->
+    <footer>
+        <p class="copyright">© 2014 copyright. designed by  jlpmedia</p>
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
+    ================================================== -->
+    <!-- // <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <!-- // <script type="text/javascript" src="../js/jquery.1.11.1.js"></script> -->
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- // <script type="text/javascript" src="../js/bootstrap.js"></script> -->
+
+    <!-- Other JS Files -->
+    <!-- // <script type="text/javascript" src="../js/jquery.easing.min.js"></script> -->
+    <!-- // <script type="text/javascript" src="../js/jasny-bootstrap.min.js"></script> -->
+    <!-- // <script type="text/javascript" src="../js/SmoothScroll.js"></script> -->
+    <!-- // <script type="text/javascript" src="../js/nivo-lightbox.js"></script> -->
+
+    <!-- Custom Javascripts
+    ================================================== -->
+    <!-- // <script type="text/javascript" src="../js/main.js"></script> -->
+
+  </body>
+</html>

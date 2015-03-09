@@ -1,3 +1,3 @@
 # Be sure to restart your server when you modify this file.
 
-Rails.application.config.session_store :cookie_store, key: '_sample5_app_session'
+Sample5App::Application.config.session_store :cookie_store, key: '_sample5_app_session'

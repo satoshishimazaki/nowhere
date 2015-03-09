@@ -1,0 +1,38 @@
+<% provide(:title, @store.name) %>
+<section>
+ <div class="storeshow">
+      <h2>
+        <%= @store.name %>
+      </h2>
+      
+      <p><strong>基本情報 </strong><%=link_to '投稿', new_article_path %> | <%=link_to '編集', edit_store_path %></p>
+      <p>電話番号:<%= @store.tel %></p>
+      <p>URL:<%= @store.url %></p>
+      <p>メールアドレス:<%= @store.email %></p>
+      <p>業態:<%= @store.category %></p>
+      <p>address:<%= @store.address %></p>
+      <p><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@store.latitude}%2C#{@store.longitude}" %></p>  
+  </div>
+
+  <div class="store_article">
+    <p><strong>投稿記事一覧</strong></p>
+        <table class="sample_02">
+          <tbody>
+          <tr>
+          <th>日付</th>
+          <th>投稿タイトル</th>
+          <th>view数</th>
+          <th>編集</th>
+          </tr>
+          <% @articles.each do | article | %>
+          <tr>
+          <td><%=article.created_at.strftime("%Y年%m月%d日") %></td>
+          <td><%=link_to article.title[0..10], article_path(article.id) %>...</td>
+          <td><%=article.view_count %></td>
+          <td><%=link_to '編集', edit_article_path(article.id) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</section>
