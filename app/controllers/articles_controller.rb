@@ -20,6 +20,9 @@ class ArticlesController < ApplicationController
         # marker.json({title: article.title, herenowtitle: article.herenowtitle})
       end
       @articles = Article.all.where(store_id: @article.store.id).order( created_at: :desc )
+      # signed_in? do
+      #  @user = User.find(params[:user_id])
+      # end
       # @comments = @article.comments.all
       # @article.comments.build
       # raise

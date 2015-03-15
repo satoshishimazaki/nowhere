@@ -18,7 +18,7 @@ Sample5App::Application.routes.draw do
   # devise_for :admin_users, ActiveAdmin::Devise.config
   # ActiveAdmin.routes(self)
   resources :stores
-  resources :comments
+  # resources :comments
   resources :sessions, only: [:new, :create, :destroy]
   resources :articles
   resources :stores do 

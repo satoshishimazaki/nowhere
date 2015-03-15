@@ -181,9 +181,15 @@
                     <%= link_to "", @article, { :class => "fb-share-button", :target => "blank", "data-layout" => "button_count" } %>
                     <%= link_to "Tweet", @article, { :class => "twitter-share-button", :target => "blank" } %>
                     <div id="comment">
+                      <h2>Comments</h2>
+                          <% @article.comments.each do |comment| %>
+                          　　<hr>
+                              <p>name:<%= comment.user_name %></p>
+                              <p>comment:<%= comment.body %></p>                 
+                          <% end %> 
                       <div id="addcomment">
                       <h2>Add a comment:</h2>
-                          <%= form_for ( [@article.comments.build] ) do |f| %>
+                          <%= form_for ( [@article, @article.comments.build] ) do |f| %>
                             <p>
                               <%= f.label :user_name %><br>
                               <%= f.text_field :user_name %>
@@ -196,15 +202,7 @@
                               <%= f.submit %>
                             </p>
                           <% end %>
-                        </div>
-
-                      <h2>Comments</h2>
-                          <% @article.comments.each do |comment| %>
-                          
-                          　　<hr>
-                              <p><%= comment.user_name %></p>
-                              <p><%= comment.body %></p>                 
-                          <% end %>      
+                        </div>     
                     </div>
                 </div>
              </div>
