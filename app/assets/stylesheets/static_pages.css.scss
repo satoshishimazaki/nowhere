@@ -128,6 +128,15 @@ padding-top: 300px;
 //   }
 // }
 
+//index
+body .nopadding {
+  border-top: 3px solid white;
+}
+ 
+body .blog-box a{
+  text-shadow: 1px 1px 1px rgba(249, 253, 252, 0.62);
+}
+
 
 // ヘッダー要素
 .navbar {
@@ -671,6 +680,7 @@ body .blog-box .hover-text h2 {
   padding-bottom: 0px;
   padding-right: 0px;
   padding-left: 0px;
+  font-family: Helvetica,Arial,’lucida grande’,tahoma,verdana,arial,”hiragino kaku gothic pro”,meiryo,”ms pgothic”,sans-serif;
 }
 
 body .row li {
@@ -683,6 +693,7 @@ body .row li {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
+  font-family: Helvetica,Arial,’lucida grande’,tahoma,verdana,arial,”hiragino kaku gothic pro”,meiryo,”ms pgothic”,sans-serif;
 }
 
 h1 {
@@ -690,6 +701,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  font-family: Helvetica,Arial,’lucida grande’,tahoma,verdana,arial,”hiragino kaku gothic pro”,meiryo,”ms pgothic”,sans-serif;
 }
 
 h2 {
@@ -698,6 +710,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
+  font-family: Helvetica,Arial,’lucida grande’,tahoma,verdana,arial,”hiragino kaku gothic pro”,meiryo,”ms pgothic”,sans-serif;
   // color: $grayLight;
 }
 
@@ -707,12 +720,14 @@ h3 {
   margin-bottom: 30px;
   text-align: left;
   font-weight: normal;
+  font-family: Helvetica,Arial,’lucida grande’,tahoma,verdana,arial,”hiragino kaku gothic pro”,meiryo,”ms pgothic”,sans-serif;
   // color: $grayLight;
 }
 
 p {
   font-size: 1.3em;
   line-height: 1.7em;
+  font-family: Helvetica,Arial,’lucida grande’,tahoma,verdana,arial,”hiragino kaku gothic pro”,meiryo,”ms pgothic”,sans-serif;
 }
 
 

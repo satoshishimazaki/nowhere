@@ -1,9 +1,9 @@
 module ArticleHelper
   def article_image_for(image_name, option = {})
     if image_name
-     image_tag "/docs/#{image_name}", option
+     image_tag "/docs/#{image_name}", :size => '450x450'
     else
-     image_tag "noimage.gif", option
+     image_tag "noimage.gif", :size => '450x450'
     end
   end
 
