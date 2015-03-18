@@ -10,10 +10,10 @@
       <%= f.select :herenowtitle, ['旬', 'お得'], { include_blank: '選択してください' }, class: 'herenow' %>
 
       <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= f.text_area :title %>
 
       <%= f.label :content %>
-      <%= f.text_area(:content, cols: 60, rows: 10 ) %>
+      <%= f.text_area(:content, cols: 60, rows: 200 ) %>
 
       <%= f.label :address %>
       <%= f.text_field :address %>

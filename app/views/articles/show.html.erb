@@ -163,12 +163,14 @@
                     <h2><%= @article.herenowtitle %></h2>
                 </div>
                 <div class="title">
-                    <h3><%= @article.title %></h3>
+                    <h3><% @article.title %></h3>
+                    <%= simple_format(@article.title) %>
                 </div>
                 <div class="metas">
                     <p class="meta">店舗名：<%= @article.store.name %></p>
                     <p class="meta">残り時間：<%= @article.left_hour.floor %>時間<%= @article.left_minute.floor %>分</p>
-                    <p class="meta"><%= @article.content %></p>
+                    <p class="meta"><% @article.content %></p>
+                    <%= simple_format(@article.content) %>
                     <p class="fa fa-eye fa-2x"></i><%= @article.view_count%></p>
                     <p> <% if user_signed_in?%>
                          <span id="article_<%= @article.id %>">
