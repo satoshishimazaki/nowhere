@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212174657) do
+ActiveRecord::Schema.define(version: 20150320184707) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -127,6 +127,9 @@ ActiveRecord::Schema.define(version: 20150212174657) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "address"
+    t.string   "station"
+    t.string   "url_sec"
+    t.string   "address_sec"
   end
 
   add_index "stores", ["email"], name: "index_stores_on_email", unique: true
