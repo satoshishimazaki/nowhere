@@ -145,6 +145,6 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit( :content, :herenowtitle, :title, :address, :latitude, :longitude, :category, :body, :user_name, article_images_attributes: [:image])
+      params.require(:article).permit( :content, :title, :station, :address, :latitude, :longitude, :category, :body, :user_name, article_images_attributes: [:image])
     end
 end

@@ -6,9 +6,6 @@
     <%= form_for @article, html: { multipart: true} do |f| %>
      <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :herenowtitle %>
-      <%= f.select :herenowtitle, ['旬', 'お得'], { include_blank: '選択してください' }, class: 'herenow' %>
-
       <%= f.label :title %>
       <%= f.text_area :title %>
 

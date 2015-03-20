@@ -11,19 +11,28 @@
       <%= f.text_field :name %>
 
       <%= f.label :category, "種別" %>
-      <%= f.select :category, ['飲食', 'shopping','その他'], { include_blank: '選択してください' }, class: 'category' %>
+      <%= f.select :category, ['飲食','shopping','その他'], { include_blank: '選択してください' }, class: 'category' %>
 
       <%= f.label :email, "メールアドレス" %>
       <%= f.text_field :email %>
 
-      <%= f.label :address, "住所" %>
+      <%= f.label :address, "住所1" %>
       <%= f.text_field :address %>
+
+      <%= f.label :address_sec, "建物名" %>
+      <%= f.text_field :address_sec %>
+
+      <%= f.label :station, "最寄り駅" %>
+      <%= f.select :station, ['武蔵小杉','新丸子','元住吉','向河原','武蔵中原','その他'], { include_blank: '選択してください' }, class: 'category' %>
 
       <%= f.label :tel, "電話番号" %>
       <%= f.telephone_field :tel %>
 
-      <%= f.label :url %>
+      <%= f.label :url, "URL1" %>
       <%= f.text_field :url %>
+
+      <%= f.label :url_sec, "URL2" %>
+      <%= f.text_field :url_sec %>
 
       <%= f.label :password, "パスワード" %>
       <%= f.password_field :password %>
