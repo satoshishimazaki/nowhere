@@ -1117,12 +1117,56 @@ style{
 //article_show
 
 #addcomment {
-  margin-top: 200px;
+  margin-top: 20px;
+}
+
+#comment h5 {
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding-bottom: 0px;
+}
+
+#comment p {
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  line-height: 25px;
+  margin-bottom: 0px;
+  font-weight: 400;
+}
+
+#comment hr {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+
+#map {
+  overflow: hidden;
+  transform: translateZ(0px);
+  background-color: rgb(229, 227, 223);
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  max-width: 800px;
 }
 
 .carousel-inner > .item > img{
  width: 580px;
  // height: 580px;
+}
+
+#main-text {
+  margin-top: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-left-width: 10px;
+}
+
+div#main-text {
+  margin-top: 50px;
 }
 
 #inquery {
@@ -1135,12 +1179,20 @@ style{
   margin-top: 100px;
 }
 
+span{
+  margin-bottom: 4px;
+}
+
 //category 
 .nothing{
   padding-top: 50px;
   padding-left: 30px;
 }
 
-
-
+//g-map
+#gmap {
+  margin-top: 50px!important;
+  max-height: 800px;
+  margin-top: 10px;
+}
 
