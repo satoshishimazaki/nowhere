@@ -23,14 +23,15 @@
            <% else %>
              <li><%= link_to "登録", new_user_registration_path %> </li>
              <li><%= link_to "ログイン", new_user_session_path %></li>
-             <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+             <li><%= link_to "Facebookログイン", user_omniauth_authorize_path(:facebook) %></li>
            <% end %> 
          </ul>
 
       <nav id ="nav2">
       <ul>
+        <li class ="menu">種類</li>
         <li><%= link_to "飲食", index_eating_path %></li>
-        <li><%= link_to "shopping", index_shopping_path %></li>
+        <li><%= link_to "ショッピング", index_shopping_path %></li>
         <li><%= link_to "その他", index_other_path %></li>
       </ul>
       </nav>

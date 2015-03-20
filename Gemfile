@@ -22,6 +22,8 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'gmaps4rails'
+gem 'rails_autolink'
+gem 'therubyracer'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
