@@ -3,7 +3,7 @@
     <div class="container">
       <nav id="mobile-bar"></nav>
       <nav id ="nav1">
-        <ul>
+        <ul class ="menu">
         <li><%= link_to "home", root_path %></li>
          <% if user_signed_in? %> 
              <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
@@ -28,8 +28,8 @@
          </ul>
 
       <nav id ="nav2">
-      <ul>
-        <li class ="menu">種類</li>
+      <ul class ="menu">
+        <li>種類</li>
         <li><%= link_to "飲食", index_eating_path %></li>
         <li><%= link_to "ショッピング", index_shopping_path %></li>
         <li><%= link_to "その他", index_other_path %></li>
