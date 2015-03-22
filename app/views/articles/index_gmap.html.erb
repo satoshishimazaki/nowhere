@@ -14,7 +14,7 @@
                     <% @articles.each do | article | %> 
                   <hr>  
                      <li><%=article_image_for article.article_images.map{|articleimage| articleimage.image }.first %>
-                      　<span><%=article.herenowtitle+" "%>タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...  </span><br>
+                      　<span>タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...  </span><br>
                       　<span>店舗名：<%=link_to article.store.name, article_path(article.id) %>...</span><br>
                         <span>Like数：<%=article.favorites.count %></span>
                      </li>
