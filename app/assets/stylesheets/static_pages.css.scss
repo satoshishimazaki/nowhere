@@ -408,7 +408,7 @@ font-size: 16px;
 letter-spacing: 1px;
 font-weight: 400;
 line-height: 18px;
-text-transform: uppercase;
+// text-transform: uppercase;
 font-family: "Lato",sans-serif;
 }
 
@@ -983,7 +983,7 @@ aside {
 margin-top: 100px;
 border-top-style: solid;
 text-align: center;
-text-transform: uppercase;
+// text-transform: uppercase;
 // padding: 40px 0px 30px 0px;
 background: #ffffff;
 position: relative;
@@ -1123,7 +1123,7 @@ style{
 #comment h5 {
   font-size: 20px;
   letter-spacing: 3px;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   padding-bottom: 0px;
 }
 
@@ -1195,4 +1195,16 @@ span{
   max-height: 800px;
   margin-top: 10px;
 }
+
+//店舗基本情報画面
+.storeshow h2 {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
 
