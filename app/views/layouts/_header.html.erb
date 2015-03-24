@@ -5,6 +5,8 @@
       <nav id ="nav1">
         <ul>
         <li><%= link_to "home", root_path %></li>
+        <hr>
+        <li class="menubarcol">ユーザー情報</li>
          <% if user_signed_in? %> 
              <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
              <!-- *_path はUserモデルを作成したときに、
@@ -29,8 +31,7 @@
 
       <nav id ="nav2">
       <ul>
-        <hr>
-        <li>種類</li>
+        <li class="menubarcol">カテゴリ</li>
         <li><%= link_to "飲食", index_eating_path %></li>
         <li><%= link_to "ショッピング", index_shopping_path %></li>
         <li><%= link_to "その他", index_other_path %></li>
@@ -52,7 +53,7 @@
               </a>
               <ul class="dropdown-menu">
          --> 
-         <hr>
+         <li class="menubarcol">発信者情報</li>
          <li><%= link_to "基本情報", store_path(current_store.id) %></li>
          <li><%= link_to "投稿画面", new_article_path %></li>
          <li><%= link_to "ログアウト", session_path(current_store.id), method: :delete %></li>

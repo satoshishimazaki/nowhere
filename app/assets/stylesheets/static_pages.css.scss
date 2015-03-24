@@ -135,7 +135,7 @@ body .nopadding {
 }
  
 body .blog-box a{
-  text-shadow: 1px 1px 1px rgba(249, 253, 252, 0.62);
+  // text-shadow: 1px 1px 1px rgba(249, 253, 252, 0.62);
 }
 
 
@@ -148,6 +148,12 @@ body .blog-box a{
 .navbar-inner .container{
   background-color: black;
   padding-top: 10px;
+  min-height: 40px;
+  font-size: 1.4em;
+}
+
+.fa{
+  font-size: 1.5em;
 }
 
 body .nav pull-right a:hover {
@@ -203,7 +209,7 @@ color: #969698;
 //投稿画面
 #post #word h1 {
 padding-top: 40px;
-font-family: 'sans-serif';
+font-family: Helvetica,Arial,’lucida grande’,tahoma,verdana,arial,”hiragino kaku gothic pro”,meiryo,”ms pgothic”,sans-serif;
 font-size: 30px;
 }
 
@@ -355,7 +361,7 @@ body .text-overlay{
 }
 
 body #post h1 {
-font-family: 'sans-serif';
+font-family: Helvetica,Arial,’lucida grande’,tahoma,verdana,arial,”hiragino kaku gothic pro”,meiryo,”ms pgothic”,sans-serif;
 font-size: 50px;
 }
 
@@ -370,7 +376,7 @@ font-size: 80px;
 }
 
 body h1 {
-font-family: 'sans-serif';
+font-family: Helvetica,Arial,’lucida grande’,tahoma,verdana,arial,”hiragino kaku gothic pro”,meiryo,”ms pgothic”,sans-serif;
 font-size: 80px;
 }
 
@@ -395,7 +401,7 @@ padding: 0px 0;
 }
 
 body {
-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-family: Helvetica,Arial,’lucida grande’,tahoma,verdana,arial,”hiragino kaku gothic pro”,meiryo,”ms pgothic”,sans-serif;
 font-size: 14px;
 // line-height: 0;
 color: #333;
@@ -409,7 +415,7 @@ letter-spacing: 1px;
 font-weight: 400;
 line-height: 18px;
 // text-transform: uppercase;
-font-family: "Lato",sans-serif;
+font-family: Helvetica,Arial,’lucida grande’,tahoma,verdana,arial,”hiragino kaku gothic pro”,meiryo,”ms pgothic”,sans-serif;
 }
 
 body .name {
@@ -446,7 +452,7 @@ font-size: 18px;
 
 .text-overay h2 {
 font-size: 100%;
-font-family: 'Great Vibes', cursive;
+font-family: Helvetica,Arial,’lucida grande’,tahoma,verdana,arial,”hiragino kaku gothic pro”,meiryo,”ms pgothic”,sans-serif;
 text-transform: none;
 letter-spacing: 0;
 font-size: 36px;
@@ -827,6 +833,27 @@ body .navbar-inner .container {
 #word {
   width: 130px;
   height: 10px;
+}
+
+div#build-menu li{
+  font-size: 17px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.mobile-nav-0{
+  padding-left: 0px;
+}
+
+.menubarcol{
+  background-color: rgba(239, 244, 239, 0.4)
+} 
+
+hr {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border: 0;
+  border-top: 1px solid #7E7C7C;
 }
 
 /* footer */
