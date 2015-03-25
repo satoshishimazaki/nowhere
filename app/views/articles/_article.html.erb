@@ -8,7 +8,7 @@
           <% if Time.now - article.created_at < 24*60*60 %>
                <h5><%= "new" %></h5>
           <% end %>            
-          <h2><%= link_to article.title, article_path(article.id) %></h2>
+          <h2><%= link_to simple_format(article.title), article_path(article.id) %></h2>
             <div class="title_box">
               <div class="nowheretitle">
               <ul>
