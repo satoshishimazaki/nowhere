@@ -1,18 +1,19 @@
 <div id ="search_output">
-<h2>「<%= @search_word %>」に該当する店舗</h2>
 
-<ul class="users">
-  <% @stores.each do |store|%>
-    <%= link_to store.name, store_path(store.id) %>
-  <% end %>
+<p>「<%= @search_word %>」に該当する記事</p>
+
+<ul class="search">
+  <% @articles.each do | article | %> 
+	        <hr>
+		       <div class="article_index"><p><%=article_image_for article.article_images.map{|articleimage| articleimage.image }.first %>タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...<br>店舗名：<%=link_to article.store.name, article_path(article.id) %>...<br>Like数：<%=article.favorites.count %></p></div>
+	         <% end %>
 </ul>
 
+<p>「<%= @search_word %>」に該当する店舗</p>
 
-<h2>「<%= @search_word %>」に該当する記事</h2>
-
-<ul class="users">
-  <% @articles.each do |article|%>
-    <%= link_to article.title, article_path(article.id) %>
+<ul class="search">
+  <% @stores.each do |store|%>
+    <li><%= link_to store.name, store_path(store.id) %></li>
   <% end %>
 </ul>
 </div>

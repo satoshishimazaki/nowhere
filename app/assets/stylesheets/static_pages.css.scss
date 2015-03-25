@@ -1128,12 +1128,17 @@ div#small {
 //favorite
 
 #favorite_index img{
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
   vertical-align: top;
   float: left;
   text-align: left
 }
+
+.article_index{
+  height: 100px;
+}
+
 
 //gmap infovar
 
@@ -1231,6 +1236,15 @@ span{
   text-transform: none;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+//search 記事
+.article_index img{
+  width: 90px;
+  height: 90px;
+  vertical-align: top;
+  float: left;
+  text-align: left
 }
 
 
