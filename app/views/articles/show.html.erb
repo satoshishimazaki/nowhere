@@ -40,14 +40,14 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 
     <!-- facebook share -->
-    <meta property="og:title" content="#{@article.title}">
+    <meta property="og:title" content=<%= @article.title %>>
     <meta property="og:url" 
        content="http://160.16.78.107/articles/#{@article.id}">
     <meta property="og:site_name" content="now here">
     <meta property="og:description" 
-       content="#{@article.content[0..20]...}">
+       content=<%= @article.content[0..20] %>>
     <meta property="og:image" 
-       content="/docs/#{@article.article_images.map{|articleimage| articleimage.image }.first}">
+       content=<%= @article.article_images.map{|articleimage| articleimage.image }.first %>>
 
     <!-- Modernizr
     ================================================== -->
