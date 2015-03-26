@@ -3,7 +3,7 @@
     <p><strong>お気に入り一覧</strong></p>
             <% @articles.each do | article | %> 
 	        <hr>
-		       <div class="article_index"><p><%=article_image_for article.article_images.map{|articleimage| articleimage.image }.first %>タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...<br>店舗名：<%=link_to article.store.name[0..10], article_path(article.id) %>...<br>Like数：<%=article.favorites.count %></p></div>
+		       <div class="article_index"><h15><%=article_image_for article.article_images.map{|articleimage| articleimage.image }.first %>タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...<br>店舗名：<%=link_to article.store.name[0..10], article_path(article.id) %>...<br>Like数：<%=article.favorites.count %></h15></div>
 	         <% end %>
 	  </div>
 </div>

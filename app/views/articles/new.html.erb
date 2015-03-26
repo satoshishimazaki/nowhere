@@ -6,16 +6,16 @@
     <%= form_for @article, html: { multipart: true} do |f| %>
      <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :title %>
+      <%= f.label :title, "タイトル" %>
       <%= f.text_area :title , cols: 16%>
 
-      <%= f.label :content %>
+      <%= f.label :content, "記事" %>
       <%= f.text_area :content, cols: 16, rows: 15 %>
 
-      <%= f.label :address %>
+      <%= f.label :address, "住所" %>
       <%= f.text_field :address %>
 
-      <%= f.label :category %>
+      <%= f.label :category, "カテゴリ" %>
       <%= f.select :category, ['飲食', 'shopping', 'その他'], { include_blank: '選択してください' }, class: 'category' %>
 
       <%= f.label :article_images, '画像' %>
@@ -27,7 +27,7 @@
 
           <%= link_to_add_fields "写真追加", f, :article_images %>
 
-      <%= f.submit "Post my acrticle", class: "btn btn-large btn-primary" %>
+      <%= f.submit "投稿", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>

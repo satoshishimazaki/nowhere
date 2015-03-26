@@ -113,84 +113,80 @@
             <div class="container">
                 <div class="row">                   
                  <div class="col-md-7 col-lg-7 col-md-offset-0 col-lg-offset-0">
-       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->   
-            <ol class="carousel-indicators">
-              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-              <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-              <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-            </ol>
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-              <div class="item active">
-                <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.first, :size =>'100*100'  %>
-                <!-- <img src="....." alt="....."> -->
-                <div class="carousel-caption">
-                  .....
-                </div>
-              </div>
-              <div class="item">
-                <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.second %>
-                <!-- <img src="..." alt="..."> -->
-                <div class="carousel-caption">
-                  .....
-                </div>
-              </div>
-              <div class="item">
-                <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.third %>
-               <!-- <img src="..." alt="..."> -->
-                <div class="carousel-caption">
-                  .....
-                </div>
-              </div>
-              <div class="item">
-                <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.fourth %>
-                <!-- <img src="..." alt="..."> -->
-                <div class="carousel-caption">
-                  .....
-                </div>
-              </div>
-              <div class="item">
-                 <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.fifth %>
-                 <!-- <img src="..." alt="..."> -->
-                <div class="carousel-caption">
-                  .....
-                </div>
-              </div>
-              .....
-           </div>
+             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                  <!-- Indicators -->   
+                  <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                  </ol>
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                      <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.first, :size =>'100*100'  %>
+                      <!-- <img src="....." alt="....."> -->
+                      <div class="carousel-caption">
+                        .....
+                      </div>
+                    </div>
+                    <div class="item">
+                      <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.second %>
+                      <!-- <img src="..." alt="..."> -->
+                      <div class="carousel-caption">
+                        .....
+                      </div>
+                    </div>
+                    <div class="item">
+                      <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.third %>
+                     <!-- <img src="..." alt="..."> -->
+                      <div class="carousel-caption">
+                        .....
+                      </div>
+                    </div>
+                    <div class="item">
+                      <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.fourth %>
+                      <!-- <img src="..." alt="..."> -->
+                      <div class="carousel-caption">
+                        .....
+                      </div>
+                    </div>
+                    <div class="item">
+                       <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.fifth %>
+                       <!-- <img src="..." alt="..."> -->
+                      <div class="carousel-caption">
+                        .....
+                      </div>
+                    </div>
+                    .....
+                 </div>
 
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-           <!--    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> -->
-              <i class="fa fa-chevron-left"></i>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-              <!-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> -->
-              <i class="fa fa-chevron-right"></i>
-              <span class="sr-only">Next</span>
-            </a>
-        </div>                               
+                  <!-- Controls -->
+                  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                 <!--    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> -->
+                    <i class="fa fa-chevron-left"></i>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <!-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> -->
+                    <i class="fa fa-chevron-right"></i>
+                    <span class="sr-only">Next</span>
+                  </a>
+              </div>                               
       </div>
         <!-- <div class="text-overlay"> -->
             <div class="explain">
-                <div class="title">
-                    <h2><%= @article.herenowtitle %></h2>
-                </div>
-                <div class="title">
-                    <h3><% @article.title %></h3>
-                    <%= simple_format(@article.title) %>
-                </div>
-                <div class="metas">
-                    <p class="meta">店舗名：<%= @article.store.name %></p>
+               <p class="meta">店舗名：<%= @article.store.name %></p>
                     <p class="meta">残り時間：<% if @article.left_time > 24.hours %>
                                  <%= @article.left_day.floor %>日
                                 <% else %>
                                  <%= @article.left_hour.floor %>時間<%= @article.left_minute.floor %>分
                                 <% end %></p>
+                <div class="title">
+                    <%= simple_format(@article.title) %>
+                </div>
+                <div class="metas">
                     <p class="meta"><% @article.content %></p>
                     <%= auto_link(simple_format(@article.content)) %>
                     <p class="fa fa-eye fa-2x"></i><%= @article.view_count%></p>
@@ -258,7 +254,7 @@
                               <%= f.text_area :body %>
                             </p>
                             <p>
-                              <%= f.submit %>
+                              <%= f.submit "投稿" %>
                             </p>
                           <% end %>
                         </div>     
