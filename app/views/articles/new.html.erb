@@ -1,33 +1,35 @@
 <% provide(:title, 'post') %>
-<div id="post"><div id="word"><h1>投稿</h1></div></div>
+<div class="storesign">
+<h1>投稿画面</h1>
 
-<div class="row">
-  <div class="span6">
-    <%= form_for @article, html: { multipart: true} do |f| %>
-     <%= render 'shared/error_messages', object: f.object %>
+  <div class="row">
+    <div class="span6">
+      <%= form_for @article, html: { multipart: true} do |f| %>
+       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :title, "タイトル" %>
-      <%= f.text_area :title , cols: 16%>
+        <%= f.label :title, "タイトル" %>
+        <%= f.text_area :title , cols: 16%>
 
-      <%= f.label :content, "記事" %>
-      <%= f.text_area :content, cols: 16, rows: 15 %>
+        <%= f.label :content, "記事" %>
+        <%= f.text_area :content, cols: 16, rows: 15 %>
 
-      <%= f.label :address, "住所" %>
-      <%= f.text_field :address %>
+        <%= f.label :address, "住所" %>
+        <%= f.text_field :address %>
 
-      <%= f.label :category, "カテゴリ" %>
-      <%= f.select :category, ['飲食', 'shopping', 'その他'], { include_blank: '選択してください' }, class: 'category' %>
+        <%= f.label :category, "カテゴリ" %>
+        <%= f.select :category, ['飲食', 'shopping', 'その他'], { include_blank: '選択してください' }, class: 'category' %>
 
-      <%= f.label :article_images, '画像' %>
-      <%= f.fields_for :article_images do |builder| %>      
+        <%= f.label :article_images, '画像' %>
+        <%= f.fields_for :article_images do |builder| %>      
 
-          <%= render "article_image_fields", f: builder %>
+            <%= render "article_image_fields", f: builder %>
 
-      <% end %>    
+        <% end %>    
 
-          <%= link_to_add_fields "写真追加", f, :article_images %>
+            <%= link_to_add_fields "写真追加", f, :article_images %>
 
-      <%= f.submit "投稿", class: "btn btn-large btn-primary" %>
-    <% end %>
+        <%= f.submit "投稿", class: "btn btn-large btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
