@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150320184707) do
+ActiveRecord::Schema.define(version: 20150326152835) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -44,14 +44,19 @@ ActiveRecord::Schema.define(version: 20150320184707) do
   create_table "articles", force: true do |t|
     t.string   "herenowtitle"
     t.string   "title"
-    t.string   "content"
+    t.text     "content",      limit: 255
     t.integer  "store_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "address"
+<<<<<<< HEAD
     t.integer  "view_count",   default: 0
+=======
+    t.time     "deadline"
+    t.integer  "view_count",               default: 0
+>>>>>>> fa52c8bf1a856753b4284d5d50cf39ad49bb81f8
     t.string   "image_one"
     t.string   "image_two"
     t.string   "image_three"
@@ -107,6 +112,8 @@ ActiveRecord::Schema.define(version: 20150320184707) do
     t.string   "station"
     t.string   "url_sec"
     t.string   "address_sec"
+    t.string   "holiday"
+    t.string   "managetime"
   end
 
   add_index "stores", ["email"], name: "index_stores_on_email", unique: true
