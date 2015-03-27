@@ -7,6 +7,9 @@ module ArticleHelper
     end
   end
 
+# 　def new_image_for(image_name, option = {})
+#     image_tag "icn_new_png", :height =>'50'
+#   end
   # def time_valid
   #   @articles = Article.all
   #   @articles = Article.where('created_at > ?', Time.now - 24.hours).order( created_at: :desc )

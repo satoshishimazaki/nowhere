@@ -138,6 +138,55 @@ body .blog-box a{
   // text-shadow: 1px 1px 1px rgba(249, 253, 252, 0.62);
 }
 
+.new{
+  width: 50px;
+  height: 50px;
+  // margin-top: 10px;
+}
+
+//index
+.indexarticles{
+  margin-top: 9px;
+}
+
+.indextitle{
+  // height: 200px;
+}
+
+.storename{
+  // float: left;
+}
+
+.stationname{
+  float: left;
+  // margin-left: 100px;
+}
+
+#time{
+  margin-left: 70px;
+}
+
+.view{
+  float: left;
+}
+
+.distance{
+  margin-left: 70px;
+}
+
+.nowheretitle ul{
+  padding-left: 10px;
+  margin-top: 50px;
+}
+
+.like {
+  clear: both;
+}
+
+.col-sm-6 {
+  margin-top: 0px;
+  border-top-width: 0px;
+}
 
 // ヘッダー要素
 .navbar {
@@ -958,6 +1007,7 @@ input {
   li {
     padding: 10px 0;
   }
+  margin-top: 8px;
 }
 .content {
   display: block;
@@ -1295,4 +1345,8 @@ h15{
   width: 100%;
   max-width: 650px;
 }
+
+
+
+
 

@@ -77,7 +77,8 @@
         <div class="container-fluid"> <!-- Start Container -->
           <div class="row"> <!-- Start Row -->
             <div class = "select_geo">
-            </div>     
+            </div> 
+            <div class = 'indexarticles'>    
             <div class = 'articles'>
               <% @articles.each_with_index do |article, index| %>
 
@@ -88,33 +89,34 @@
                             <!-- <img src="img/blog/02.jpg" alt="img" class="img-responsive"> -->
                         <div class="hover-text">
                                         <!-- <a href="portfolio/cityscape.html"><h2><%= link_to article.title, article_path(article.id) %></h2></a> -->
+                          
                           <% if Time.now - article.created_at < 24*60*60 %>
-                               <h5><%= "new" %></h5>
+                            <div class="new"><%= image_tag 'icn_new.png', :size => '10×10' %></div>
                            <% end %>            
-                          <h2><%= link_to simple_format(article.title), article_path(article.id) %></h2>
+                          <div class='indextitle'><h30><%= link_to simple_format(article.title), article_path(article.id) %></h30></div>
                             <div class="title_box">
                               <div class="nowheretitle">
                               <ul>
                               <!-- <li><%= article.herenowtitle %></li> -->
-                              <li><%= article.store.name %></li>
-                               <li><%= article.store.station %></li>
-                              <li>残り時間:
+                              <div class="storename"><li><%= article.store.name %></li></div>
+                              <div class="stationname"><li><%= article.store.station %></li></div>
+                              <div id="time"><li>残り時間:
                                 <% if article.left_time > 24.hours %>
                                  <%= article.left_day.floor %>日
                                 <% else %>
                                  <%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分
-                                <% end %></li>
-                              <li>View:<%= article.view_count %></li>
-                              <li><span id="article_distance_<%= index %>"></span></li>
+                                <% end %></li></div>
+                              <div class='view'><li>View:<%= article.view_count %></li></div>
+                              <div class='distance'><li><span id="article_distance_<%= index %>"></span></li></div>
                             
                               <% if user_signed_in?%>
-                                 <li><span id="article_<%= article.id %>">
+                                 <div class='like'><li><span id="article_<%= article.id %>">
                                      <%= render 'favorites/favorite_btn', article: article %>
                                  </span>
                                  <span id="fav_<%=article.id %>">
                                      <%= article.favorites.count %>
                                  </span>
-                              <% end %></li>
+                              <% end %></li></div>
                               </ul>
                               </div>
                             </div>
@@ -123,6 +125,7 @@
                     </div>
                 </div>
               <% end %>
+            </div>
             </div>
          </div> <!-- End Row -->
         </div> <!-- End Container -->
