@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
       @hash = Gmaps4rails.build_markers(@articles) do |article, marker|
         marker.lat article.latitude          
         marker.lng article.longitude
-        marker.infowindow "<a href='/articles/#{article.id}/'>"'<h20>'+article.store.station+":"+article.title[0..10]+"</h20></a><br>"+article.store.name+'<br>'+"<a href='http://maps.google.com/maps?ll=#{article.latitude},#{article.longitude}&daddr=#{article.latitude},#{article.longitude}', target=blank >"'経路'"'</a><br>"+"<img  height='30' width='30' src='/docs/#{article.article_images.map{|articleimage| articleimage.image }.first}'>"
+        marker.infowindow "<a href='/articles/#{article.id}/'>"+article.store.station+":"+article.title[0..10]+"</a><br>"+article.store.name+'<br>'+"<a href='http://maps.google.com/maps?ll=#{article.latitude},#{article.longitude}&daddr=#{article.latitude},#{article.longitude}', target=blank >"'経路'"'</a><br>"+"<a href='/articles/#{article.id}/'><img  height='30' width='30' src='/docs/#{article.article_images.map{|articleimage| articleimage.image }.first}'></a>"
         # marker.picture "#sample5_app/public/docs/ショコラ.jpg"
         # marker.json({title: article.title})
       end 
