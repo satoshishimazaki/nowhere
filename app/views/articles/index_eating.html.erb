@@ -79,48 +79,54 @@
             <div class = "select_geo">
             </div>
             <div class = 'indexarticles'> 
-            <div class = 'articles'>
-            <% if @articles.empty? %>  
-              <div class="nothing"><p>投稿情報は現在ございません</p></div>
-            <%else%>   
-             <% @articles.each_with_index do |article, index| %>
-
+              <div class = 'articles'>
+                <% if @articles.empty? %>  
+                  <div class="nothing"><p>投稿情報は現在ございません</p></div>
+                <%else%>   
+                   <% @articles.each_with_index do |article, index| %>
                 <div class="col-sm-6 col-md-6 col-lg-6 nopadding">
                   <div class="blog-box" id="article_<%= index %>">
-                        <div class="hover-bg">                     
+                    <div class="hover-bg">                     
                           <%= article_image_for article.article_images.map{|articleimage| articleimage.image }.first %>
                             <!-- <img src="img/blog/02.jpg" alt="img" class="img-responsive"> -->
                         <div class="hover-text">
                                         <!-- <a href="portfolio/cityscape.html"><h2><%= link_to article.title, article_path(article.id) %></h2></a> -->
-                          
                           <% if Time.now - article.created_at < 24*60*60 %>
                             <div class="new"><%= image_tag 'icn_new.png', :size => '10×10' %></div>
                            <% end %>            
                           <div class='indextitle'><h30><%= link_to simple_format(article.title), article_path(article.id) %></h30></div>
                             <div class="title_box">
                               <div class="nowheretitle">
-                              <ul>
-                              <!-- <li><%= article.herenowtitle %></li> -->
-                              <div class="storename"><li><%= article.store.name %></li></div>
-                              <div class="stationname"><li><%= article.store.station %></li></div>
-                              <div id="time"><li>残り時間:
-                                <% if article.left_time > 24.hours %>
-                                 <%= article.left_day.floor %>日
-                                <% else %>
-                                 <%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分
-                                <% end %></li></div>
-                              <div class='view'><li>View:<%= article.view_count %></li></div>
-                              <div class='distance'><li><span id="article_distance_<%= index %>"></span></li></div>
-                            
-                              <% if user_signed_in?%>
-                                 <div class='like'><li><span id="article_<%= article.id %>">
-                                     <%= render 'favorites/favorite_btn', article: article %>
-                                 </span>
-                                 <span id="fav_<%=article.id %>">
-                                     <%= article.favorites.count %>
-                                 </span>
-                              <% end %></li></div>
-                              </ul>
+                                <ul>
+                                  <!-- <li><%= article.herenowtitle %></li> -->
+                                  <div class="storename"><li><%= article.store.name %></li></div>
+                                  <div class="stationname"><li><%= article.store.station %></li></div>
+                                  <div id="time">
+                                    <li>残り時間:
+                                      <% if article.left_time > 24.hours %>
+                                       <%= article.left_day.floor %>日
+                                      <% else %>
+                                       <%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分
+                                      <% end %>
+                                    </li>
+                                  </div>
+                                  <div class='view'><li>View:<%= article.view_count %></li></div>
+                                  <div class='distance'>
+                                    <li><span id="article_distance_<%= index %>"></span></li>
+                                  </div>
+                                  <% if user_signed_in?%>
+                                     <div class='like'>
+                                      <li>
+                                        <span id="article_<%= article.id %>">
+                                         <%= render 'favorites/favorite_btn', article: article %>
+                                        </span>
+                                        <span id="fav_<%=article.id %>">
+                                         <%= article.favorites.count %>
+                                        </span>
+                                      </li>
+                                    </div>
+                                  <% end %>
+                                </ul>
                               </div>
                             </div>
                           </div>
@@ -128,8 +134,8 @@
                     </div>
                 </div>
               <% end %>
-            <% end %>
-          </div>
+              <% end %>
+            </div>
           </div>
          </div> <!-- End Row -->
         </div> <!-- End Container -->
