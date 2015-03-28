@@ -1,9 +1,9 @@
 module ArticleHelper
   def article_image_for(image_name, option = {})
     if image_name
-     image_tag "/docs/#{image_name}", :height =>'320', :align => 'top'
+     image_tag "/docs/#{image_name}", :align => 'top'
     else
-     image_tag "noimage.gif", :height =>'320', :align => 'top'
+     image_tag "noimage.gif", :align => 'top'
     end
   end
 

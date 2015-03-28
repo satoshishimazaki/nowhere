@@ -84,7 +84,7 @@
                   <div class="nothing"><p>投稿情報は現在ございません</p></div>
                 <%else%>   
                    <% @articles.each_with_index do |article, index| %>
-                <div class="col-sm-6 col-md-6 col-lg-6 nopadding">
+                <div class="col-sm-3 col-md-3 col-lg-3 nopadding">
                   <div class="blog-box" id="article_<%= index %>">
                     <div class="hover-bg">                     
                           <%= article_image_for article.article_images.map{|articleimage| articleimage.image }.first %>
@@ -92,7 +92,7 @@
                         <div class="hover-text">
                                         <!-- <a href="portfolio/cityscape.html"><h2><%= link_to article.title, article_path(article.id) %></h2></a> -->
                           <% if Time.now - article.created_at < 24*60*60 %>
-                            <div class="new"><%= image_tag 'icn_new.png', :size => '10×10' %></div>
+                            <div class="new"><%= image_tag 'icn_new.png', :size => '10×10', :class => "new" %></div>
                            <% end %>            
                           <div class='indextitle'><h30><%= link_to simple_format(article.title), article_path(article.id) %></h30></div>
                             <div class="title_box">
