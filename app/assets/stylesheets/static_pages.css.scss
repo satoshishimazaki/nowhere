@@ -145,11 +145,20 @@ body .blog-box a{
 }
 
 //index
+.title_box{
+  position: absolute;
+  bottom: 20px;
+}
+
 .indexarticles{
   margin-top: 9px;
 }
 
 .indextitle{
+  position: relative;
+  top: 20px;
+  // margin-right: 150px;
+  // text-align: center;
   // height: 200px;
 }
 
@@ -1079,6 +1088,9 @@ div#small {
 }
 #postinfo {
   float: left;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  // margin: 20px;
 }
 
 // gmap画面
@@ -1142,7 +1154,7 @@ div#small {
   -webkit-transform: none;
   display: none;
   width: 260px;
-  padding: 0;
+  padding-left: 10px;
   position: static;
   z-index: 0;
   top: 0;
@@ -1362,6 +1374,19 @@ h15{
 
 section {
   overflow: scroll; 
+}
+
+button.button1 {
+  padding-top: 0px;
+}
+
+input#word {
+  margin-bottom: 0px!important;
+  border-bottom-width: 0px;
+  border-top-width: 0px;
+}
+.search-input#word{
+  margin-bottom: 0px;
 }
 
 
