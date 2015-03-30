@@ -1380,6 +1380,7 @@ section {
 button.button1 {
   padding-top: 0px;
   padding-bottom: 0px;
+  height: 15px;
 }
 
 input#word {
@@ -1391,5 +1392,7 @@ input#word {
   margin-bottom: 0px;
 }
 
-
+i.fa.fa-search{
+  height: 15px!important;
+}
 
