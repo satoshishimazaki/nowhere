@@ -147,7 +147,7 @@ body .blog-box a{
 //index
 .title_box{
   position: absolute;
-  bottom: 20px;
+  bottom: 50px;
 }
 
 .indexarticles{
@@ -581,7 +581,7 @@ body body {
   // width: 100%;
   background-size: cover;
   // max-width: 640px;
-  max-height: 320px;
+  max-height: 420px;
   background-position: center top;
   background-repeat: no-repeat;
 }
@@ -593,6 +593,11 @@ color: #FCFDFD !important;
 body #blog.posts .blog-box .hover-text {
   background-color: rgba(71, 66, 36, 0.41);
 }
+
+body .nopadding {
+  height: 390px;
+}
+
 
 //store_show
 
