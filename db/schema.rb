@@ -24,27 +24,9 @@ ActiveRecord::Schema.define(version: 20150326152835) do
     t.datetime "updated_at"
   end
 
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
-
-  create_table "admin_users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
-  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "article_images", force: true do |t|
     t.string   "image"
@@ -62,15 +44,14 @@ ActiveRecord::Schema.define(version: 20150326152835) do
   create_table "articles", force: true do |t|
     t.string   "herenowtitle"
     t.string   "title"
-    t.text     "content",      limit: 255
+    t.text     "content"
     t.integer  "store_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "address"
-    t.time     "deadline"
-    t.integer  "view_count",               default: 0
+    t.integer  "view_count",   default: 0
     t.string   "image_one"
     t.string   "image_two"
     t.string   "image_three"
@@ -79,15 +60,7 @@ ActiveRecord::Schema.define(version: 20150326152835) do
     t.string   "category"
   end
 
-  add_index "articles", ["store_id", "created_at"], name: "index_articles_on_store_id_and_created_at"
-
-  create_table "articles_article_images", id: false, force: true do |t|
-    t.integer "article_id",       null: false
-    t.integer "article_image_id", null: false
-  end
-
-  add_index "articles_article_images", ["article_id"], name: "index_articles_article_images_on_article_id"
-  add_index "articles_article_images", ["article_image_id"], name: "index_articles_article_images_on_article_image_id"
+  add_index "articles", ["store_id", "created_at"], name: "index_articles_on_store_id_and_created_at", using: :btree
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
@@ -105,6 +78,10 @@ ActiveRecord::Schema.define(version: 20150326152835) do
     t.datetime "updated_at"
   end
 
+  add_index "favorites", ["article_id"], name: "index_favorites_on_article_id", using: :btree
+  add_index "favorites", ["user_id", "article_id"], name: "index_favorites_on_user_id_and_article_id", unique: true, using: :btree
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
+
   create_table "inquiries", force: true do |t|
     t.string   "name"
     t.string   "email"
@@ -116,13 +93,13 @@ ActiveRecord::Schema.define(version: 20150326152835) do
   create_table "stores", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.text     "tel",             limit: 255
+    t.text     "tel"
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",                       default: false
+    t.boolean  "admin",           default: false
     t.string   "category"
     t.float    "latitude"
     t.float    "longitude"
@@ -134,8 +111,8 @@ ActiveRecord::Schema.define(version: 20150326152835) do
     t.string   "managetime"
   end
 
-  add_index "stores", ["email"], name: "index_stores_on_email", unique: true
-  add_index "stores", ["remember_token"], name: "index_stores_on_remember_token"
+  add_index "stores", ["email"], name: "index_stores_on_email", unique: true, using: :btree
+  add_index "stores", ["remember_token"], name: "index_stores_on_remember_token", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -155,8 +132,8 @@ ActiveRecord::Schema.define(version: 20150326152835) do
     t.string   "name"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
 
   create_table "users_article_images", id: false, force: true do |t|
@@ -164,8 +141,8 @@ ActiveRecord::Schema.define(version: 20150326152835) do
     t.integer "article_image_id", null: false
   end
 
-  add_index "users_article_images", ["article_image_id"], name: "index_users_article_images_on_article_image_id"
-  add_index "users_article_images", ["user_id"], name: "index_users_article_images_on_user_id"
+  add_index "users_article_images", ["article_image_id"], name: "index_users_article_images_on_article_image_id", using: :btree
+  add_index "users_article_images", ["user_id"], name: "index_users_article_images_on_user_id", using: :btree
 
   create_table "views", force: true do |t|
     t.integer  "user_id"
@@ -174,8 +151,8 @@ ActiveRecord::Schema.define(version: 20150326152835) do
     t.datetime "updated_at"
   end
 
-  add_index "views", ["article_id"], name: "index_views_on_article_id"
-  add_index "views", ["user_id", "article_id"], name: "index_views_on_user_id_and_article_id", unique: true
-  add_index "views", ["user_id"], name: "index_views_on_user_id"
+  add_index "views", ["article_id"], name: "index_views_on_article_id", using: :btree
+  add_index "views", ["user_id", "article_id"], name: "index_views_on_user_id_and_article_id", unique: true, using: :btree
+  add_index "views", ["user_id"], name: "index_views_on_user_id", using: :btree
 
 end
