@@ -5,7 +5,7 @@ class ArticleImage < ActiveRecord::Base
 
   def image=(image)
     if !image.nil?
-       file_name = image.original_filename + Time.now.to_s
+       file_name = image.original_filename + Time.now.to_i.to_s
        File.open("public/docs/#{file_name}", 'wb'){|f| f.write(image.read)}
        write_attribute(:image, file_name)
     end
