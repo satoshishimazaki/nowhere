@@ -25,7 +25,7 @@
                 </div>
                <div class='view'><li>View:<%= article.view_count %></li></div>
                 <% if user_signed_in?%>
-                   <li><span id="article_<%= article.id %>">
+                   <li><span id="article_favorite<%= article.id %>">
                        <%= render 'favorites/favorite_btn', article: article %>
                       </span>
                       <span id="fav_<%=article.id %>">

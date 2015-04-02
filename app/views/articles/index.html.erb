@@ -114,7 +114,7 @@
                                   <% if user_signed_in?%>
                                      <div class='like'>
                                       <li>
-                                        <span id="article_<%= article.id %>">
+                                        <span id="article_favorite<%= article.id %>">
                                          <%= render 'favorites/favorite_btn', article: article %>
                                         </span>
                                         <span id="fav_<%=article.id %>">
