@@ -8,10 +8,10 @@
        <%= render 'shared/error_messages', object: f.object %>
 
         <%= f.label :title, "タイトル" %>
-        <%= f.text_area :title , cols: 16%>
+        <%= f.text_area :title%>
 
         <%= f.label :content, "記事" %>
-        <%= f.text_area :content, cols: 16, rows: 15 %>
+        <%= f.text_area :content,rows: 15 %>
 
         <%= f.label :address, "住所" %>
         <%= f.text_field :address %>

@@ -155,8 +155,10 @@ body .blog-box a{
 }
 
 .indextitle{
-  position: relative;
-  top: 20px;
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  right: 20px;
   // margin-right: 150px;
   // text-align: center;
   // height: 200px;
@@ -1360,7 +1362,7 @@ h15{
   // padding-left: 50px;
   // margin-right: 50px;
   // margin-left: 0px;
-  width: 22em;
+  width: 21em;
   margin: 0 auto;
   // margin-right: 50px;
 }
