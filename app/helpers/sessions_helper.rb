@@ -50,14 +50,14 @@ module SessionsHelper
     session[:return_to] = request.url
   end
 
-  def create
-    store = Store.find_by(email: params[:session][:email].downcase)
-    if store && store.authenticate(params[:session][:password])
-      sign_in_ store
-      redirect_back_or store
-    else
-      flash.now[:error] = 'Invalid email/password combination'
-      render 'new'
-    end
-  end
+  # def create
+  #   store = Store.find_by(email: params[:session][:email].downcase)
+  #   if store && store.authenticate(params[:session][:password])
+  #     sign_in_ store
+  #     redirect_back_or store
+  #   else
+  #     flash.now[:error] = 'パスワードとメールアドレスが正しくありません'
+  #     render 'new'
+  #   end
+  # end
 end

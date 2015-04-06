@@ -64,6 +64,11 @@ class StoresController < ApplicationController
     redirect_to stores_url
   end
 
+  def search_store
+    @store = Store.find(params[:id])
+    @articles = @store.articles.paginate(page: params[:page]).order( created_at: :desc )
+  end
+
   private
 
     def store_params

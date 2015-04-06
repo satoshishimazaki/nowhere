@@ -61,17 +61,17 @@
       </ul>
     </nav>
   </nav>
-        <div class='search'>
+       <div class='search'>
         <li>
           <%= form_tag search_path, method: :get do %>
             <div class="search-input">
               <%= text_field_tag :word, '', size: '30' %>
+              <%= image_tag 'magnifying-glass.png', :size => '15', :class => "searchicon" %>
             </div>
-            <div id="searchbutton"><button class="button1" type="submit"><i class="fa fa-search"></i></button></div>
+            <!-- <div id="searchbutton"><button class="button1" type="submit"><i class="fa fa-search"></i></button></div> -->
           <% end %>
         </li>
-        </div>
-      
+        </div>        
         <div class="map">
           <li><i><%= link_to "", index_gmap_path, :class => "fa fa-map-marker" %></i></li>
            <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
@@ -83,6 +83,8 @@
         <div class = "select_geogeo">
           <%= link_to '', "/#index", {:id => 'geo_btn', :class => 'fa fa-street-view'} %>
         </div>
+
+
     </div>
   </div>
 </header>

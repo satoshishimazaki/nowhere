@@ -17,11 +17,14 @@ Sample5App::Application.routes.draw do
   # end
   # devise_for :admin_users, ActiveAdmin::Devise.config
   # ActiveAdmin.routes(self)
-  resources :stores
+  # resources :stores
   # resources :comments
   resources :sessions, only: [:new, :create, :destroy]
   resources :articles
   resources :stores do 
+    member do
+      get :search_store
+    end
     resources :articles, only: [:new, :show, :index, :create, :edit, :update]
   end
   resources :articles do

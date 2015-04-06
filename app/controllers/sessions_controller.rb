@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       sign_in_ store
       redirect_to store
     else
-      flash.now[:error] = 'Invalid email/password combination'
+      flash.now[:error] = "パスワードとメールアドレスが正しくありません"
       render 'new'
     end
   end

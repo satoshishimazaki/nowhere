@@ -3,12 +3,12 @@
 <p>「<%= @search_word %>」に該当する記事</p>
 
 <ul class="search">
- <% if @articles.empty? %>  
+ <% if @articles.blank? %>  
           <p>該当情報は見当たりません</p>
         <%else%>   
   <% @articles.each do | article | %> 
 	        <hr>
-		       <div class="article_index"><p><%=article_image_for article.article_images.map{|articleimage| articleimage.image }.first %>タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...<br>店舗名：<%=link_to article.store.name[0..10], article_path(article.id) %>...<br>Like数：<%=article.favorites.count %></p></div>
+		       <div class="article_index"><h15><%=article_image_for article.article_images.map{|articleimage| articleimage.image }.first %>タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...<br>店舗名：<%=link_to article.store.name[0..10], article_path(article.id) %>...<br>Like数：<%=article.favorites.count %></h15></div>
 	         <% end %>
  <% end %>
 </ul>
@@ -16,11 +16,11 @@
 <p>「<%= @search_word %>」に該当する店舗</p>
 
 <ul class="search">
- <% if @stores.empty? %>  
+ <% if @stores.blank? %>  
           <p>該当情報は見当たりません</p>
         <%else%>   
   <% @stores.each do |store|%>
-    <div class="article_index"><p><%= link_to store.name[0..10], store_path(store.id) %>.../ <%= link_to store.category, store_path(store.id) %> / <%= link_to store.station, store_path(store.id) %></p>
+    <div class="article_index"><p><%= link_to store.name[0..10], search_store_store_path(store.id) %>.../ <%= link_to store.category, store_path(store.id) %> / <%= link_to store.station, search_store_store_path(store.id) %></p>
   <% end %>
  <% end %>
 </ul>

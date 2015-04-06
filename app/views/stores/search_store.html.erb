@@ -1,0 +1,63 @@
+<% provide(:title, @store.name) %>
+<section>
+ <div class="storeshow">
+      <% if signed_in_? %>
+      <p><strong>基本情報 </strong></p>
+      <% end %>
+
+      <p>店舗名:<%= @store.name %></p>
+      <p>電話番号:<%= @store.tel %></p>
+      <p>メールアドレス:<%= @store.email %></p>
+      <p>業態:<%= @store.category %></p>
+      <p>住所:<%= @store.address %></p>
+      <% if @store.address_sec? %>
+       <p>建物名:<%= @store.address_sec %></p>
+      <% else %>
+       <p>建物名:-</p>
+      <% end %>
+      <p>最寄り駅:<%= @store.station %></p>
+      <% if @store.managetime?%>
+       <p>営業時間:<%= @store.managetime %></p>
+      <% else %>
+       <p>営業時間:-</p>
+      <% end %>
+      <% if @store.holiday? %>
+       <p>定休日:<%= @store.holiday %></p>
+      <% else %>
+       <p>定休日:-</p>
+      <% end %>
+      <% if @store.url? %>
+       <p>URL1:<%= link_to @store.url, :target => "blank" %></p>
+      <% else %>
+       <p>URL1:-</p>
+      <% end %>
+      <% if @store.url_sec? %>
+       <p>URL2:<%= link_to @store.url_sec, :target => "blank" %></p>
+      <% else %>
+       <p>URL2:-</p>
+      <% end %>
+      <p><div id="storegmap"><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@store.latitude}%2C#{@store.longitude}" %></div></p>  
+  </div>
+  
+  <% if signed_in? %>
+  <div class="store_article">
+    <p><strong>投稿記事一覧</strong></p>
+        <table class="sample_02">
+          <tbody>
+          <tr>
+          <th>日付</th>
+          <th>投稿タイトル</th>
+          <th>view数</th>
+          </tr>
+          <% @articles.each do | article | %>
+          <tr>
+          <td><%=article.created_at.strftime("%Y年%m月%d日") %></td>
+          <td><%=link_to article.title[0..10], article_path(article.id) %>...</td>
+          <td><%=article.view_count %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+  <% end %>
+</section>
