@@ -3,7 +3,7 @@ module ArticleHelper
     if image_name
      image_tag "/docs/#{image_name}", :align => 'top'
     else
-     image_tag "noimage.gif", :align => 'top'
+     image_tag "no_image.png", :align => 'top'
     end
   end
 

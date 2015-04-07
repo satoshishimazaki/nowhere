@@ -14,6 +14,10 @@ line-height: 1;
   box-sizing: border-box;
 }
 
+// #build-menu-button {
+//   background-color:none;
+// }
+
 li {
   list-style: none;
 }
@@ -24,23 +28,6 @@ letter-spacing: 0.5px;
 line-height: 25px;
 margin-bottom: 15px;
 font-weight: 400;
-}
-
-//showpage fontawsome
-i.fa.fa-chevron-left{
-display: inline-block;
-font: normal normal normal 14px/1 FontAwesome;
-font-size: 50px;
-text-rendering: auto;
-padding-top: 300px;
-}
-
-i.fa.fa-chevron-right {
-display: inline-block;
-font: normal normal normal 14px/1 FontAwesome;
-font-size: 50px;
-text-rendering: auto;
-padding-top: 300px;
 }
 
 //レスポンシブmenuデザイン
@@ -249,7 +236,7 @@ color: white;
 }
 
 body a, a:hover{
-color: black;
+// color: black;
 }
 
 .select_geo p {
@@ -1278,6 +1265,16 @@ style{
  // height: 580px;
 }
 
+a.left.carousel-control {
+  background: rgba(8, 8, 8, 0.14);
+  width: 30px;
+}
+
+a.right.carousel-control {
+  background: rgba(8, 8, 8, 0.14);
+  width: 30px;
+}
+
 #main-text {
   margin-top: 0px;
   margin-left: 20px;
@@ -1302,6 +1299,39 @@ div#main-text {
 span{
   margin-bottom: 4px;
 }
+
+//showpage fontawsome
+i.fa.fa-chevron-left{
+display: inline-block;
+font: normal normal normal 14px/1 FontAwesome;
+font-size: 20px;
+text-rendering: auto;
+// padding-top: 300px;
+position: absolute;
+bottom: 20px;
+right: 10px;
+}
+
+i.fa.fa-chevron-right {
+display: inline-block;
+font: normal normal normal 14px/1 FontAwesome;
+font-size: 20px;
+text-rendering: auto;
+// padding-top: 300px;
+position: absolute;
+bottom: 20px;
+right: 10px;
+}
+
+@media screen and (max-width: 320px){
+  div.carousel-inner {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    left: 15px;
+  }
+}
+
 
 //category 
 .nothing{

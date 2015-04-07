@@ -127,39 +127,39 @@
                     <div class="item active">
                       <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.first, :size =>'100*100'  %>
                       <!-- <img src="....." alt="....."> -->
-                      <div class="carousel-caption">
+                      <!-- <div class="carousel-caption">
                         .....
-                      </div>
+                      </div> -->
                     </div>
                     <div class="item">
                       <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.second %>
                       <!-- <img src="..." alt="..."> -->
-                      <div class="carousel-caption">
+                      <!-- <div class="carousel-caption">
                         .....
-                      </div>
+                      </div> -->
                     </div>
                     <div class="item">
                       <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.third %>
                      <!-- <img src="..." alt="..."> -->
-                      <div class="carousel-caption">
+                      <!-- <div class="carousel-caption">
                         .....
-                      </div>
+                      </div> -->
                     </div>
                     <div class="item">
                       <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.fourth %>
                       <!-- <img src="..." alt="..."> -->
-                      <div class="carousel-caption">
+                  <!--     <div class="carousel-caption">
                         .....
-                      </div>
+                      </div> -->
                     </div>
                     <div class="item">
                        <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.fifth %>
                        <!-- <img src="..." alt="..."> -->
-                      <div class="carousel-caption">
+                      <!-- <div class="carousel-caption">
                         .....
-                      </div>
+                      </div> -->
                     </div>
-                    .....
+                    <!-- ..... -->
                  </div>
 
                   <!-- Controls -->
@@ -189,7 +189,7 @@
                 <div class="metas">
                     <p class="meta"><% @article.content %></p>
                     <%= auto_link(simple_format(@article.content)) %>
-                    <p class="fa fa-eye fa-2x"></i><%= @article.view_count%></p>
+                    <p>view:<%= @article.view_count%></p>
                     <p> <% if user_signed_in?%>
                          <span id="article_<%= @article.id %>">
                              <%= render 'favorites/favorite_btn', article: @article %>
@@ -209,7 +209,7 @@
                             <div class="holiday"><p>定休日：holiday(定休日)</p></div> -->
                             <div class="holiday"><p>URL1：<%= link_to @article.store.url, @article.store.url %></p></div>
                             <div class="holiday"><p>URL2：<%= link_to @article.store.url_sec, @article.store.url_sec %></p></div>
-                            <div class="holiday"><p>定休日：holiday(定休日)</p></div>
+                            <div class="holiday"><p>定休日：<%= @article.store.holiday %></p></div>
                             <div class="address"><p>住所：<%= @article.address %></p></div>
                             <div class="address"><p>最寄り駅：<%= @article.store.station %></p></div>
                             <% if user_signed_in?%>
