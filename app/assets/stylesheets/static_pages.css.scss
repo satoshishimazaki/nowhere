@@ -138,7 +138,7 @@ body .blog-box a{
 }
 
 .indexarticles{
-  margin-top: 9px;
+  margin-top: 10px;
 }
 
 .indextitle{
@@ -388,7 +388,7 @@ margin-top: 57px;
 }
 
 .explain{
-padding-top: 50px;
+padding-top: 20px;
 clear: left;
 }
 
@@ -610,7 +610,7 @@ body .nopadding {
 
 //store_article
 .store_article{
-  margin-top: 100px;
+  margin-top: 20px;
   padding-left: 30px;
   padding-right: 30px;
 }
@@ -1032,6 +1032,11 @@ input {
 .content {
   display: block;
 }
+
+body #content {
+  padding: 20px;
+}
+
 .timestamp {
   // color: $grayLight;
 }
@@ -1044,6 +1049,38 @@ aside {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+body p.meta {
+font-size: 15px;
+letter-spacing: 0.5px;
+line-height: 25px;
+margin-bottom: 5px;
+font-weight: 400;
+}
+
+body .metas p {
+font-size: 15px;
+letter-spacing: 0.5px;
+line-height: 25px;
+margin-bottom: 5px;
+font-weight: 400;
+}
+
+body .title p {
+font-size: 16px;
+letter-spacing: 0.5px;
+line-height: 25px;
+margin-bottom: 5px;
+font-weight: 700;
+}
+
+.metas label{
+  font-size: 15px;
+}
+
+body #comment p {
+  font-size: 15px;
 }
 
 /* home */
@@ -1257,6 +1294,8 @@ style{
   margin-right: 5px;
   margin-top: 5px;
   max-width: 650px;
+  background-size: contain;
+  max-height: 650px;
   // max-height: 450px;
 }
 
@@ -1325,10 +1364,10 @@ right: 10px;
 
 @media screen and (max-width: 320px){
   div.carousel-inner {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     position: relative;
-    left: 15px;
+    left: 40px;
   }
 }
 

@@ -187,8 +187,10 @@
                     <%= simple_format(@article.title) %>
                 </div>
                 <div class="metas">
-                    <p class="meta"><% @article.content %></p>
+                    <% @article.content %>
+                    <div class="meta">
                     <%= auto_link(simple_format(@article.content)) %>
+                    </div>
                     <p>view:<%= @article.view_count%></p>
                     <p> <% if user_signed_in?%>
                          <span id="article_<%= @article.id %>">
@@ -235,15 +237,16 @@
                               </div>
                         </div>
 
+                  <div class="metas">
                     <div id="comment">
-                      <h5>コメント一覧</h5>
+                      <p>コメント一覧</p>
                           <% @article.comments.each do |comment| %>
                           　　<hr>
                               <p>ユーザー名:<%= comment.user_name %></p>
                               <p>コメント内容:<%= comment.body %></p>                 
                           <% end %> 
                       <div id="addcomment">
-                      <h5>コメント追加</h5>
+                      <p>コメント追加</p>
                           <%= form_for ( [@article, @article.comments.build] ) do |f| %>
                             <p>
                               <%= f.label :ユーザー名 %><br>
@@ -259,6 +262,7 @@
                           <% end %>
                         </div>     
                     </div>
+                  </div>
                 </div>
              </div>
             </div> 
