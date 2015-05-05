@@ -1,6 +1,8 @@
 Sample5App::Application.routes.draw do
+  devise_for :admin_users 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get "search/index"
-  resources :inquiries
+  resources :inquiries                            
 
   devise_for :users, :controllers => {
   :sessions => 'users/sessions',
@@ -19,7 +21,7 @@ Sample5App::Application.routes.draw do
   # ActiveAdmin.routes(self)
   # resources :stores
   # resources :comments
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy] 
   resources :articles
   resources :stores do 
     member do
