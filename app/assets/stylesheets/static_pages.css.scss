@@ -1537,10 +1537,40 @@ i.fa.fa-search{
   border-color: black;
   padding-top: 10px;
   background-color: rgb(254, 254, 255);
+  width: 185px;
+  position: relative;
+  z-index: 0;
+  padding-bottom: 80px;
+  margin: 10px;
+  float: left;
+ }
+}
+
+@media screen and (max-width: 375px){
+.col-sm-6{
+  border: solid 1px;
+  border-color: black;
+  padding-top: 10px;
+  background-color: rgb(254, 254, 255);
+  width: 165px;
+  position: relative;
+  z-index: 0;
+  padding-bottom: 80px;
+  margin: 10px;
+  float: left;
+ }
+}
+
+@media screen and (max-width: 320px){
+.col-sm-6{
+  border: solid 1px;
+  border-color: black;
+  padding-top: 10px;
+  background-color: rgb(254, 254, 255);
   width: 140px;
   position: relative;
   z-index: 0;
-  padding-bottom: 100px;
+  padding-bottom: 130px;
   margin: 10px;
   float: left;
  }
@@ -1579,5 +1609,6 @@ body .raw{
 img.new{
   width: 100%;
   position: relative;
-  top: -8px;
+  top: -7px;
+  left: -16px
 }
