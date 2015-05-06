@@ -26,6 +26,11 @@
       <% else %>
        <p>定休日:-</p>
       <% end %>
+      <% if @store.profile? %>
+       <p>プロフィール:<div class="thumbnails"><%= profile_image_for @store.profile %></div></p>
+      <% else %>
+       <p>定休日:-</p>
+      <% end %> 
       <% if @store.url? %>
        <p>URL1:<%= link_to @store.url, :target => "blank" %></p>
       <% else %>
@@ -61,3 +66,13 @@
       </table>
   </div>
 </section>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".thumbnails img").MyThumbnail({
+    thumbWidth:150,
+    thumbHeight:150
+  });
+});
+</script>
+

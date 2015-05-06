@@ -25,6 +25,13 @@ class Store < ActiveRecord::Base
   #       errors[:base]<< "モデル全体に関係するエラーを追加"
   #     end
   #   end
+   def set_image(file1)
+    if !file1.nil?
+       file_name = file1.original_filename + Time.now.to_s
+       File.open("public/docs/#{file_name}", 'wb'){|f| f.write(file1.read)}
+       self.profile = file_name
+    end
+   end
 
     def Store.new_remember_token
       SecureRandom.urlsafe_base64

@@ -1612,3 +1612,79 @@ img.new{
   top: -7px;
   left: -16px
 }
+
+.thumbnails {
+position: absolute;
+z-index: 4;
+height: 60px;
+width: 60px;
+overflow: hidden;
+-webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+border-radius: 50px;
+box-shadow: 0px 0px 0px 2px gray;
+-moz-box-shadow: 0px 0px 0px 2px gray;
+-webkit-box-shadow: 0px 0px 0px 2px gray;
+bottom: 45px;
+}
+
+img#profile{
+  width: 60px;
+  left: 1px;
+  bottom: 0px;
+  // height: 150px;
+  // display: none;
+}
+
+.storeshow .thumbnails{
+  position: absolute;
+  z-index: 4;
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px 2px gray;
+  -moz-box-shadow: 0px 0px 0px 2px gray;
+  -webkit-box-shadow: 0px 0px 0px 2px gray;
+  top: 50px;
+}
+
+.storeshow img#profile{
+  width: 40px;
+  left: 1px;
+  bottom: 0px;
+  // height: 150px;
+  // display: none;
+}
+
+.storename {
+    padding-left: 70px;
+}
+
+@media screen and (max-width: 414px){
+  .thumbnails {
+  position: absolute;
+  z-index: 4;
+  height: 30px;
+  width: 30px;
+  overflow: hidden;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  box-shadow: 0px 0px 0px 2px gray;
+  -moz-box-shadow: 0px 0px 0px 2px gray;
+  -webkit-box-shadow: 0px 0px 0px 2px gray;
+  bottom: 40px;
+  }
+
+  img#profile{
+    width: 30px;
+    // height: 150px;
+    // display: none;
+  }
+  .storename {
+    padding-left: 40px;
+  }
+}

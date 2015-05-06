@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150427172349) do
+ActiveRecord::Schema.define(version: 20150506061251) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 20150427172349) do
     t.string   "address_sec"
     t.string   "holiday"
     t.string   "managetime"
+    t.string   "profile"
   end
 
   add_index "stores", ["email"], name: "index_stores_on_email", unique: true

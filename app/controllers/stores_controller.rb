@@ -35,6 +35,8 @@ class StoresController < ApplicationController
 
   def create
     @store = Store.new(store_params)
+    file1 = params[:store][:profile]
+    @store.set_image(file1)
     if @store.save
       sign_in_ @store
       flash[:success] = "Welcome to the BeansStreet!"
@@ -50,6 +52,8 @@ class StoresController < ApplicationController
 
   def update
     @store = Store.find(params[:id])
+    file1 = params[:store][:profile]
+    @store.set_image(file1)
     if @store.update_attributes(store_params)
        flash[:success] = "Profile updated"
        redirect_to @store
@@ -72,7 +76,7 @@ class StoresController < ApplicationController
   private
 
     def store_params
-      params.require(:store).permit(:name, :email, :tel, :url, :password, :password_confirmation, :category, :address, :url_sec, :address_sec, :station, :managetime, :holiday)
+      params.require(:store).permit(:name, :email, :tel, :url, :password, :password_confirmation, :category, :address, :url_sec, :address_sec, :station, :managetime, :holiday, :profile)
     end
 
     # Before actions

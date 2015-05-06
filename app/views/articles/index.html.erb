@@ -98,6 +98,7 @@
                               <div class="nowheretitle">
                                 <ul>
                                   <!-- <li><%= article.herenowtitle %></li> -->
+                                  <div class="thumbnails"><%= profile_image_for article.store.profile %></div>
                                   <div class="storename"><li><%= article.store.name %></li></div>
                                   <div class="stationname"><li><%= article.store.station %></li></div>
                                   <div id="time">
@@ -135,6 +136,12 @@
     </section>
 
    <script type="text/javascript">
+   $(document).ready(function(){
+    $(".thumbnails img").MyThumbnail({
+      thumbWidth:150,
+      thumbHeight:150
+    });
+  　});
    $(function(){
           var map;
           var geocoder;
