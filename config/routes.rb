@@ -54,6 +54,7 @@ Sample5App::Application.routes.draw do
   # match '/index_shopping',  to: 'stores#index_shopping',            via: 'get'
   # match '/ajax_index', to: 'stores#ajax_index', via: 'post'
   match '/ajax_index', to: 'articles#ajax_index', via: 'get'
+  match '/ajax_mile', to: 'articles#ajax_mile', via: 'get'
   match '/upload', to: 'article_images#upload', via: 'get'
   match '/search', to: 'search#index', via: 'get'
 end

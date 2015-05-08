@@ -25,6 +25,7 @@ class Article < ActiveRecord::Base
   # has_many :comments_users, through: :comments, source: :user
   # has_and_belongs_to_many :article_images
   is_impressionable
+  reverse_geocoded_by :latitude, :longitude
 
     def left_time
       self.created_at + 24*14.hours - Time.now
@@ -50,6 +51,14 @@ class Article < ActiveRecord::Base
 		self.where('')
 	end
 
+  class << self
+    def within_box(distance, latitude, longitude)
+      distance = distance # 単位はマイル
+      center_point = [latitude, longitude] # 緯度経度
+      box = Geocoder::Calculations.bounding_box(center_point, distance)
+      self.within_bounding_box(box)
+    end
+  end
   # def set_image_one(file1)
   #   if !file1.nil?
   #      file_name = file1.original_filename + Time.now.to_s
