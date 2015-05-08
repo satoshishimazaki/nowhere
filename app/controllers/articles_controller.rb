@@ -1,12 +1,14 @@
 class ArticlesController < ApplicationController
   before_action :signed_in_store,  only:[:create, :destroy, :new, :edit, :update]
   # before_action :time_valid, only:[:ajax_index]
+  impressionist actions: [:show, :index, :index_eating, :index_shopping, :index_station, :index_other]
 
   def new
   	  @article = Article.new
       @article.article_images.build
       @article.address = current_store.address
       @article.category = current_store.category
+      @article.station = current_store.station
   end
 
   def show
@@ -78,6 +80,12 @@ class ArticlesController < ApplicationController
       @articles = Article.all
       @articles = Article.where('created_at > ? AND category = ?', Time.now - 24*14.hours, 'その他').order( created_at: :desc )
       # raise 
+  end
+
+  def index_station
+      @articles = Article.all
+      @articles = Article.where('created_at > ? AND station = ?', Time.now - 24*14.hours, params[:station]).order( created_at: :desc )
+      @article_address = Article.select(:address).limit(15).map{|article| '"'+article.address+'"'}
   end
 
   def create

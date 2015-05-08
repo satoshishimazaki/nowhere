@@ -25,6 +25,7 @@ gem 'gmaps4rails'
 gem 'rails_autolink'
 gem 'therubyracer'
 gem 'rails_admin'
+gem 'impressionist'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

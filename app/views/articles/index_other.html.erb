@@ -106,7 +106,7 @@
                                   <div id="time">
                                     <li>残り時間:<% if article.left_time > 24.hours %><%= article.left_day.floor %>日<% else %><%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分<% end %></li>
                                   </div>
-                                  <div class='view'><li>View:<%= article.view_count %></li></div>
+                                  <div class='view'><li>View:<%= article.impressionist_count(:filter=>:session_hash)%></li></div>
                                   <div class='distance'>
                                     <li><span id="article_distance_<%= index %>"></span></li>
                                   </div>

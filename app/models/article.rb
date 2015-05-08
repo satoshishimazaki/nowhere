@@ -24,6 +24,7 @@ class Article < ActiveRecord::Base
   accepts_nested_attributes_for :comments
   # has_many :comments_users, through: :comments, source: :user
   # has_and_belongs_to_many :article_images
+  is_impressionable
 
     def left_time
       self.created_at + 24*14.hours - Time.now

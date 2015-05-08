@@ -58,7 +58,7 @@
           <tr>
           <td><%=article.created_at.strftime("%Y年%m月%d日") %></td>
           <td><%=link_to article.title[0..10], article_path(article.id) %>...</td>
-          <td><%=article.view_count %></td>
+          <td><%=article.impressionist_count(:filter=>:session_hash) %></td>
           <td><%=link_to '編集', edit_article_path(article.id) %></td>
           </tr>
           <% end %>

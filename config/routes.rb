@@ -35,6 +35,7 @@ Sample5App::Application.routes.draw do
   resources :articles do
     resources :comments
   end
+
   resources :favorites, only: [:create, :destroy]
   root  'articles#index'
   match '/about',   to: 'static_pages#about',   via: 'get'
@@ -49,6 +50,7 @@ Sample5App::Application.routes.draw do
   match '/index_shopping',  to: 'articles#index_shopping',            via: 'get'
   match '/index_other',  to: 'articles#index_other',            via: 'get'
   match '/index_gmap',  to: 'articles#index_gmap',            via: 'get'
+  match '/index_station',  to: 'articles#index_station',            via: 'get'
   # match '/index_shopping',  to: 'stores#index_shopping',            via: 'get'
   # match '/ajax_index', to: 'stores#ajax_index', via: 'post'
   match '/ajax_index', to: 'articles#ajax_index', via: 'get'
