@@ -43,5 +43,4 @@ $(document).ready(function(){
     document.getElementById("show_result").innerHTML = err_msg;
     //デバッグ用→　document.getElementById("show_result").innerHTML = error.message;
   }
- });
 });
