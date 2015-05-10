@@ -14,8 +14,9 @@
 
 <script type="text/javascript">
 $(function(){
-      $('#station').bind('change', function () {
-         var url = "/index_station/" 
+      $('#station').change(function () {
+        var station = $(this).val();
+        var url = "/index_station?station=" + station
           if (url) {
               window.location.replace(url);
           }

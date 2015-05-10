@@ -124,7 +124,8 @@ var mobileApp = mobileApp || {};
 
       // SET HTML FRAMEWORK
       _this.$elem.wrapInner('<div id="'+_this.config.page_id+'" />').find("#"+_this.config.page_id).before('<div id="build-menu" />');
-      $(prepend_button_to).prepend('<a href="#" id="build-menu-button">'+_this.config.button_content+'</a>');
+      // ↓fontawsome
+      $(prepend_button_to).prepend('<i class="fa fa-list-ul"></i>');
       $("#"+_this.config.page_id).prepend('<div id="build-menu-overlay" />');
 
       this.buildMenu();
@@ -143,7 +144,8 @@ var mobileApp = mobileApp || {};
       }
 
       // EVENT HANDLER FOR MENU BUTTON
-      $("#build-menu-button, #build-menu-overlay").on("click", function(e){
+      //　↓fonawsomeの箇所もってきた
+      $(".fa-list-ul, #build-menu-overlay").on("click", function(e){
         e.preventDefault();
         var html = $("html");
         var page = $("#"+_this.config.page_id);
