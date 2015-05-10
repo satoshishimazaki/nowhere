@@ -1574,6 +1574,9 @@ i.fa.fa-search{
   margin: 10px;
   float: left;
  }
+ // .col-sm-6:hover{
+ //  color: #ff0000;
+ // }
 }
 
 @media screen and (max-width: 414px){
@@ -1661,6 +1664,10 @@ img#profile{
 
 .storename {
     padding-left: 70px;
+}
+
+body .holiday{
+    word-break: break-all;
 }
 
 @media screen and (max-width: 414px){

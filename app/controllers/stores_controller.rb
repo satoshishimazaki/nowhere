@@ -39,7 +39,7 @@ class StoresController < ApplicationController
     @store.set_image(file1)
     if @store.save
       sign_in_ @store
-      flash[:success] = "Welcome to the BeansStreet!"
+      # flash[:success] = "Welcome to the BeansStreet!"
       redirect_to @store
     else
       render 'new'
@@ -55,7 +55,7 @@ class StoresController < ApplicationController
     file1 = params[:store][:profile]
     @store.set_image(file1)
     if @store.update_attributes(store_params)
-       flash[:success] = "Profile updated"
+       # flash[:success] = "Profile updated"
        redirect_to @store
     else
       render 'edit'
@@ -64,7 +64,7 @@ class StoresController < ApplicationController
 
   def destroy
     Store.find(params[:id]).destroy
-    flash[:success] = "Store destroyed."
+    # flash[:success] = "Store destroyed."
     redirect_to stores_url
   end
 

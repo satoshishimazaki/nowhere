@@ -26,6 +26,7 @@ gem 'rails_autolink'
 gem 'therubyracer'
 gem 'rails_admin'
 gem 'impressionist'
+gem 'ckeditor'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

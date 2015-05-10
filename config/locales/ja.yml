@@ -1,5 +1,8 @@
 ---
 ja:
+  devise:
+    failure:
+      not_found_in_database: "見つかりません %{authentication_keys} or password."
   attributes:
     name: 名前
     email: メールアドレス

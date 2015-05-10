@@ -102,7 +102,7 @@ class ArticlesController < ApplicationController
       # @article.set_image_four(file4)
       # @article.set_image_five(file5)
     if @article.save
-      flash[:success] = "投稿完了!"
+      # flash[:success] = "投稿完了!"
       redirect_to root_url
     else
       render 'new'
@@ -151,7 +151,7 @@ class ArticlesController < ApplicationController
       # @article.set_image_four(file4)
       # @article.set_image_five(file5)
     if @article.update_attributes(article_params)
-       flash[:success] = "Article updated"
+       # flash[:success] = "Article updated"
        redirect_to @article
     else
       render 'edit'
