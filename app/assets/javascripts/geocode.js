@@ -1,4 +1,5 @@
-$(document).ready(function(){
+$(function(){
+  $('#mile').on("click", function(){
   //ユーザーの現在の位置情報を取得
   navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
@@ -43,4 +44,5 @@ $(document).ready(function(){
     document.getElementById("show_result").innerHTML = err_msg;
     //デバッグ用→　document.getElementById("show_result").innerHTML = error.message;
   }
+ });
 });
