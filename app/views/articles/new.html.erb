@@ -17,7 +17,7 @@
         <%= f.text_field :address %>
 
         <%= f.label :station, "最寄り駅" %>
-        <%= f.select :station, [["武蔵小杉", "2"], ["新丸子", "3"], ["元住吉", "4"], ["向河原", "5"], ["武蔵中原", "6"], ["その他", "7"]], { include_blank: '選択してください' }, class: 'category' %>
+        <%= f.select :station, ["武蔵小杉", "新丸子", "元住吉", "向河原", "武蔵中原", "その他",], { include_blank: '選択してください' }, class: 'category' %>
 
         <%= f.label :category, "カテゴリ" %>
         <%= f.select :category, ['飲食', 'shopping', 'その他'], { include_blank: '選択してください' }, class: 'category' %>

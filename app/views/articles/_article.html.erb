@@ -1,46 +1,38 @@
- <div class="col-sm-6 col-md-3 col-lg-3">
-                  <div class="blog-box" id="article_<%= index %>">
-                    <div class="hover-bg">                     
-                          <%= link_to article_path(article.id) do
-                            article_image_for article.article_images.map{|articleimage| articleimage.image }.first
-                            end %>
-                            <!-- <img src="img/blog/02.jpg" alt="img" class="img-responsive"> -->
-                        <!-- <div class="hover-text"> -->
-                                        <!-- <a href="portfolio/cityscape.html"><h2><%= link_to article.title, article_path(article.id) %></h2></a> -->
-                          <% if Time.now - article.created_at < 24*60*60 %>
-                            <div class="new"><%= image_tag 'icn_new.png', :size => '10×10', :class => "new" %></div>
-                           <% end %>            
-                          <div class='indextitle'><h30><%= link_to simple_format(article.title), article_path(article.id) %></h30></div>
-                            <div class="title_box">
-                              <div class="nowheretitle">
-                                <ul>
-                                  <!-- <li><%= article.herenowtitle %></li> -->
-                                  <div class="thumbnails"><%= profile_image_for article.store.profile %></div>
-                                  <div class="storename"><li><%= article.store.name %></li></div>
-                                  <div class="stationname"><li><%= article.station %></li></div>
-                                  <div id="time">
-                                    <li>残り:<% if article.left_time > 24.hours %><%= article.left_day.floor %>日<% else %><%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分<% end %></li>
-                                  </div>
-                                  <div class='view'><li>View:<%= article.impressionist_count(:filter=>:session_hash)%></li></div>
-                                  <div class='distance'>
-                                    <li><span id="article_distance_<%= index %>"></span></li>
-                                  </div>
-                                  <% if user_signed_in?%>
-                                     <div class='like'>
-                                      <li>
-                                        <span id="article_favorite<%= article.id %>">
-                                         <%= render 'favorites/favorite_btn', article: article %>
-                                        </span>
-                                        <span id="fav_<%=article.id %>">
-                                         <%= article.favorites.count %>
-                                        </span>
-                                      </li>
-                                    </div>
-                                  <% end %>
-                                </ul>
-                              </div>
-                            </div>
-                          <!-- </div> -->
-                        </div>
+<div class="col-sm-6 col-md-3 col-lg-3">
+  <div class="blog-box">
+    <div class="hover-bg">                     
+          <%= link_to article_path(article.id) do
+            article_image_for article.article_images.map{|articleimage| articleimage.image }.first
+            end %>
+          <% if Time.now - article.created_at < 24*60*60 %>
+            <div class="new"><%= image_tag 'icn_new.png', :size => '10×10', :class => "new" %></div>
+           <% end %>            
+          <div class='indextitle'><h30><%= link_to simple_format(article.title), article_path(article.id) %></h30></div>
+            <div class="title_box">
+              <div class="nowheretitle">
+                <ul>
+                   <div class="thumbnails"><%= profile_image_for article.store.profile %></div>
+                  <div class="storename"><li><%= article.store.name %></li></div>
+                  <div class="stationname"><li><%= article.station %></li></div>
+                  <div id="time">
+                    <li>残り:<% if article.left_time > 24.hours %><%= article.left_day.floor %>日<% else %><%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分<% end %></li>
+                  </div>
+                  <div class='view'><li>View:<%= article.impressionist_count(:filter=>:session_hash)%></li></div>
+                  <% if user_signed_in?%>
+                     <div class='like'>
+                      <li>
+                        <span id="article_favorite<%= article.id %>">
+                         <%= render 'favorites/favorite_btn', article: article %>
+                        </span>
+                        <span id="fav_<%=article.id %>">
+                         <%= article.favorites.count %>
+                        </span>
+                      </li>
                     </div>
-                </div>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,5 @@
 <footer class="footer">
-  <div id=""><%= select_tag 'station', options_for_select({'選択してください' => 1, '武蔵小杉' => 2, '新丸子' => 3, '元住吉' => 4, '向河原' => 5, '武蔵中原' => 6, 'その他' => 7 }, 1 ) %></div>
+  <div id=""><%= select_tag 'station', options_for_select(['選択してください', '武蔵小杉', '新丸子', '元住吉', '向河原', '武蔵中原', 'その他' ]) %></div>
   <div id="postinfo"><%=link_to '情報発信希望の方', signin__path %></div>
   <div id="postinfo2"><%=link_to '問い合せ', new_inquiry_path %></div>
   <div class="fb-like-box" data-href="https://www.facebook.com/nowhere.musashikosugi" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
