@@ -5,7 +5,7 @@
     <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png"> -->
 
-    <!-- Bootstrap
+   <!-- Bootstrap
     ================================================== -->
 <!--     <link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
  -->
@@ -73,25 +73,25 @@
 
     <!--Blog Posts
     ================================================== -->
-     <section id="blog" class="posts"> 
+    <section id="blog" class="posts"> 
         <div class="container-fluid"> <!-- Start Container -->
           <div class="row"> <!-- Start Row -->
             <div class = "select_geo">
-            </div>
-            <div class = 'indexarticles'> 
-              <div class = 'articles'>
-                <% if @articles.empty? %>  
+            </div> 
+            <div class = 'indexarticles'>    
+            <div class = 'articles'>
+              <% if @articles.empty? %>  
                   <div class="nothing"><p>投稿情報は現在ございません</p></div>
                 <%else%>   
-                   <% @articles.each_with_index do |article, index| %>
-                <div class="col-sm-3 col-md-3 col-lg-3 nopadding">
+              <% @articles.each_with_index do |article, index| %>
+                <div class="col-sm-6 col-md-3 col-lg-3">
                   <div class="blog-box" id="article_<%= index %>">
-                     <div class="hover-bg">                     
+                    <div class="hover-bg">                     
                           <%= link_to article_path(article.id) do
                             article_image_for article.article_images.map{|articleimage| articleimage.image }.first
                             end %>
                             <!-- <img src="img/blog/02.jpg" alt="img" class="img-responsive"> -->
-                        <div class="hover-text">
+                        <!-- <div class="hover-text"> -->
                                         <!-- <a href="portfolio/cityscape.html"><h2><%= link_to article.title, article_path(article.id) %></h2></a> -->
                           <% if Time.now - article.created_at < 24*60*60 %>
                             <div class="new"><%= image_tag 'icn_new.png', :size => '10×10', :class => "new" %></div>
@@ -101,11 +101,11 @@
                               <div class="nowheretitle">
                                 <ul>
                                   <!-- <li><%= article.herenowtitle %></li> -->
+                                  <div class="thumbnails"><%= profile_image_for article.store.profile %></div>
                                   <div class="storename"><li><%= article.store.name %></li></div>
-                                  <div class="stationname"><li><%= article.store.station %></li></div>
+                                  <div class="stationname"><li><%= article.station %></li></div>
                                   <div id="time">
-                                    <li>残り時間:<% if article.left_time > 24.hours %><%= article.left_day.floor %>日<% else %><%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分<% end %>
-                                    </li>
+                                    <li>残り:<% if article.left_time > 24.hours %><%= article.left_day.floor %>日<% else %><%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分<% end %></li>
                                   </div>
                                   <div class='view'><li>View:<%= article.impressionist_count(:filter=>:session_hash)%></li></div>
                                   <div class='distance'>
@@ -126,11 +126,11 @@
                                 </ul>
                               </div>
                             </div>
-                          </div>
+                          <!-- </div> -->
                         </div>
                     </div>
                 </div>
-              <% end %>
+               <% end %>
               <% end %>
             </div>
           </div>
@@ -138,26 +138,3 @@
         </div> <!-- End Container -->
         <div class="clearfix"></div>
     </section>
-    <!-- Blog Control Navigation
-    ================================================== -->
-    
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
-    ================================================== -->
-    <!-- // <script type="text/javascript" src="js/jquery.1.11.1.js"></script> -->
-
-    <!-- // <!- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- // <script type="text/javascript" src="js/bootstrap.js"></script> -->
-
-    <!-- // Other JS Files -->
-    <!-- // <script type="text/javascript" src="js/jquery.easing.min.js"></script> -->
-    <!-- // <script type="text/javascript" src="js/jasny-bootstrap.min.js"></script> -->
-    <!-- // <script type="text/javascript" src="js/SmoothScroll.js"></script> -->
-    <!-- // <script type="text/javascript" src="js/nivo-lightbox.js"></script> -->
-
-    <!-- // Custom Javascripts -->
-    <!-- // ================================================== -->
-    <!-- // <script type="text/javascript" src="js/main.js"></script> --> 
-<!-- 
-  </body>
-</html>
- -->
