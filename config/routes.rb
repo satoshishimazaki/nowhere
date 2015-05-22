@@ -1,6 +1,4 @@
 Sample5App::Application.routes.draw do
-  # devise_for :admin_users 
-  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get "search/index"
   resources :inquiries                            
 

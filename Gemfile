@@ -24,7 +24,6 @@ gem 'omniauth-facebook'
 gem 'gmaps4rails'
 gem 'rails_autolink'
 gem 'therubyracer'
-# gem 'rails_admin'
 gem 'impressionist'
 gem 'ckeditor'
 
