@@ -52,7 +52,7 @@ class Article < ActiveRecord::Base
 	end
 
   class << self
-    def within_box(distance: 1, latitude: 0, longitude: 0)
+    def within_box(distance: 0, latitude: 0, longitude: 0)
       distance = distance # 単位はマイル
       center_point = [latitude, longitude] # 緯度経度
       box = Geocoder::Calculations.bounding_box(center_point, distance)

@@ -1,6 +1,6 @@
 Sample5App::Application.routes.draw do
-  devise_for :admin_users 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  # devise_for :admin_users 
+  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get "search/index"
   resources :inquiries                            
 
@@ -34,6 +34,17 @@ Sample5App::Application.routes.draw do
   end
   resources :articles do
     resources :comments
+  end
+  #adminのために名前空間作ったが不要
+  namespace :admin do
+    root to: "top#index"
+    resources :users do 
+      collection{ get "search" }
+    end
+    resources :articles do
+      collection{ get "search" }
+    end
+    resources :sessions 
   end
 
   resources :favorites, only: [:create, :destroy]

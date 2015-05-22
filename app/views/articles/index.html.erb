@@ -74,16 +74,16 @@
     <!--Blog Posts
     ================================================== -->
     <section id="blog" class="posts"> 
-        <div class="container-fluid"> <!-- Start Container -->
+        <div class="hi-fluid"> <!-- Start Container -->
           <div class="row"> <!-- Start Row -->
             <div class = "select_geo">
             </div> 
             <div class = 'indexarticles'>    
             <div class = 'articles'>
+               <div id="container">
               <% @articles.each_with_index do |article, index| %>
-                <div class="col-sm-6 col-md-3 col-lg-3">
-                  <div class="blog-box" id="article_<%= index %>">
-                    <div class="hover-bg">                     
+               <div class="item">
+                  <div class="blog-box" id="article_<%= index %>">                 
                           <%= link_to article_path(article.id) do
                             article_image_for article.article_images.map{|articleimage| articleimage.image }.first
                             end %>
@@ -94,8 +94,8 @@
                             <div class="new"><%= image_tag 'icn_new.png', :size => '10×10', :class => "new" %></div>
                            <% end %>            
                           <div class='indextitle'><h30><%= link_to simple_format(article.title), article_path(article.id) %></h30></div>
-                            <div class="title_box">
-                              <div class="nowheretitle">
+<!--                             <div class="title_box"> -->
+                              <!-- div class="nowheretitle"> -->
                                 <ul>
                                   <!-- <li><%= article.herenowtitle %></li> -->
                                   <div class="thumbnails"><%= profile_image_for article.store.profile %></div>
@@ -121,17 +121,17 @@
                                     </div>
                                   <% end %>
                                 </ul>
-                              </div>
-                            </div>
+                              <!-- </div> --><!-- nowheretitle -->
+                           <!--  </div> --><!-- titlebox -->
                           <!-- </div> -->
-                        </div>
-                    </div>
-                </div>
+                        </div><!-- blog-box -->
+                    </div><!-- item -->
               <% end %>
+               </div><!-- End Container -->
             </div>
           </div>
          </div> <!-- End Row -->
-        </div> <!-- End Container -->
+        </div> 
         <div class="clearfix"></div>
     </section>
 
@@ -164,7 +164,7 @@
           //   map = new google.maps.Map(document.getElementById('map-canvas'), opts);
           //   geocoder = new google.maps.Geocoder();
           // }
-
+         
           $(document).ready(function(){
             navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
@@ -227,8 +227,17 @@
               document.getElementById("show_result").innerHTML = err_msg;
               //デバッグ用→ document.getElementById("show_result").innerHTML = error.message;
             }
+        
+          var $container = $('#container');
+           // $container.imagesLoaded(function(){ //imagesLoadedを入れて崩れないように
+              $container.masonry({ // id="container"の中の
+                  itemSelector : '.item', // class="item"に対して適用
+                  columnWidth: 0, //一列の幅サイズを指定
+                  isFitWidth: true, //親要素の幅サイズがピッタリ
+              });
+           // });    
           });
    });
         
-
+ 
       </script>
