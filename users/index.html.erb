@@ -1,0 +1,19 @@
+<% @page_title = "ユーザー管理が面"%>
+<section id="blog" class="posts"> 
+        <div class="container-fluid"> <!-- Start Container -->
+          <div class="row"> <!-- Start Row -->
+            <div class = "select_geo">
+            </div> 
+            <div class = 'indexarticles'>    
+            <div class = 'articles'>
+            	<% @users.each do |user|%>
+				<ul>
+					<li><%= user.name %></li>
+					<li><%= user.email %></li>
+				</ul>
+				<% end %>
+			</div>
+		    </div>
+		  </div>
+		 </div>
+</section>
