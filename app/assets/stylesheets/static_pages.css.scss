@@ -1739,39 +1739,3 @@ body .holiday{
   width: 100%;
 }
 }
-
-#container {
-  width: 100%;
-  margin: 0 auto;   /*中央寄せ*/
-  position: relative;
-}
-.item {
-  margin: 10px;
-  width: 280px;
-  padding: 8px;
-  border: 1px solid #eee;
-  float: left;
-}
-
-.item img {
-  width: 100%;
-}
-
-@media screen and (max-width: 414px){
-#container {
-  width: 100%;
-  margin: 0 auto;   /*中央寄せ*/
-  position: relative;
-}
-.item {
-  margin: 5px;
-  width: 140px;
-  padding: 2px;
-  border: 1px solid #eee;
-  float: left;
-}
-
-.item img {
-  width: 100%;
-}
-}

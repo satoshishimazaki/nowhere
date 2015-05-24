@@ -80,14 +80,11 @@
             </div> 
             <div class = 'indexarticles'>    
             <div class = 'articles'>
-              <div id = 'container'>
-              <% @articles.each_with_index do |article, index| %>
-                <div class="item"> 
-                  <div class="blog-box" id="article_<%= index %>">                    
-               <div id="container">
-              <% @articles.each_with_index do |article, index| %>
-               <div class="item">
-                  <div class="blog-box" id="article_<%= index %>">                 
+              <div id = 'container'>                               
+              <% @articles.each_with_index do |article, index| %>  
+                <a href= 'articles?id=<%=article.id %>'> 
+                <div class="item">            
+                  <div class="blog-box" id="article_<%= index %>">
                           <%= link_to article_path(article.id) do
                             article_image_for article.article_images.map{|articleimage| articleimage.image }.first
                             end %>
@@ -128,19 +125,13 @@
                                   <% end %>
                                 </ul>
                               <!-- </div> -->
-                            </div>
-                          <!-- </div> -->
-                        </div>
+                            </div><!-- title_box -->     
+                          <!-- </div> -->  
+                        </div><!-- blog_box -->   
                     </div><!-- item -->
+                  </a> 
               <% end %>
             </div><!-- contanier -->
-                              <!-- </div> --><!-- nowheretitle -->
-                           <!--  </div> --><!-- titlebox -->
-                          <!-- </div> -->
-                        </div><!-- blog-box -->
-                    </div><!-- item -->
-              <% end %>
-               </div><!-- End Container -->
             </div>
           </div>
          </div> <!-- End Row -->
@@ -241,13 +232,6 @@
               document.getElementById("show_result").innerHTML = err_msg;
               //デバッグ用→ document.getElementById("show_result").innerHTML = error.message;
             }
-            
-              $container.masonry({
-                itemSelector: '.item',　
-                isFitWidth: true,　
-                columnWidth: 0
-              });
-          
         
           var $container = $('#container');
            // $container.imagesLoaded(function(){ //imagesLoadedを入れて崩れないように
