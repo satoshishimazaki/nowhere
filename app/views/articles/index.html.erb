@@ -76,14 +76,10 @@
     <section id="blog" class="posts"> 
         <div class="hi-fluid"> <!-- Start Container -->
           <div class="row"> <!-- Start Row -->
-            <div class = "select_geo">
-            </div> 
+            <!-- <div class = "select_geo">
+            </div>  -->
             <div class = 'indexarticles'>    
-            <div class = 'articles'>
-              <div id = 'container'>
-              <% @articles.each_with_index do |article, index| %>
-                <div class="item"> 
-                  <div class="blog-box" id="article_<%= index %>">                    
+            <div class = 'articles'>                
                <div id="container">
               <% @articles.each_with_index do |article, index| %>
                <div class="item">
@@ -99,9 +95,6 @@
                            <% end %>            
                           <div class='indextitle'><h30><%= link_to simple_format(article.title), article_path(article.id) %></h30></div>
                             <div class="title_box">
-                              <!-- <div class="nowheretitle"> -->
-<!--                             <div class="title_box"> -->
-                              <!-- div class="nowheretitle"> -->
                                 <ul>
                                   <!-- <li><%= article.herenowtitle %></li> -->
                                   <div class="thumbnails"><%= profile_image_for article.store.profile %></div>
@@ -127,24 +120,15 @@
                                     </div>
                                   <% end %>
                                 </ul>
-                              <!-- </div> -->
-                            </div>
-                          <!-- </div> -->
-                        </div>
-                    </div><!-- item -->
-              <% end %>
-            </div><!-- contanier -->
-                              <!-- </div> --><!-- nowheretitle -->
-                           <!--  </div> --><!-- titlebox -->
-                          <!-- </div> -->
+                            </div><!-- title_box -->
                         </div><!-- blog-box -->
                     </div><!-- item -->
               <% end %>
-               </div><!-- End Container -->
-            </div>
-          </div>
+            </div><!-- contanier -->
+            </div><!-- article -->
+          </div><!-- indexarticle -->
          </div> <!-- End Row -->
-        </div> 
+        </div> <!-- hi fluid -->
         <div class="clearfix"></div>
     </section>
 
@@ -241,13 +225,6 @@
               document.getElementById("show_result").innerHTML = err_msg;
               //デバッグ用→ document.getElementById("show_result").innerHTML = error.message;
             }
-            
-              $container.masonry({
-                itemSelector: '.item',　
-                isFitWidth: true,　
-                columnWidth: 0
-              });
-          
         
           var $container = $('#container');
            // $container.imagesLoaded(function(){ //imagesLoadedを入れて崩れないように
