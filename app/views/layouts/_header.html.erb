@@ -1,6 +1,5 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
-    <div class="container">
       <nav id="mobile-bar"></nav>
       <nav id ="nav1">
         <ul>
@@ -28,6 +27,7 @@
              <li><%= link_to "Facebookログイン", user_omniauth_authorize_path(:facebook) %></li>
            <% end %> 
          </ul>
+      </nav>
 
       <nav id ="nav2">
       <ul>
@@ -38,13 +38,7 @@
       </ul>
       </nav>
 
-      <nav id="nav3">
-       <ul>
-       
-    </ul>
-     </nav>
-
-   <nav id ="nav4">
+   <nav id ="nav3">
         <ul> 
        <% if signed_in_? %>
         <!-- <li id="fat-menu" clas="dropdown">
@@ -60,7 +54,6 @@
        <% end %>
       </ul>
     </nav>
-  </nav>
         <div class='search'>
         <li>
           <%= form_tag search_path, method: :get do %>
@@ -76,19 +69,5 @@
           <li><i><%= link_to "", index_gmap_path, :class => "fa fa-map-marker" %></i></li>
            <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
         </div>             
-
-    </div>
   </div>
 </header>
-
-<script type="text/javascript">
-  $('.dropdown-toggle').dropdown()
-  $(function(){
-    $("body").mobile_menu({
-      menu: ['#nav1 ul', '#nav2 ul'],
-      menu_width: 200,
-      prepend_button_to: '#mobile-bar',
-      button_content:'menu'
-    });
-  });
-</script>

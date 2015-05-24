@@ -76,8 +76,8 @@
     <section id="blog" class="posts"> 
         <div class="hi-fluid"> <!-- Start Container -->
           <div class="row"> <!-- Start Row -->
-            <div class = "select_geo">
-            </div> 
+            <!-- <div class = "select_geo">
+            </div>  -->
             <div class = 'indexarticles'>    
             <div class = 'articles'>
               <div id = 'container'>                               
@@ -96,9 +96,6 @@
                            <% end %>            
                           <div class='indextitle'><h30><%= link_to simple_format(article.title), article_path(article.id) %></h30></div>
                             <div class="title_box">
-                              <!-- <div class="nowheretitle"> -->
-<!--                             <div class="title_box"> -->
-                              <!-- div class="nowheretitle"> -->
                                 <ul>
                                   <!-- <li><%= article.herenowtitle %></li> -->
                                   <div class="thumbnails"><%= profile_image_for article.store.profile %></div>
@@ -135,7 +132,7 @@
             </div>
           </div>
          </div> <!-- End Row -->
-        </div> 
+        </div> <!-- hi fluid -->
         <div class="clearfix"></div>
     </section>
 
