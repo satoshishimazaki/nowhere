@@ -136,7 +136,7 @@ body .blog-box a{
 
 //index
 .title_box{
-  position: absolute;
+  // position: absolute;
   bottom: 50px;
 }
 
@@ -145,7 +145,7 @@ body .blog-box a{
 }
 
 .indextitle{
-  position: absolute;
+  // position: absolute;
   bottom: 100px;
   left: 20px;
   right: 20px;
@@ -567,7 +567,7 @@ body body {
   color: black;
   text-align: left;
   z-index: 1;
-  position: absolute;
+  // position: absolute;
   bottom: 5px;
 }
 
@@ -1617,14 +1617,14 @@ img.new{
 }
 
 .thumbnails {
-position: absolute;
+// position: absolute;
 z-index: 4;
-height: 60px;
-width: 60px;
+height: 30px;
+width: 30px;
 overflow: hidden;
--webkit-border-radius: 50px;
--moz-border-radius: 50px;
-border-radius: 50px;
+-webkit-border-radius: 30px;
+-moz-border-radius: 30px;
+border-radius: 30px;
 box-shadow: 0px 0px 0px 2px gray;
 -moz-box-shadow: 0px 0px 0px 2px gray;
 -webkit-box-shadow: 0px 0px 0px 2px gray;
@@ -1632,7 +1632,7 @@ bottom: 45px;
 }
 
 img#profile{
-  width: 60px;
+  width: 30px;
   left: 1px;
   bottom: 0px;
   // height: 150px;
@@ -1694,4 +1694,40 @@ body .holiday{
   .storename {
     padding-left: 40px;
   }
+}
+
+#container {
+  width: 100%;
+  margin: 0 auto;   /*中央寄せ*/
+  position: relative;
+}
+.item {
+  margin: 10px;
+  width: 280px;
+  padding: 8px;
+  border: 1px solid #eee;
+  float: left;
+}
+
+.item img {
+  width: 100%;
+}
+
+@media screen and (max-width: 414px){
+#container {
+  width: 100%;
+  margin: 0 auto;   /*中央寄せ*/
+  position: relative;
+}
+.item {
+  margin: 5px;
+  width: 140px;
+  padding: 2px;
+  border: 1px solid #eee;
+  float: left;
+}
+
+.item img {
+  width: 100%;
+}
 }
