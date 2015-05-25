@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <!-- <meta charset="utf-8"> -->
+    <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <% provide(:title, @article.title) %>
+    <meta name="description" content=<% @article.content %>>
+ <!--    <meta name="description" content="Sailor is a Creative and Unique Corporate and Portfolio Web Template">
+    <meta name="keywords" content="portfolio, creative, corporate, responsive, bootstrap">
+    <meta name="author" content="JLP Media">
+  -->   
+    <!-- Favicons
+    ================================================== -->
+ <!--    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+
+  -->   <!-- Bootstrap
+    ================================================== -->
+ <!--    <link rel="stylesheet" type="text/css"  href="../css/bootstrap.css">
+ -->
+    <!-- Other Css Files
+    ================================================== -->
+<!--     <link rel="stylesheet" type="text/css" href="../font-awesome-4.2.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../css/jasny-bootstrap.min.css">
+
+ -->    <!-- Stylesheet
+    ================================================== -->
+<!--     <link rel="stylesheet" type="text/css"  href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/responsive.css">
+ -->
+    <!-- Google Fonts
+    ================================================== -->
+    <link href='http://fonts.googleapis.com/css?family=Great+Vibes&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- facebook share -->
+    <meta property="og:title" content=<%= @article.title %>>
+    <meta property="og:url" 
+       content="http://160.16.78.107/articles/#{@article.id}">
+    <meta property="og:site_name" content="now here">
+    <meta property="og:description" 
+       content=<%= @article.content[0..20] %>>
+    <meta property="og:image" 
+       content=<%= @article.article_images.map{|articleimage| articleimage.image }.first %>>
+
+    <!-- Modernizr
+    ================================================== -->
+    <!-- // <script type="text/javascript" src="../js/modernizr.custom.js"></script> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    </script>
+    <!-- Preloader
+    ================================================== -->
+    <div id="preloader">
+      <div id="status">&nbsp;</div>
+    </div>
+
+
+    <!-- Off Canvas Navigation
+    ================================================ -->
+    <!-- <div id="navigation" class="navmenu navmenu-default navmenu-fixed-left offcanvas"> <!- Off Canvas Side Menu -->
+      <!-- <a href="../index.html"><img src="../img/menu-logo.png" alt="..." class="logo"></a> <!- User Icon/Image --> 
+      <!-- <ul class="nav navmenu-nav"> <!- Menu --> 
+        <!-- <li><a href="../index.html#hero">Home</a></li> -->
+       <!-- <li><a href="../portfolio.html">Portfolio</a></li> -->
+        <!-- <li><a href="../index.html#about">About Me</a></li>
+        <li class="active"><a href="../blog.html">Blog</a></li>
+        <li><a href="../index.html#contact">Contact Me</a></li>
+      </ul><!- End Menu -->
+    <!-- </div> - End Off Canvas Side Menu  -->
+ 
+    <!-- Menu Toggle for Off Canvas-Menu -->
+ <!--    <div id="menu" class="menu" data-toggle="offcanvas" data-target=".navmenu">
+        <img src="../img/menu.png" alt="menu-logo">
+    </div>
+  -->
+    <!--Blog Posts
+    ================================================== -->
+ <section id="blog-post"> 
+  <!--  <div class="header-static">
+          <div class="featured-content static">
+            <div class="post-details">
+      
+           </div>
+         </div>
+       </div> -->
+       <div class="edit_path">
+        <p><strong>記事情報 </strong><%=link_to '編集', edit_admin_article_path %></p>
+       </div>
+        <%= @article.recommend %>
+
+        <div id="main-text" class="inner">
+            <div class="container">
+                <div class="row">                   
+                 <div class="col-md-7 col-lg-7 col-md-offset-0 col-lg-offset-0">
+             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                  <!-- Indicators -->   
+                  <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                  </ol>
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                      <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.first, :size =>'100*100'  %>
+                      <!-- <img src="....." alt="....."> -->
+                      <!-- <div class="carousel-caption">
+                        .....
+                      </div> -->
+                    </div>
+                    <div class="item">
+                      <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.second %>
+                      <!-- <img src="..." alt="..."> -->
+                      <!-- <div class="carousel-caption">
+                        .....
+                      </div> -->
+                    </div>
+                    <div class="item">
+                      <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.third %>
+                     <!-- <img src="..." alt="..."> -->
+                      <!-- <div class="carousel-caption">
+                        .....
+                      </div> -->
+                    </div>
+                    <div class="item">
+                      <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.fourth %>
+                      <!-- <img src="..." alt="..."> -->
+                  <!--     <div class="carousel-caption">
+                        .....
+                      </div> -->
+                    </div>
+                    <div class="item">
+                       <%= article_image_for @article.article_images.map{|articleimage| articleimage.image }.fifth %>
+                       <!-- <img src="..." alt="..."> -->
+                      <!-- <div class="carousel-caption">
+                        .....
+                      </div> -->
+                    </div>
+                    <!-- ..... -->
+                 </div>
+
+                  <!-- Controls -->
+                  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                 <!--    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> -->
+                    <i class="fa fa-chevron-left"></i>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <!-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> -->
+                    <i class="fa fa-chevron-right"></i>
+                    <span class="sr-only">Next</span>
+                  </a>
+              </div>                               
+      </div>
+        <!-- <div class="text-overlay"> -->
+            <div class="explain">
+               <p class="meta">店舗名：<%= @article.store.name %></p>
+                    <p class="meta">残り時間：<% if @article.left_time > 24.hours %>
+                                 <%= @article.left_day.floor %>日
+                                <% else %>
+                                 <%= @article.left_hour.floor %>時間<%= @article.left_minute.floor %>分
+                                <% end %></p>
+                <div class="title">
+                    <%= simple_format(@article.title) %>
+                </div>
+                <div class="metas">
+                    <% @article.content %>
+                    <div class="meta">
+                    <%= auto_link(simple_format(@article.content)) %>
+                    </div>
+                    <p>view:<%= @article.impressionist_count(:filter=>:ip_address)%></p>
+                    <p> <% if user_signed_in?%>
+                         <span id="article_<%= @article.id %>">
+                             <%= render 'favorites/favorite_btn', article: @article %>
+                         </span>
+                         <span id="fav_<%=@article.id %>">
+                             <%= @article.favorites.count %>
+                         </span>
+                      <% end %></p>
+                   <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+                        <div id="content">
+                            <h2>基本情報</h2>
+                            <div class="name"><p>店舗名：<%= @article.store.name %></p></div>
+                            <div class="tel"><p>電話番号：<%= phone_number_link( @article.store.tel ) %></p></div>
+                            <!-- <div class="time"><p>営業時間：time(営業時間)</p></div>
+                            <div class="holiday"><p>定休日：holiday(定休日)</p></div> -->
+                            <div class="holiday"><p>URL1：<%= link_to @article.store.url, @article.store.url %></p></div>
+                            <div class="holiday"><p>URL2：<%= link_to @article.store.url_sec, @article.store.url_sec %></p></div>
+                            <div class="holiday"><p>定休日：<%= @article.store.holiday %></p></div>
+                            <div class="address"><p>住所：<%= @article.address %></p></div>
+                            <div class="address"><p>最寄り駅：<%= @article.store.station %></p></div>
+                            <% if user_signed_in?%>
+                            <div class="address"><p>他記事一覧</p></div>
+                              <ul>
+                                <% @articles.each do |article| %>
+                                  <li><%= link_to article.title[0..10], article %>
+                                     <span id="article_<%= article.id %>">
+                                         <%= render 'favorites/favorite_btn', article: article %>
+                                     </span>
+                                     <span id="fav_<%= article.id %>">
+                                         <%= article.favorites.count %>
+                                     </span>
+                                <% end %>
+                              </ul>
+                            <% end %>
+                            <%= link_to '行き方', "http://maps.google.com/maps?ll=#{@article.latitude},#{@article.longitude}&daddr=#{@article.latitude},#{@article.longitude}", :target => "_blank" %> 
+                            <!-- <a href="http://maps.apple.com/maps?ll=35.571139,139.655062&amp;daddr=35.571139,139.655062" target="blank">Map</a>
+ -->
+                            <!-- googlemap -->
+                              <div class="map_container">
+                                <div id="map" class="map_canvas"></div>
+                              </div>
+                        </div>
+
+                  <div class="metas">
+                    <div id="comment">
+                      <p>コメント一覧</p>
+                          <% @article.comments.each do |comment| %>
+                          　　<hr>
+                              <p>ユーザー名:<%= comment.user_name %></p>
+                              <p>コメント内容:<%= comment.body %></p>                 
+                          <% end %> 
+                      <div id="addcomment">
+                      <p>コメント追加</p>
+                          <%= form_for ( [@article, @article.comments.build] ) do |f| %>
+                            <p>
+                              <%= f.label :ユーザー名 %><br>
+                              <%= f.text_field :user_name %>
+                            </p>
+                            <p>
+                              <%= f.label :コメント内容 %><br>  
+                              <%= f.text_area :body %>
+                            </p>
+                            <p>
+                              <%= f.submit "投稿" %>
+                            </p>
+                          <% end %>
+                        </div>     
+                    </div>
+                  </div>
+                </div>
+             </div>
+            </div> 
+                  
+                    <!-- Comments Block ******************************************
+                        *********************************************************** -->
+                   <!--      <div id="comments">
+                          <div class="comments-num ">
+                            <hr>
+                            <h4><span class="fa fa-comment"></span> 3 Comments</h4>
+                            <hr>
+                          </div>
+
+                          <div class="comment-lists">
+                            <ul class="media-list">
+
+                              <li class="commenter media">
+                                <img class="pull-left media-object" src="../img/clients/04.jpg" alt="...">
+                                <div class="media-body">
+                                  <div class="media-heading">
+                                    <span class="commenter-name">Lian Plamer </span>
+                                    <span class="comment-date"> 13 min ago</span>
+                                    <span class="pull-right"><a class="btn btn-xs btn1" href="#">Replay</a></span>
+                                  </div>
+                                  <p>Turpis ut mollis, elit et vestibulum mattis integer aenean nulla, in vitae id augue vitae. Lacus eu nulla ante lorem, viverra pretium ipsum etiam, platea nec purus malesuada id leo, aliquam metus, ac velit viverra.</p>
+                                  <hr>
+                                </div>
+                              </li>
+
+                              <li class="commenter media">
+                                <a class="pull-left" href="#">
+                                  <img class="media-object" src="../img/clients/01.jpg" alt="...">
+                                </a>
+                                <div class="media-body">
+                                  <div class="media-heading">
+                                    <span class="commenter-name">Leo Plamer </span>
+                                    <span class="comment-date"> 3 min ago</span>
+                                    <span class="pull-right"><a class="btn btn-xs btn1" href="#">Replay</a></span>
+                                  </div>
+                                  <p>Turpis ut mollis, elit et vestibulum mattis integer aenean nulla, in vitae id augue vitae. Lacus eu nulla ante lorem, viverra pretium ipsum etiam, platea nec purus malesuada id leo, aliquam metus, ac velit viverra.</p>
+                                  <hr>
+                                </div>
+                              </li>
+
+                              <li class="commenter media">
+                                <a class="pull-left" href="#">
+                                  <img class="media-object" src="../img/clients/03.jpg" alt="...">
+                                </a>
+                                <div class="media-body">
+                                  <div class="media-heading">
+                                    <span class="commenter-name">Errow Luke </span>
+                                    <span class="comment-date"> 3 min ago</span>
+                                    <span class="pull-right"><a class="btn btn-xs btn1" href="#">Replay</a></span>
+                                  </div>
+                                  <p>Turpis ut mollis, elit et vestibulum mattis integer aenean nulla, in vitae id augue vitae. Lacus eu nulla ante lorem, viverra pretium ipsum etiam, platea nec purus malesuada id leo, aliquam metus, ac velit viverra.</p>
+                                </div>
+                              </li>
+
+                            </ul>
+                          </div>
+                        </div>
+
+                        <!- Comment Form Block ******************************************
+                        *********************************************************** -->
+                        <!-- <div id="contact-form"> <! Form Wrapper -->
+                          <!-- <!- <hr>
+                          <! <! <! <h4>Leave a Comment</h4>
+                          <hr>
+                          <div class="row"> <! Inner Row -->
+                            <!-- <div class="col-md-10 form">
+                              <input type="text" class="form-control" placeholder="Name">
+                            </div> -->
+                           <!--  <div class="col-md-10 form">
+                              <input type="email" class="form-control" placeholder="Website">
+                            </div>
+                            --><!-- <div class="col-md-10 form">
+                              <textarea class="form-control" placeholder="Your Comment"></textarea>
+                              <button class="btn btn-primary contact-btn">Submit</button>
+                            </div>
+                          </div> --> <!-- End Inner Row -->
+                        <!-- </div> End Form Wrapper  -->
+
+                    </div>
+                </div>
+            </div>
+            <div class="space"></div>
+            <div class="clearfix"></div>
+        <!-- </div> -->
+    </section>
+
+  <!--  -->
+
+    <!-- Footer Section
+    ================================================== -->
+<!--     <footer>
+        <p class="copyright">© 2014 copyright. designed by  jlpmedia</p>
+    </footer> -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
+    ================================================== -->
+    <!-- // <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <!-- // <script type="text/javascript" src="../js/jquery.1.11.1.js"></script> -->
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- // <script type="text/javascript" src="../js/bootstrap.js"></script> -->
+
+    <!-- Other JS Files -->
+    <!-- // <script type="text/javascript" src="../js/jquery.easing.min.js"></script> -->
+    <!-- // <script type="text/javascript" src="../js/jasny-bootstrap.min.js"></script> -->
+    <!-- // <script type="text/javascript" src="../js/SmoothScroll.js"></script> -->
+    <!-- // <script type="text/javascript" src="../js/nivo-lightbox.js"></script> -->
+
+    <!-- Custom Javascripts
+    ================================================== -->
+    <!-- // <script type="text/javascript" src="../js/main.js"></script> -->
+
+    <!-- google map -->
+      <script type="text/javascript">
+          handler = Gmaps.build('Google');
+          handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
+          function(){
+            markers = handler.addMarkers(<%=raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            handler.getMap().setZoom(15);
+          });
+          // //ユーザーの現在の位置情報を取得ver
+          // navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+
+          // /***** ユーザーの現在の位置情報を取得 *****/
+          // function successCallback(position) {
+          //   handler = Gmaps.build('Google');
+          //   handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
+          //   function(){
+          //     markers = handler.addMarkers([{lat: position.coords.latitude, lng: position.coords.longitude, infowindow: 'test'}].concat(<%=raw @hash.to_json %>));
+          //     handler.bounds.extendWith(markers);
+          //     handler.fitMapToBounds();
+          //   });
+          // }
+          // /***** 位置情報が取得できない場合 *****/
+          // function errorCallback(error) {
+          // }
+      </script>
+  </body>
+</html>

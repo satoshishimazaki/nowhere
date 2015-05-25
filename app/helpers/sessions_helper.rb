@@ -50,6 +50,11 @@ module SessionsHelper
     session[:return_to] = request.url
   end
 
+  def correcting_store
+      @store = Store.find(params[:id])
+      current_store?(@store)
+  end
+
   # def create
   #   store = Store.find_by(email: params[:session][:email].downcase)
   #   if store && store.authenticate(params[:session][:password])
@@ -60,4 +65,22 @@ module SessionsHelper
   #     render 'new'
   #   end
   # end
+
+  def signed_in?
+    !current_user.nil?
+  end
+  
+  def current_user=(user)
+    @current_user = user
+  end
+
+  def current_user
+    remember_token = User.encrypt(cookies[:remember_token])
+    @current_user ||= User.find_by(remember_token: remember_token)
+  end
+
+  def current_user?(user)
+    user == current_user
+  end
+
 end

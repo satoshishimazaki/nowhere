@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522060323) do
+ActiveRecord::Schema.define(version: 20150525081910) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20150522060323) do
     t.string   "image_five"
     t.string   "category"
     t.string   "station"
+    t.string   "recommend",    default: "0"
   end
 
   add_index "articles", ["store_id", "created_at"], name: "index_articles_on_store_id_and_created_at"
@@ -177,9 +178,11 @@ ActiveRecord::Schema.define(version: 20150522060323) do
     t.string   "uid"
     t.string   "name"
     t.boolean  "admin",                  default: false
+    t.string   "remember_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
 

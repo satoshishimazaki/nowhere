@@ -1,4 +1,4 @@
-<% @page_title = "管理用ページトップ"%>
+<% @page_title = "ユーザー管理が面"%>
 <section id="blog" class="posts"> 
         <div class="container-fluid"> <!-- Start Container -->
           <div class="row"> <!-- Start Row -->
@@ -6,12 +6,12 @@
             </div> 
             <div class = 'indexarticles'>    
             <div class = 'articles'>
-
+            	<% @articles.each do |article|%>
 				<ul>
-					<li><%= link_to "ユーザー情報", :admin_users %></li>
-					<li><%= link_to "記事情報", :admin_articles %></li>
-					<li><%= link_to "店舗情報", :admin_stores %></li>
+					<li><%= link_to article.title, admin_article_path(article.id) %></li>
+					<li><%= article.store.name %></li>
 				</ul>
+				<% end %>
 			</div>
 		    </div>
 		  </div>

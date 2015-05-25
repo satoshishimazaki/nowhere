@@ -1,0 +1,41 @@
+<% provide(:title, 'post') %>
+<div class="storesign">
+<div id="storeform"><h1>更新画面</h1></div>
+
+  <div class="row">
+    <div class="span6">
+      <%= form_for @article, html: { multipart: true} do |f| %>
+       <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.label :recommend, "レコメンド" %>
+        <%= f.check_box :recommend %>
+
+        <%= f.label :title, "タイトル" %>
+        <%= f.text_area :title , cols: 16%>
+
+        <%= f.label :content, "記事" %>
+        <%= f.text_area :content, cols: 16, rows: 15 %>
+
+        <%= f.label :address, "住所" %>
+        <%= f.text_field :address %>
+
+        <%= f.label :station, "最寄り駅" %>
+        <%= f.select :station, ["武蔵小杉", "新丸子", "元住吉", "向河原", "武蔵中原", "その他" ], { include_blank: '選択してください' }, class: 'category' %>
+
+        <%= f.label :category, "カテゴリ" %>
+        <%= f.select :category, ['飲食', 'shopping', 'その他'], { include_blank: '選択してください' }, class: 'category' %>
+
+        <%= f.label :article_images, '画像' %>
+        <%= f.fields_for :article_images do |builder| %>      
+
+            <%= render "article_image_fields", f: builder %>
+
+        <% end %>    
+
+            <%= link_to_add_fields "写真追加", f, :article_images %>
+
+        <%= f.submit "更新", class: "btn btn-large btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

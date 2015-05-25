@@ -236,7 +236,7 @@ color: white;
   margin-top: 85px;
   padding-top: 85px;
   padding-bottom: 0px;
-  background-color: rgba(179, 231, 28, 0.15);
+  background-color: rgba(101, 115, 62, 0);
   font-size: 17px;
   color:black;
 }
@@ -1739,3 +1739,9 @@ body .holiday{
   width: 100%;
 }
 }
+
+//admin 編集画面へのパス
+.edit_path{
+  margin-top: 30px;
+}
+

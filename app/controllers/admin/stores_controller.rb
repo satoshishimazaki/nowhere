@@ -1,8 +1,5 @@
-class StoresController < ApplicationController
-  before_action :signed_in_store, only: [:edit, :update, :destroy]
-  before_action :correct_store,   only: [:edit, :update]
-  before_action :admin_store,     only: [:edit, :destroy]
-
+class Admin::StoresController < ApplicationController
+  
   def show
     @store = Store.find(params[:id])
     # @articles = @store.articles

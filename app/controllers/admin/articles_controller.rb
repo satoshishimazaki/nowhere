@@ -1,6 +1,4 @@
-class ArticlesController < ApplicationController
-  before_action :signed_in_store,  only:[:create, :destroy, :new, :edit, :update]
-  # before_action :time_valid, only:[:ajax_index]
+class Admin::ArticlesController < ApplicationController
   impressionist actions: [:show, :index, :index_eating, :index_shopping, :index_station, :index_other]
 
   def new
@@ -82,13 +80,6 @@ class ArticlesController < ApplicationController
       # raise 
   end
 
-  def index_recommend
-      # @articles = 'nil'
-      @articles = Article.all
-      @articles = Article.where('created_at > ? AND recommend = ?', Time.now - 24*14.hours, '1').order( created_at: :desc )
-      # raise 
-  end
-
   def index_station
       @articles = Article.all
       @articles = Article.where('created_at > ? AND station = ?', Time.now - 24*14.hours, params[:station]).order( created_at: :desc )
@@ -159,7 +150,7 @@ class ArticlesController < ApplicationController
       # @article.set_image_five(file5)
     if @article.update_attributes(article_params)
        # flash[:success] = "Article updated"
-       redirect_to @article
+       redirect_to 'admin/articles/#{@article.id}'
     else
       render 'edit'
     end

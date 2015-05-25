@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :correct_user, only: [:show]
   def index
   	@users = User.all
   end
@@ -14,4 +15,10 @@ class UsersController < ApplicationController
     @article_address = Article.select(:address).limit(15).map{|article| '"'+article.address+'"'}
     render 'users/index'
   end
+
+  private
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_path) unless current_user?(@user)
+    end
 end
