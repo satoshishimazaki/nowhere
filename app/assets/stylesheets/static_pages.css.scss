@@ -367,26 +367,6 @@ font-size: 20px;
 /* color: black; */
 }
 
-// body .carousel-inner > .item > a > img {
-// line-height: 1;
-// opacity: 0.7 ;
-// width: 100%;
-// }
-
-body .carousel-inner > .item > a > img {
-line-height: 1;
-opacity: 0.7;
-background-size: cover;
-width: 100%;
-}
-
-// body .carousel-inner > .item > a > img {
-// line-height: 1;
-// opacity: 0.7;
-// background-size: cover;
-// width: 100%;
-// }
-
 //article_show上部箇所の背景
 
 .featured-content.static {
@@ -1335,10 +1315,42 @@ style{
   // max-height: 450px;
 }
 
-.carousel-inner > .item > img{
- width: 580px;
- // height: 580px;
+.carousel-inner{
+  max-width: 400px;
+  height: 400px;
 }
+
+@media screen and (max-width: 413px){
+//show 写真
+.carousel-inner{
+  max-width: 300px;
+  height: 300px;
+}
+}
+// body .carousel-inner > .item > a > img {
+// line-height: 1;
+// opacity: 0.7 ;
+// width: 100%;
+// }
+
+body .carousel-inner > .item > a > img {
+line-height: 1;
+opacity: 0.7;
+background-size: cover;
+width: 100%;
+}
+
+// body .carousel-inner > .item > a > img {
+// line-height: 1;
+// opacity: 0.7;
+// background-size: cover;
+// width: 100%;
+// }
+
+// .carousel-inner > .item > img{
+//  width: 580px;
+//  // height: 580px;
+// }
 
 a.left.carousel-control {
   background: rgba(8, 8, 8, 0.14);
@@ -1444,11 +1456,6 @@ right: 10px;
   text-align: left
 }
 
-//show 写真
-.carousel-inner{
-  max-width: 450px;
-  max-height: 450px;
-}
 
 h20{
   font-size: 3px;
@@ -1707,7 +1714,7 @@ body .holiday{
   position: relative;
 }
 
-.item{
+.box{
   margin: 10px;
   width: 250px;
   // padding-bottom: 200px;
@@ -1716,7 +1723,7 @@ body .holiday{
   z-index: 5;
 }
 
-.item img{
+.box img{
   width: 100%;
 }
 
@@ -1727,7 +1734,7 @@ body .holiday{
   position: relative;
 }
 
-.item{
+.box{
   margin: 20px;
   margin-bottom: 20px;
   width: 130px;
@@ -1736,7 +1743,7 @@ body .holiday{
   float: left;
 }
 
-.item img{
+.box img{
   width: 100%;
 }
 }
@@ -1744,5 +1751,36 @@ body .holiday{
 //admin 編集画面へのパス
 .edit_path{
   margin-top: 30px;
+}
+
+//show 画面のモ＝タルウィンドウ
+#glayLayer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: black;
+  opacity: 0.60;
+  filter:alpha(opacity=60);
+}
+
+#overLayer {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  margin-top: -250px;
+  margin-left: -500px;
+  // margin-right: -200px;
+  z-index: 10;
+}
+
+#overLayer img {
+  max-height: 500px;
+
 }
 

@@ -1,5 +1,6 @@
 class Admin::StoresController < ApplicationController
-  
+  before_action :admin_store
+
   def show
     @store = Store.find(params[:id])
     # @articles = @store.articles
@@ -87,6 +88,9 @@ class Admin::StoresController < ApplicationController
     end
 
     def admin_store
-      redirect_to(root_path) unless current_store.admin?
+      @store = current_store
+      if @store.admin == false
+         redirect_to root_url
+      end
     end
 end

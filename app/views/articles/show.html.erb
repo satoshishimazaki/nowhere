@@ -387,6 +387,19 @@
             handler.fitMapToBounds();
             handler.getMap().setZoom(15);
           });
+
+          $(function(){
+            $("#main-text").append("<div id='glayLayer'></div><div id='overLayer'></div>");
+            $("#glayLayer").click(function(){
+              $(this).hide();
+              $("#overLayer").hide();
+            });
+            $("img").click(function(){
+              $("#glayLayer").show();
+              $("#overLayer").show().html("<img src='"+$(this).attr("src")+"'>");
+              return false;
+            });
+          });
           // //ユーザーの現在の位置情報を取得ver
           // navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 

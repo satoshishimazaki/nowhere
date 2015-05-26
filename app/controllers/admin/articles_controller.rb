@@ -1,4 +1,5 @@
 class Admin::ArticlesController < ApplicationController
+  before_action :admin_store
   impressionist actions: [:show, :index, :index_eating, :index_shopping, :index_station, :index_other]
 
   def new
@@ -163,5 +164,12 @@ class Admin::ArticlesController < ApplicationController
 
     def article_params
       params.require(:article).permit( :content, :title, :station, :address, :latitude, :longitude, :category, :body, :user_name, :recommend, article_images_attributes: [:image])
+    end
+
+    def admin_store
+      @store = current_store
+      if @store.admin == false
+         redirect_to root_url
+      end
     end
 end

@@ -82,7 +82,7 @@
             <div class = 'articles'>
               <div id = 'container'>                               
               <% @articles.each_with_index do |article, index| %>  
-                <div class="item"> 
+                <div class="box"> 
                  <a href= 'articles/<%=article.id %>'>            
                   <div class="blog-box" id="article_<%= index %>">
                           <%= link_to article_path(article.id) do
@@ -234,12 +234,12 @@
               var $container = $('#container');
            // $container.imagesLoaded(function(){ //imagesLoadedを入れて崩れないように
               $container.masonry({ // id="container"の中の
-                  itemSelector : '.item', // class="item"に対して適用
+                  itemSelector : '.box', // class="item"に対して適用
                   columnWidth: 0, //一列の幅サイズを指定
                   isFitWidth: true, //親要素の幅サイズがピッタリ
               });
            // });
-               $('.item').click(function(){
+               $('.box').click(function(){
                   $(this).css("background", "#CCC")
                   window.location = $(this).find('a').attr('href');
                   return false;
