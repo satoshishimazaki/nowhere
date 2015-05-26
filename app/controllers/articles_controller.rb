@@ -133,8 +133,8 @@ class ArticlesController < ApplicationController
   #1mile抽出
   def ajax_mile
     # ユーザーの現在地から近い順にStoresをとってくる
-    article = Article.within_box(distance: 1, latitude: params[:latitude], longitude: params[:longitude])
-    @articles = Article.by_distance(origin: article)
+    @articles = Article.within_box(distance: 1, latitude: params[:latitude], longitude: params[:longitude])
+    # @articles = Article.by_distance(origin: article)
     @articles = @articles.where('created_at > ?', Time.now - 24*14.hours).order( created_at: :desc )
     # @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
     # @articles = @stores.map { |store| store.articles }.map { |articles| articles }.map { |article| article }
