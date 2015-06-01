@@ -1,6 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
-    <!-- <div class="let"> -->
+    <div class="container">
       <nav id="mobile-bar"></nav>
       <nav id ="nav1">
         <ul class ="menu">
@@ -39,9 +39,6 @@
         <li><%= link_to "その他", index_other_path %></li>
       </ul>
       </nav>
-       
-    </ul>
-     </nav>
 
    <nav id ="nav3">
         <ul> 
@@ -90,7 +87,18 @@
           <%= link_to 'recomend', index_recommend_path %>
         </div>
         
-    <!-- </div> -->
+    </div>
   </div>
 </header>
 
+<script type="text/javascript">
+  // $('.dropdown-toggle').dropdown()
+  $(function(){
+    $("html").mobile_menu({
+      menu: ['#nav1 ul', '#nav2 ul', '#nav3 ul'],
+      menu_width: 200,
+      prepend_button_to: '#mobile-bar',
+      button_content:""
+    });
+  });
+</script>
