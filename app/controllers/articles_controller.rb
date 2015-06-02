@@ -92,7 +92,7 @@ class ArticlesController < ApplicationController
       @articles = Article.all
       @articles = Article.where('created_at > ? AND recommend = ?', Time.now - 24*14.hours, '1').order( created_at: :desc )
       @article_address = Article.select(:address).limit(15).map{|article| '"'+article.address+'"'}
-      render '_category_index'
+      # render '_category_index'
   end
 
   def index_station
