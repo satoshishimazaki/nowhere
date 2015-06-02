@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
       @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
       @time = Time.now
       # raise
-      render layout: 'index'
+      # render layout: 'index'
       # @articles = Article.paginate(page: params[:page])
       @users = User.all
   end
@@ -62,6 +62,7 @@ class ArticlesController < ApplicationController
       @articles = Article.where('created_at > ?', Time.now - 24*14.hours).order( created_at: :desc )
       @article_address = Article.select(:address).limit(15).map{|article| '"'+article.address+'"'}
       @time = Time.now
+      render layout: 'otherapplication'
   end
 
   def index_eating
