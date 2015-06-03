@@ -27,7 +27,7 @@
        <p>定休日:-</p>
       <% end %>
       <% if @store.profile? %>
-       <p>プロフィール:<div class="thumbnails"><%= profile_image_for @store.profile %></div></p>
+       <p>プロフィール:<div class="showthumbnails"><%= show_profile_image_for @store.profile %></div></p>
       <% else %>
        <p>定休日:-</p>
       <% end %> 

@@ -177,6 +177,7 @@
       </div>
         <!-- <div class="text-overlay"> -->
             <div class="explain">
+              <div class="showthumbnails"><%= show_profile_image_for @article.store.profile %></div>
                <p class="meta">店舗名：<%= @article.store.name %></p>
                     <p class="meta">残り時間：<% if @article.left_time > 24.hours %>
                                  <%= @article.left_day.floor %>日
