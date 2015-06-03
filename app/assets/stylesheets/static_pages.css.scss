@@ -627,6 +627,7 @@ body .nopadding {
   margin-top: 20px;
   padding-left: 30px;
   padding-right: 30px;
+  margin-bottom: 20px;
 }
 
 
@@ -1212,6 +1213,36 @@ div#small {
   width: 100%; 
 }
 
+.gmapshow {
+  height: 90px;
+  border-bottom: solid 1px gray;
+} 
+
+.gmapimage {
+  // border: 1px solid #666;
+  width: 85px;
+  height: 85px;
+  padding: 0;
+  margin: 2px;
+  // margin: 10px;
+  display: inline-block;
+  // right: 100px
+  float: left;
+} 
+
+.gmapword{
+  margin-left: 100px;
+}
+
+#favorite_index p {
+  border-bottom: solid 1px gray;
+  margin-bottom: 0px;
+  padding-bottom: 20px;
+}
+.title_in_box {
+  margin-left: 95px;
+}
+
 //Drawer Slide Menu
 #build-menu-page {
   left: 0;
@@ -1266,13 +1297,13 @@ div#small {
 
 //favorite
 
-#favorite_index img{
-  width: 90px;
-  height: 90px;
-  vertical-align: top;
-  float: left;
-  text-align: left
-}
+// #favorite_index img{
+//   width: 90px;
+//   height: 90px;
+//   vertical-align: top;
+//   float: left;
+//   text-align: left
+// }
 
 .article_index{
   height: 100px;
