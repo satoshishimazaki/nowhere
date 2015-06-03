@@ -38,7 +38,7 @@ class Admin::ArticlesController < ApplicationController
       @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
       @time = Time.now
       # raise
-      render layout: 'index'
+      # render layout: 'index'
       # @articles = Article.paginate(page: params[:page])
       @users = User.all
   end

@@ -185,7 +185,7 @@
     ul.contact-info { width: 90% }
     #portfolio .large-box { height: 540px }
     .large-box .hover-text a.btn.read-more-btn {top: 450px}
-    #blog .blog-box { height: 300px }
+    /*#blog .blog-box { height: 300px }*/
     .blog-box .hover-text { padding: 5px;}
     .blog-button {
         padding: 10px;

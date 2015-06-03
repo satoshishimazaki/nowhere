@@ -556,6 +556,7 @@ body body {
   z-index: 1;
   // position: absolute;
   bottom: 5px;
+  margin-top: 20px;
 }
 
 .nowheretitle{
@@ -1655,7 +1656,8 @@ box-shadow: 0px 0px 0px 2px gray;
 -moz-box-shadow: 0px 0px 0px 2px gray;
 -webkit-box-shadow: 0px 0px 0px 2px gray;
 bottom: 0px;
-// float: left
+float: left;
+margin-left: 10px;
 }
 
 img#profile{
@@ -1692,6 +1694,7 @@ img#profile{
 
 .storename {
     padding-left: 70px;
+    padding-top: 10px;
 }
 
 body .holiday{
@@ -1723,49 +1726,6 @@ body .holiday{
 //     padding-left: 40px;
 //   }
 // }
-
-#container {
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-}
-
-.box{
-  margin: 10px;
-  width: 250px;
-  // padding-bottom: 200px;
-  border: 1px solid black;
-  float: left;
-  z-index: 5;
-  border-radius: 5px;
-}
-
-.box img{
-  width: 100%;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-}
-
-@media screen and (max-width: 414px){
-#container {
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-}
-
-.box{
-  margin: 10px;
-  margin-bottom: 20px;
-  width: 150px;
-  // padding-bottom: 100px;
-  border: 1px solid black;
-  float: left;
-}
-
-.box img{
-  width: 100%;
-}
-}
 
 //admin 編集画面へのパス
 .edit_path{
@@ -1804,9 +1764,16 @@ body .holiday{
 }
 
 //recommend
-.articles p {
-  margin-left: 20px;
+.recommend {
+  margin-left: 10px;
+  margin-top: 5px;
 }
+
+
+ul{
+  padding-left: 10px;
+}
+
 
 //ajax
 .ajaxarticle{
@@ -1828,6 +1795,144 @@ body .holiday{
 .navmenu-nav {
   margin-bottom: 0px;
 }
+
+
+//storename layout
+// .storename {
+//   padding-left: 0px;
+//   bottom: 50px;
+//   right: auto;
+//   left: 80px;
+//   position: absolute;
+// }
+
+//index card mansorny
+#container {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.box{
+  margin: 10px;
+  width: 250px;
+  // padding-bottom: 200px;
+  border: 1px solid black;
+  float: left;
+  z-index: 5;
+  border-radius: 8px;
+}
+
+.box img{
+  width: 100%;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+.articles p {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 414px){
+#container {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.box{
+  margin: 7px;
+  margin-bottom: 9px;
+  width: 195px;
+  // padding-bottom: 100px;
+  border: 1px solid black;
+  float: left;
+  border-radius: 5px;
+}
+
+.box img{
+  width: 100%;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.thumbnails {
+// position: absolute;
+z-index: 4;
+height: 30px;
+width: 30px;
+height: 40px;
+width: 40px;
+overflow: hidden;
+-webkit-border-radius: 30px;
+-moz-border-radius: 30px;
+border-radius: 30px;
+box-shadow: 0px 0px 0px 2px gray;
+-moz-box-shadow: 0px 0px 0px 2px gray;
+-webkit-box-shadow: 0px 0px 0px 2px gray;
+bottom: 0px;
+float: left;
+margin-left: 5px;
+}
+ul{
+  padding-left: 5px;
+}
+.distance{
+  margin-left: 0px;
+  float: left;
+}
+}
+
+@media screen and (max-width: 375px){
+#container {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.box{
+  margin: 5px;
+  margin-bottom: 7px;
+  width: 170px;
+  // padding-bottom: 100px;
+  border: 1px solid black;
+  float: left;
+  border-radius: 5px;
+}
+
+.box img{
+  width: 100%;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+}
+
+@media screen and (max-width: 320px){
+#container {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.box{
+  margin: 3px;
+  margin-bottom: 5px;
+  width: 150px;
+  // padding-bottom: 100px;
+  border: 1px solid black;
+  float: left;
+  border-radius: 5px;
+}
+
+.box img{
+  width: 100%;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+}
+
+
 
 
 
