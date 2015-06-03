@@ -1,14 +1,14 @@
 <% provide(:title, "Sign in") %>
+<div class="row">
 <div class="storesign">
 <div id="storeform"><h1>サインイン</h1></div>
-
 <div class="signin">
 <% flash.each do |key, value| %>
   <div class="alert alert-<%= key %>"><%= value %></div>
 <% end %>
 </div>
 
-<div class="row">
+
   <div class="span6 offset3">
     <%= form_for(:session, url: sessions_path) do |f| %>
 

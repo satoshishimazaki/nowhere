@@ -131,6 +131,7 @@ body .blog-box a{
   height: 50px;
   position: absolute;
   top: 5px;
+  left: 14px;
   // margin-top: 10px;
 }
 
@@ -860,18 +861,20 @@ body .navbar-inner .container {
 
 //検索
 .search-input #word{
-  color:black;
   float: right;
   padding-bottom: 0px;
   padding-top: 0px;
   padding-right: 0px;
   padding-left: 20px;
   margin-bottom: 3px;
-  width: 102px;
+  width: 150px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-color: rgb(178, 173, 173);
 }
 
 .search-input{
-  float: right;
+  float: left;
 }
 
 img.searchicon {
@@ -949,8 +952,8 @@ hr {
 /* footer */
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
+  // margin-top: 45px;
+  // padding-top: 5px;
   // border-top: 1px solid $grayMediumLight;
   // color: $grayLight;
   a {
@@ -1139,7 +1142,7 @@ body #comment p {
 
 // footer
 .footer {
-margin-top: 100px;
+// margin-top: 100px;
 border-top-style: solid;
 text-align: center;
 // text-transform: uppercase;
@@ -1734,10 +1737,13 @@ body .holiday{
   border: 1px solid black;
   float: left;
   z-index: 5;
+  border-radius: 5px;
 }
 
 .box img{
   width: 100%;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
 
 @media screen and (max-width: 414px){
@@ -1811,5 +1817,17 @@ body .holiday{
 .indexarticles1{
   margin-top: 50px;
 }
+
+//menubar
+#second hr{
+  margin-top: 20px;
+  // width: 190px;
+  // margin-left: 0px;
+}
+
+.navmenu-nav {
+  margin-bottom: 0px;
+}
+
 
 
