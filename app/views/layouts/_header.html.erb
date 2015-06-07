@@ -1,9 +1,8 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <nav id="mobile-bar"></nav>
-      <nav id ="nav1">
-        <ul class ="menu">
+     <nav id="menu" class="panel" role="navigation">
+      <ul>
           <li><%= link_to "home", root_path %></li>
           <hr>
           <div class='search'>
@@ -39,21 +38,12 @@
                <li><%= link_to "ログイン", new_user_session_path %></li>
                <li><%= link_to "Facebookログイン", user_omniauth_authorize_path(:facebook) %></li>
              <% end %> 
-         </ul>
-        </nav>
-      
-
-      <nav id ="nav2">
-      <ul class ="menu">
+  
         <li class="menubarcol">カテゴリ</li>
         <li><%= link_to "飲食", index_eating_path %></li>
         <li><%= link_to "ショッピング", index_shopping_path %></li>
         <li><%= link_to "その他", index_other_path %></li>
-      </ul>
-      </nav>
-
-   <nav id ="nav3">
-        <ul> 
+   
        <% if signed_in_? %>
         <!-- <li id="fat-menu" clas="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-target="#">
@@ -68,6 +58,9 @@
        <% end %>
       </ul>
     </nav>
+
+    <a href="#menu" class="menu-link">&#9776;</a>
+    
         <div class="map">
           <li><i><%= link_to "", index_gmap_path, :class => "fa fa-map-marker" %></i></li>
            <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
@@ -94,11 +87,6 @@
 <script type="text/javascript">
   // $('.dropdown-toggle').dropdown()
   $(function(){
-    $("html").mobile_menu({
-      menu: ['#nav1 ul', '#nav2 ul', '#nav3 ul'],
-      menu_width: 200,
-      prepend_button_to: '#mobile-bar',
-      button_content:""
-    });
+     $('.menu-link').bigSlide();
   });
 </script>
