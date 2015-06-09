@@ -5,5 +5,6 @@ class Users::SessionsController < Devise::SessionsController
  
   def create
     super
+    sign_in__ user
   end
 end

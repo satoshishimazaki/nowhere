@@ -19,7 +19,7 @@
           </div>        
           <div id='second'><hr></div>
           <li class="menubarcol">ユーザー情報</li>
-           <% if user_signed_in? %> 
+           <% if signed_in? %>
                <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
                <!-- *_path はUserモデルを作成したときに、
                 deviseにより自動で作成されてますので、rake routesで確認できます -->
