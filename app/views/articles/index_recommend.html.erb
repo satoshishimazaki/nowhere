@@ -238,8 +238,7 @@
               //デバッグ用→ document.getElementById("show_result").innerHTML = error.message;
             }
         
-              var $container = $('#container');
-              $container.masonry({ // id="container"の中の
+              $('#container').masonry({ // id="container"の中の
                   itemSelector : '.box', // class="item"に対して適用
                   columnWidth: 0, //一列の幅サイズを指定
                   isFitWidth: true, //親要素の幅サイズがピッタリ
