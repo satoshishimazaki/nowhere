@@ -26,7 +26,7 @@
       'push': ('.push'),
       'side': 'left',
       'menuWidth': '8.5em',
-      'speed': '500',
+      'speed': '250',
       'state': 'closed',
       'activeBtn': 'active',
       'easyClose': true,
