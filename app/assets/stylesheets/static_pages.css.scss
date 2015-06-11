@@ -869,7 +869,7 @@ body .navbar-inner .container {
   padding-right: 0px;
   padding-left: 20px;
   margin-bottom: 3px;
-  width: 150px;
+  width: 140px;
   border-top-width: 1px;
   border-bottom-width: 1px;
   border-color: rgb(178, 173, 173);
@@ -933,7 +933,7 @@ div#build-menu li{
 }
 
 .menubarcol{
-  background-color: rgba(239, 244, 239, 0.4)
+  background-color: rgba(168, 168, 168, 0.4);
 } 
 
 hr {
@@ -1818,15 +1818,29 @@ ul{
 
 //menubar
 #second hr{
-  margin-top: 20px;
+  margin-top: 30px;
   // width: 190px;
   // margin-left: 0px;
+}
+#second {
+  padding-top: 1px;
 }
 
 .navmenu-nav {
   margin-bottom: 0px;
 }
 
+.bigslilepanel{
+  background-color: #EEF0F0;
+}
+
+ul#menubar {
+  font-size: 15px;
+}
+
+li.menubar{
+  margin: 10px;
+}
 
 //storename layout
 // .storename {
