@@ -1,12 +1,12 @@
 <div id ="search_output">
 
-<p>「<%= @search_word %>」に該当する記事</p>
+<p class="search">「<%= @search_word %>」に該当する記事</p>
 
 <ul class="search">
  <% if @articles.blank? %>  
           <p>該当情報は見当たりません</p>
         <%else%>   
-      　　<div class="store_article">
+      　　<div class="search_article">
               <div id="favorite_index" >
                 <p><strong></strong></p>
                  <% @articles.each do |article| %> 
@@ -25,13 +25,13 @@
  <% end %>
 </ul>
 
-<p>「<%= @search_word %>」に該当する店舗</p>
+<p class="search">「<%= @search_word %>」に該当する店舗</p>
 
 <ul class="search">
  <% if @stores.blank? %>  
           <p>該当情報は見当たりません</p>
         <%else%>   
-          <div class="store_article">
+          <div class="search_article">
               <div id="favorite_index" >
                 <p><strong></strong></p>
                  <% @articles.each do |article| %> 
