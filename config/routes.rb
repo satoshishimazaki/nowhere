@@ -7,7 +7,7 @@ Sample5App::Application.routes.draw do
   :omniauth_callbacks => "users/omniauth_callbacks" 
   }
   devise_scope :user do get "/user_signout" => "devise/sessions#destroy" end
-  resources :users, :only => [:index, :show] do
+  resources :users, only: [:show, :index] do
     member do
       get :favorite
     end
@@ -54,6 +54,7 @@ Sample5App::Application.routes.draw do
   match '/sample',   to: 'static_pages#sample',   via: 'get'
   match '/sample_sample',   to: 'static_pages#sample_sample',   via: 'get'
   match '/menu_sample',   to: 'static_pages#menu_sample',   via: 'get'
+  # match '/usersignup',  to: 'users#new',            via: 'get'
   match '/signup',  to: 'stores#new',            via: 'get'
   match '/signin_',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'

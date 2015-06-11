@@ -2058,3 +2058,17 @@ nav#menu.panel {
   position: relative;
 }
 
+//alert-notice
+.alert.alert-notice {
+  padding: 0px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  // position: center;
+  text-align: left;
+  // float: left;
+}
+
+.signin{
+  margin-left: 0px;
+}

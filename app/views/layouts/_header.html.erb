@@ -21,7 +21,8 @@
           </div>        
           <div id='second'><hr></div>
           <li class="menubarcol">ユーザー情報</li>
-           <% if signed_in? %> 
+           <% if current_user %>
+
                <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
                <!-- *_path はUserモデルを作成したときに、
                 deviseにより自動で作成されてますので、rake routesで確認できます -->
@@ -37,11 +38,12 @@
                 <li class="menubar"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                 <!-- </ul> -->
              <% else %>
+          
                <li class="menubar"><%= link_to "登録", new_user_registration_path %> </li>
                <li class="menubar"><%= link_to "ログイン", new_user_session_path %></li>
                <li class="menubar"><%= link_to "Facebookログイン", user_omniauth_authorize_path(:facebook) %></li>
              <% end %> 
-  
+
         <li class="menubarcol">カテゴリ</li>
         <li class="menubar"><%= link_to "飲食", index_eating_path %></li>
         <li class="menubar"><%= link_to "ショッピング", index_shopping_path %></li>
