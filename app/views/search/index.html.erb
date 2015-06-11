@@ -6,10 +6,22 @@
  <% if @articles.blank? %>  
           <p>該当情報は見当たりません</p>
         <%else%>   
-  <% @articles.each do | article | %> 
-	        <hr>
-		       <div class="article_index"><h15><%=article_image_for article.article_images.map{|articleimage| articleimage.image }.first %>タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...<br>店舗名：<%=link_to article.store.name[0..10], article_path(article.id) %>...<br>Like数：<%=article.favorites.count %></h15></div>
-	         <% end %>
+      　　<div class="store_article">
+              <div id="favorite_index" >
+                <p><strong></strong></p>
+                 <% @articles.each do |article| %> 
+                    <div class='gmaplikeshow'>
+                      <!-- <div class='title_in_box'> -->
+                      <div class='gmaplikeimage'><%=article_image_for article.article_images.map{|articleimage| articleimage.image }.first %></div>
+                      <div class='gmapword'>
+                      タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...<br>
+                      店舗名：<%=link_to article.store.name[0..10], article_path(article.id) %>...<br>
+                      Like数：<%=article.favorites.count %></div>
+                    <!-- </div> -->
+                    </div>
+                 <% end %>
+             </div>
+          </div>
  <% end %>
 </ul>
 
@@ -19,9 +31,41 @@
  <% if @stores.blank? %>  
           <p>該当情報は見当たりません</p>
         <%else%>   
-  <% @stores.each do |store|%>
-    <div class="article_index"><p><%= link_to store.name[0..10], search_store_store_path(store.id) %>.../ <%= link_to store.category, store_path(store.id) %> / <%= link_to store.station, search_store_store_path(store.id) %></p>
-  <% end %>
+          <div class="store_article">
+              <div id="favorite_index" >
+                <p><strong></strong></p>
+                 <% @articles.each do |article| %> 
+                    <div class='gmaplikeshow'>
+                      <!-- <div class='title_in_box'> -->
+                      <div class='gmaplikeimage'><%=article_image_for article.article_images.map{|articleimage| articleimage.image }.first %></div>
+                      <div class='gmapword'>
+                      タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...<br>
+                      店舗名：<%=link_to article.store.name[0..10], article_path(article.id) %>...<br>
+                      Like数：<%=article.favorites.count %></div>
+                    <!-- </div> -->
+                    </div>
+                 <% end %>
+             </div>
+          </div>
  <% end %>
 </ul>
 </div>
+
+<script type="text/javascript">
+  $(function(){
+    $('.gmaplikeshow').click(function(){
+          $(this).css("background", "#CCC")
+          window.location = $(this).find('a').attr('href');
+          return false;
+      })　　
+
+  　　　　　 $('.gmaplikeimage').imagefit({
+          mode: 'outside', //指定サイズの中に入れるかはみ出させるかの指定: 'inside' or 'outside'.
+          halign : 'left', //指定サイズのブロックに対する画像の配置横位置: 'left', 'center' or 'right'
+          valign : 'middle' , //指定サイズのブロックに対する画像の配置縦位置: 'top', 'middle' or 'bottom'
+          force : true //画像のサイズが指定サイズより小さい場合もリサイズするかどうか:true or false 
+      });　　　　　
+  });　
+ </script>
+
+

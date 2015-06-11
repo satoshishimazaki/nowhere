@@ -3,7 +3,6 @@
     <div id="map" class="map_canvas"></div>
   </div>
  </div>
-  <div id="content-pane">
       <!-- <div id="inputs">
         <p><button type="button" id="calculate">Calculate
           distances</button></p>
@@ -12,9 +11,9 @@
           <div id="favorite_index" >
             <p><strong>記事一覧</strong></p>
              <% @articles.each do |article| %> 
-                <div class='gmapshow'>
+                <div class='gmaplikeshow'>
                   <!-- <div class='title_in_box'> -->
-                  <div class='gmapimage'><%=article_image_for article.article_images.map{|articleimage| articleimage.image }.first %></div>
+                  <div class='gmaplikeimage'><%=article_image_for article.article_images.map{|articleimage| articleimage.image }.first %></div>
                   <div class='gmapword'>
                   タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...<br>
                   店舗名：<%=link_to article.store.name[0..10], article_path(article.id) %>...<br>
@@ -121,13 +120,13 @@
           //     //デバッグ用→ document.getElementById("show_result").innerHTML = error.message;
           //   }
           // });
-  　　　　　$('.gmapshow').click(function(){
+  　　　　　$('.gmaplikeshow').click(function(){
                     $(this).css("background", "#CCC")
                     window.location = $(this).find('a').attr('href');
                     return false;
            })　　
 
-  　　　　　 $('.gmapimage').imagefit({
+  　　　　　 $('.gmaplikeimage').imagefit({
                 mode: 'outside', //指定サイズの中に入れるかはみ出させるかの指定: 'inside' or 'outside'.
                 halign : 'left', //指定サイズのブロックに対する画像の配置横位置: 'left', 'center' or 'right'
                 valign : 'middle' , //指定サイズのブロックに対する画像の配置縦位置: 'top', 'middle' or 'bottom'

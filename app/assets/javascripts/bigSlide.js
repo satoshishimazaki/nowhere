@@ -28,7 +28,7 @@
       'menuWidth': '8.5em',
       'speed': '250',
       'state': 'closed',
-      // 'activeBtn': 'active',
+      'activeBtn': 'active',
       'easyClose': false,
       'beforeOpen': function () {},
       'afterOpen': function() {},
