@@ -1,6 +1,9 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
+   <div class="navbar-inner">
     <div class="container">
+      <div class="wrap push">
+        <a href="#menu" class="menu-link">&#9776;</a>   
+      </div>   
      <nav id="menu" class="panel" role="navigation">
       <ul>
           <li><%= link_to "home", root_path %></li>
@@ -59,8 +62,9 @@
       </ul>
     </nav>
 
-    <a href="#menu" class="menu-link">&#9776;</a>
-    
+ 
+      
+
         <div class="map">
           <li><i><%= link_to "", index_gmap_path, :class => "fa fa-map-marker" %></i></li>
            <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
@@ -80,6 +84,7 @@
          <div class = "select_geogeo">
           <%= link_to '', index_recommend_path, {:class => 'fa fa-smile-o'} %>
         </div>
+   
     </div>
   </div>
 </header>
