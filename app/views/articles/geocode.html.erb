@@ -195,7 +195,7 @@
                 {
                   origins: [new google.maps.LatLng(position.coords.latitude, position.coords.longitude)],
                   destinations: [<%= raw @article_address.join(",") %>],
-                  travelMode: google.maps.TravelMode.DRIVING,
+                  travelMode: google.maps.TravelMode.WALKING,
                   unitSystem: google.maps.UnitSystem.METRIC,
                   avoidHighways: false,
                   avoidTolls: false

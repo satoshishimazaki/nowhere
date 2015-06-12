@@ -195,10 +195,13 @@
                     for (var j = 0; j < results.length; j++) {
                       // addMarker(destinations[j], true);
                       var distance = results[j].distance.text;
-                      if ( distance < 1) {
-                        distance = distance * 1000;
-                      };
-                      $("#article_distance_" + j).html('距離' + ':' + distance + '<br>')
+                       if ( distance.substring(0, distance.indexOf("m")) > 1) {
+                          $("#article_distance_" + j).html('距離' + ':' + distance + '<br>')
+                        } else if ( distance.substring(0, distance.indexOf("k")) < 1) {
+                          $("#article_distance_" + j).html('距離' + ':' + distance.substring(0, distance.indexOf("k")) * 1000 + 'm' + '<br>')
+                        } else {      
+                          $("#article_distance_" + j).html('距離' + ':' + distance + '<br>')
+                        }
                     }
                   }
                 }
@@ -209,7 +212,7 @@
                 {
                   origins: [new google.maps.LatLng(position.coords.latitude, position.coords.longitude)],
                   destinations: [<%= raw @article_address.join(",") %>],
-                  travelMode: google.maps.TravelMode.DRIVING,
+                  travelMode: google.maps.TravelMode.WALKING,
                   unitSystem: google.maps.UnitSystem.METRIC,
                   avoidHighways: false,
                   avoidTolls: false
