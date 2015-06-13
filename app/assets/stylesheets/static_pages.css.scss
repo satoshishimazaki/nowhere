@@ -163,18 +163,19 @@ body .blog-box a{
 .stationname{
   float: left;
   // margin-left: 100px;
+  width: 200px;
+}
+
+.viewbox{
+  float: left;
+  // margin-right: 50px;
+  width: 200px;
 }
 
 #time{
   margin-left: 0px;
   float: left;
   margin-right: 20px;
-}
-
-.viewbox{
-  float: left;
-  // margin-right: 50px;
-  width: 400px;
 }
 
 .view{

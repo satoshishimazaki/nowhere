@@ -181,7 +181,7 @@
                     <div class="meta">
                     <%= auto_link(simple_format(@article.content)) %>
                     </div>
-                    <p>View:<%= @article.impressionist_count(:filter=>:session_hash)%></p>
+                    <p><i class="fa fa-users"><%= @article.impressionist_count(:filter=>:session_hash)%></i></p>
                     <p> <% if user_signed_in?%>
                          <span id="article_favorite<%= @article.id %>">
                              <%= render 'favorites/favorite_btn', article: @article %>
