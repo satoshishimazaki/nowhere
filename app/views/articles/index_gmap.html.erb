@@ -18,29 +18,29 @@
                   タイトル：<%=link_to article.title[0..10], article_path(article.id) %>...<br>
                   店舗名：<%=link_to article.store.name[0..10], article_path(article.id) %>...<br>
                    <div class='view'><li><i class="fa fa-users"><%= article.impressionist_count(:filter=>:session_hash)%></i></li></div>
-                                <% if user_signed_in?%>
-                                   <div class='like'>
-                                      <li>
-                                        <span id="article_favorite<%= article.id %>">
-                                         <%= render 'favorites/favorite_btn', article: article %>
-                                        </span>
-                                        <span id="fav_<%=article.id %>">
-                                         <%= article.favorites.count %>
-                                        </span>
-                                      </li>
-                                  </div>
-                                      <% else %>
-                                  <div class='like'>
-                                      <li>
-                                        <span>
-                                         <i class="fa fa-thumbs-o-up"></i>
-                                        </span>
-                                        <span id="fav_<%=article.id %>">
-                                         <%= article.favorites.count %>
-                                        </span>
-                                      </li>
-                                  </div>
-                                <% end %></div>
+                    <% if user_signed_in?%>
+                       <div class='likes'>
+                          <li>
+                            <span id="article_favorite<%= article.id %>">
+                             <%= render 'favorites/favorite_btn', article: article %>
+                            </span>
+                            <span id="fav_<%=article.id %>">
+                             <%= article.favorites.count %>
+                            </span>
+                          </li>
+                      </div>
+                          <% else %>
+                      <div class='likes'>
+                          <li>
+                            <span>
+                             <i class="fa fa-thumbs-o-up"></i>
+                            </span>
+                            <span id="fav_<%=article.id %>">
+                             <%= article.favorites.count %>
+                            </span>
+                          </li>
+                      </div>
+                    <% end %></div>
                 <!-- </div> -->
                 </div>
              <% end %>
