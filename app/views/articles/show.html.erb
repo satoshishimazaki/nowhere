@@ -183,7 +183,7 @@
                     </div>
                     <p>View:<%= @article.impressionist_count(:filter=>:session_hash)%></p>
                     <p> <% if user_signed_in?%>
-                         <span id="article_<%= @article.id %>">
+                         <span id="article_favorite<%= @article.id %>">
                              <%= render 'favorites/favorite_btn', article: @article %>
                          </span>
                          <span id="fav_<%=@article.id %>">
@@ -207,7 +207,7 @@
                               <ul>
                                 <% @articles.each do |article| %>
                                   <li><%= link_to article.title[0..10], article %>
-                                     <span id="article_<%= article.id %>">
+                                     <span id="article_favorite<%= article.id %>">
                                          <%= render 'favorites/favorite_btn', article: article %>
                                      </span>
                                      <span id="fav_<%= article.id %>">

@@ -80,6 +80,9 @@
             </div>  -->
             <div class = 'indexarticles'>    
             <div class = 'articles'>
+              <% if @articles.empty? %>  
+                  <div class="nothing"><p>投稿情報は現在ございません</p></div>
+                <%else%>   
               <div id = 'container'>                               
               <% @articles.each_with_index do |article, index| %>  
                 <div class="box"> 
@@ -104,12 +107,14 @@
                                   <div id="time">
                                     <li>残り:<% if article.left_time > 24.hours %><%= article.left_day.floor %>日<% else %><%= article.left_hour.floor %>時間<%= article.left_minute.floor %>分<% end %></li>
                                   </div>
-                                  <div class='view'><li>View:<%= article.impressionist_count(:filter=>:session_hash)%></li></div>
-                                  <div class='distance'>
-                                    <li><span id="article_distance_<%= index %>"></span></li>
-                                  </div>
-                                  <% if user_signed_in?%>
-                                     <div class='like'>
+                                 </ul>
+                              <!-- </div> -->
+                            </div><!-- title_box -->  
+                            <div class="viewbox">
+                               <ul>
+                                  <div class='view'><li><i class="fa fa-users"><%= article.impressionist_count(:filter=>:session_hash)%></i></li></div>
+                                <% if user_signed_in?%>
+                                   <div class='like'>
                                       <li>
                                         <span id="article_favorite<%= article.id %>">
                                          <%= render 'favorites/favorite_btn', article: article %>
@@ -118,17 +123,31 @@
                                          <%= article.favorites.count %>
                                         </span>
                                       </li>
-                                    </div>
-                                  <% end %>
+                                  </div>
+                                      <% else %>
+                                  <div class='like'>
+                                      <li>
+                                        <span>
+                                         <i class="fa fa-thumbs-o-up"></i>
+                                        </span>
+                                        <span id="fav_<%=article.id %>">
+                                         <%= article.favorites.count %>
+                                        </span>
+                                      </li>
+                                  </div>
+                                <% end %>
+                                  <div class='distance'>
+                                    <li><span id="article_distance_<%= index %>"></span></li>
+                                  </div>
                                 </ul>
-                              <!-- </div> -->
-                            </div><!-- title_box -->     
+                              </div>
                           <!-- </div> -->  
                         </div><!-- blog_box -->
                        </a>    
                     </div><!-- item -->
               <% end %>
             </div><!-- contanier -->
+            <% end %>
             </div>
           </div><!-- indexarticles -->
          </div> <!-- End Row -->
@@ -192,11 +211,11 @@
                       // addMarker(destinations[j], true);
                       var distance = results[j].distance.text;
                         if ( distance.substring(0, distance.indexOf("m")) > 1) {
-                          $("#article_distance_" + j).html('距離' + ':' + distance + '<br>')
+                          $("#article_distance_" + j).html('<i class="fa fa-location-arrow"></i>'  + distance + '<br>')
                         } else if ( distance.substring(0, distance.indexOf("k")) < 1) {
-                          $("#article_distance_" + j).html('距離' + ':' + distance.substring(0, distance.indexOf("k")) * 1000 + 'm' + '<br>')
+                          $("#article_distance_" + j).html('<i class="fa fa-location-arrow"></i>'  + distance.substring(0, distance.indexOf("k")) * 1000 + 'm' + '<br>')
                         } else {      
-                          $("#article_distance_" + j).html('距離' + ':' + distance + '<br>')
+                          $("#article_distance_" + j).html('<i class="fa fa-location-arrow"></i>' + distance + '<br>')
                         }
                     }
                   }
@@ -241,11 +260,11 @@
                   isFitWidth: true, //親要素の幅サイズがピッタリ
               });
             });
-               $('.box').click(function(){
-                  $(this).css("background", "#CCC")
-                  window.location = $(this).find('a').attr('href');
-                  return false;
-               })
+             $('.box').click(function(){
+                $(this).css("background", "#CCC")
+                window.location = $(this).find('a').attr('href');
+                return false;
+             })
           });
    });         
 </script>

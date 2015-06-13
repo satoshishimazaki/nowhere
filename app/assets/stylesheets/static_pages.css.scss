@@ -166,7 +166,15 @@ body .blog-box a{
 }
 
 #time{
-  margin-left: 70px;
+  margin-left: 0px;
+  float: left;
+  margin-right: 20px;
+}
+
+.viewbox{
+  float: left;
+  // margin-right: 50px;
+  width: 400px;
 }
 
 .view{
@@ -174,7 +182,7 @@ body .blog-box a{
 }
 
 .distance{
-  margin-left: 18px;
+  // margin-left: 18px;
   float: left;
 }
 
