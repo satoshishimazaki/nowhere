@@ -11,7 +11,7 @@ module StoreHelper
     if image_name
      image_tag "/docs/#{image_name}", :align => 'top', :id => "showprofile"
     else
-     image_tag "no_image.png", :align => 'top'
+     image_tag "no_image.png", :align => 'top', :id => "noprofile"
     end
   end
 end
