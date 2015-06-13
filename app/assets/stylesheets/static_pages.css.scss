@@ -172,6 +172,21 @@ body .blog-box a{
   width: 200px;
 }
 
+@media screen and (max-width: 414px){
+.stationname{
+  float: left;
+  // margin-left: 100px;
+  width: 149px;
+}
+.viewbox{
+  float: left;
+  // margin-right: 50px;
+  width: 149px;
+}
+}
+
+
+
 #time{
   margin-left: 0px;
   float: left;
