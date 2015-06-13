@@ -384,7 +384,7 @@
               $(this).hide();
               $("#overLayer").hide();
             });
-            $("img").click(function(){
+            $(".item.active img").click(function(){
               $("#glayLayer").show();
               $("#overLayer").show().html("<img src='"+$(this).attr("src")+"'>");
               return false;
