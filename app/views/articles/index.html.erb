@@ -84,7 +84,7 @@
                   <div class="nothing"><p>投稿情報は現在ございません</p></div>
                 <%else%>   
               <div id = 'container'>                               
-              <% @articles.each_with_index do |article, index| %>  
+              <% @articles.each_with_index do |article, index| %>
                 <div class="box"> 
                  <a href= 'articles/<%=article.id %>'>            
                   <div class="blog-box" id="article_<%= index %>">
@@ -143,8 +143,8 @@
                               </div>
                           <!-- </div> -->  
                         </div><!-- blog_box -->
-                       </a>    
-                    </div><!-- item -->
+                       </a>  
+                    </div><!-- box -->
               <% end %>
             </div><!-- contanier -->
             <% end %>
@@ -262,6 +262,7 @@
             });
              $('.box').click(function(){
                 $(this).css("background", "#CCC")
+                // $(this).append("<div id='glayLayer'></div>")
                 window.location = $(this).find('a').attr('href');
                 return false;
              })

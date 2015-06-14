@@ -80,15 +80,20 @@
             </div>  -->
             <div class = 'indexarticles'>  
             <div class = 'articles'> 
-              <div class = 'recommend'>
-                <p>本日のおすすめ！</p> 
-              </div>
                <% if @articles.empty? %>  
                   <div class="nothing"><p>投稿情報は現在ございません</p></div>
-                <%else%>   
+                <%else%> 
+              <div id = 'recommendheader'>
+                <!-- <div id="glayLayer2"> -->
+                <div class = 'recommend'>
+                  <p>コスギなオススメを楽しもう！</p>
+                </div> 
+               <%= image_tag 'landscope.jpg', :size => '', :id => "recommendheaderimg" %>
+                <!-- </div> -->
+              </div>  
               <div id = 'container'>                               
               <% @articles.each_with_index do |article, index| %>  
-                <div class="box"> 
+                <div class="rbox"> 
                  <a href= 'articles/<%=article.id %>'>            
                   <div class="blog-box" id="article_<%= index %>">
                           <%= link_to article_path(article.id) do
@@ -259,7 +264,7 @@
               var $container = $('#container');
                 $container.imagesLoaded(function(){
                   $('#container').masonry({ // id="container"の中の
-                      itemSelector : '.box', // class="item"に対して適用
+                      itemSelector : '.rbox', // class="item"に対して適用
                       columnWidth: 0, //一列の幅サイズを指定
                       isFitWidth: true, //親要素の幅サイズがピッタリ
                   });
