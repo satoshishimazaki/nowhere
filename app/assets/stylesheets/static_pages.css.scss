@@ -2405,3 +2405,16 @@ nav#menu.panel {
 .signin{
   margin-left: 0px;
 }
+
+@media screen and (max-width: 414px){
+ .articles li {
+  font-size: 12px;
+ }
+ .articles p {
+  font-size: 12px;
+ }
+}
+
+
+
+
