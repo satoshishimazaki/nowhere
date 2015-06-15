@@ -56,6 +56,7 @@
       ga('send', 'pageview');
 
     </script>
+    <script src="//cdn.ckeditor.com/4.4.7/standard/ckeditor.js"></script>
 
     <!-- Modernizr
     ================================================== -->
@@ -69,12 +70,12 @@
     <![endif]-->
   </head>
   <body>
-    <%= render 'layouts/header' %>
+     <%= render 'layouts/headerindex' %>
     <div class="let">
       <%= yield %>
-      <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
     </div>
+    <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
     <!-- <div id="show_result"></div> -->
   </body>
 <!-- <p>あなたの現在位置</p> -->

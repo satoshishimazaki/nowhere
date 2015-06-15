@@ -71,14 +71,14 @@ class ArticlesController < ApplicationController
       @articles = Article.where('created_at > ? AND category = ?', Time.now - 24*14.hours, '飲食').order( created_at: :desc )
       # raise
       @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
-      render '_category_index'
+      render layout: 'otherapplication'
   end
 
   def index_shopping
       @articles = Article.all
       @articles = Article.where('created_at > ? AND category = ?', Time.now - 24*14.hours, 'shopping').order( created_at: :desc )
       @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
-      render '_category_index'
+      render layout: 'otherapplication'
   end
 
   def index_other
@@ -86,7 +86,7 @@ class ArticlesController < ApplicationController
       @articles = Article.all
       @articles = Article.where('created_at > ? AND category = ?', Time.now - 24*14.hours, 'その他').order( created_at: :desc )
       @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
-      render '_category_index' 
+      render layout: 'otherapplication'
   end
 
   def index_recommend
@@ -94,14 +94,15 @@ class ArticlesController < ApplicationController
       @articles = Article.all
       @articles = Article.where('created_at > ? AND recommend = ?', Time.now - 24*14.hours, '1').order( created_at: :desc )
       @article_address = Article.select(:address).limit(15).map{|article| '"'+article.address+'"'}
-      # render '_category_index'
+      render layout: 'otherapplication'
   end
 
   def index_station
       @articles = Article.all
       @articles = Article.where('created_at > ? AND station = ?', Time.now - 24*14.hours, params[:station]).order( created_at: :desc )
       @article_address = Article.select(:address).limit(15).map{|article| '"'+article.address+'"'}
-      render '_category_index'
+       render layout: 'otherapplication'
+      # render '_category_index'
   end
 
   def create
@@ -138,6 +139,7 @@ class ArticlesController < ApplicationController
     # @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
     # @articles = @stores.map { |store| store.articles }.map { |articles| articles }.map { |article| article }
     # logger.debug(@articles)
+    # render '_article' 
   end
 
   #1mile抽出
@@ -151,6 +153,7 @@ class ArticlesController < ApplicationController
     # @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
     # @articles = @stores.map { |store| store.articles }.map { |articles| articles }.map { |article| article }
     # logger.debug(@articles)
+    # render '_article' 
   end
 
   def edit
