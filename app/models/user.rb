@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     user
   end
 
+  def self.create_unique_string
+    SecureRandom.uuid
+  end
+
   def favorite?(article)
     favorites.find_by(article_id: article.id)
   end
