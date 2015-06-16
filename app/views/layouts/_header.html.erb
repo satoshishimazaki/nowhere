@@ -41,7 +41,7 @@
           
                <li class="menubar"><%= link_to "登録", new_user_registration_path %> </li>
                <li class="menubar"><%= link_to "ログイン", new_user_session_path %></li>
-               <li class="menubar"><%= link_to "Facebookログイン", "users/auth/facebook", id: "sign_in" %></li>
+               <li class="menubar"><%= link_to "Facebookログイン", user_omniauth_authorize_path(:facebook) %></li>
              <% end %> 
 
         <li class="menubarcol">カテゴリ</li>
