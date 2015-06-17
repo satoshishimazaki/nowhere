@@ -80,9 +80,6 @@
             </div>  -->
             <div class = 'indexarticles'>  
             <div class = 'articles'> 
-               <% if @articles.empty? %>  
-                  <div class="nothing"><p>投稿情報は現在ございません</p></div>
-                <%else%> 
               <div id = 'recommendheader'>
                 <!-- <div id="glayLayer2"> -->
                 <div class = 'recommend'>
@@ -90,7 +87,11 @@
                 </div> 
                <%= image_tag 'landscope.jpg', :size => '', :id => "recommendheaderimg" %>
                 <!-- </div> -->
-              </div>  
+              </div>
+               <% if @articles.empty? %>  
+                  <div class="nothing"><p>投稿情報は現在ございません</p></div>
+                <%else%> 
+                
               <div id = 'container'>                               
               <% @articles.each_with_index do |article, index| %>  
                 <div class="rbox"> 
