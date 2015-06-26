@@ -156,69 +156,12 @@
 
 
 <script type="text/javascript">
-  //  $(document).ready(function(){
-  //   $(".thumbnails img").MyThumbnail({
-  //     thumbWidth:150,
-  //     thumbHeight:150
-  //   });
-  // 　});
-   // $(function(){
-   //        var map;
-   //        var geocoder;
-   //        var bounds = new google.maps.LatLngBounds();
-   //        var markersArray = [];
-
-   //        // var origin1 = position;
-   //        // var origin2 = 'Greenwich, England';
-   //        // var destinationA = <%= raw @article_address.to_json %>;
-   //        // var destinationB = new google.maps.LatLng(50.087, 14.421);
-
-   //        var destinationIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=D|FF0000|000000';
-   //        var originIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=O|FFFF00|000000';
-
-          // function initialize() {
-          //   var opts = {
-          //     center: new google.maps.LatLng(55.53, 9.4),
-          //     zoom: 10
-          //   };
-          //   map = new google.maps.Map(document.getElementById('map-canvas'), opts);
-          //   geocoder = new google.maps.Geocoder();
-          // }
-          // var $container = $('#container');　
-         
-          $(document).ready(function(){
-            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+$(document).ready(function(){
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
             /***** ユーザーの現在の位置情報を取得 *****/
             function successCallback(position) {
 
-
-              // function callback(response, status) {
-                // if (status != google.maps.DistanceMatrixStatus.OK) {
-                //   alert('Error was: ' + status);
-                // } else {
-                //   var origins = response.originAddresses;
-                //   var destinations = response.destinationAddresses;
-                //   // var article = document.getElementById("#article_" + i);
-                //   // article.innerHTML = '';
-                //   // deleteOverlays();
-
-                //   // for (var i = 0; i < origins.length; i++) {
-                //   //   var results = response.rows[i].elements;
-                //   //   // addMarker(origins[i], false);
-                //   //   for (var j = 0; j < results.length; j++) {
-                //   //     // addMarker(destinations[j], true);
-                //   //     var distance = results[j].distance.text;
-                //   //       if ( distance.substring(0, distance.indexOf("m")) > 1) {
-                //   //         $("#article_distance_" + j).html('<i class="fa fa-location-arrow"></i>'  + distance + '<br>')
-                //   //       } else if ( distance.substring(0, distance.indexOf("k")) < 1) {
-                //   //         $("#article_distance_" + j).html('<i class="fa fa-location-arrow"></i>'  + distance.substring(0, distance.indexOf("k")) * 1000 + 'm' + '<br>')
-                //   //       } else {      
-                //   //         $("#article_distance_" + j).html('<i class="fa fa-location-arrow"></i>' + distance + '<br>')
-                //   //       }
-                //   //   }
-                //   // }
-                // }
                 var latitude = position.coords.latitude
                 var longitude = position.coords.longitude
 
@@ -226,62 +169,14 @@
                   // このなかで各記事に距離をいれる
                   var article_latitude = $(this).attr('data-article-latitude');
                   var article_longitude = $(this).attr('data-article-longitude');
-                  // var latitude = position.coords.latitude
-                  // var longitude = position.coords.longitude
-                  // var distance_near = function (latitude, longitude, article_latitude, article_longitude){
-                  //       //ラジアンに変換
-                  //     var a_lat = latitude * Math.PI / 180;
-                  //     var a_lon = longitude * Math.PI / 180;
-                  //     var b_lat = article_latitude * Math.PI / 180;
-                  //     var b_lon = article_longitude * Math.PI / 180;
 
-                  //     // 緯度の平均、緯度間の差、経度間の差
-                  //     var latave = (a_lat + b_lat) / 2;
-                  //     var latidiff = a_lat - b_lat;
-                  //     var longdiff = a_lon - b_lon;
-
-                  //     //子午線曲率半径
-                  //     //半径を6335439m、離心率を0.006694で設定してます
-                  //     var meridian = 6335439 / Math.sqrt(Math.pow(1 - 0.006694 * Math.sin(latave) * Math.sin(latave), 3));    
-
-                  //     //卯酉線曲率半径
-                  //     //半径を6378137m、離心率を0.006694で設定してます
-                  //     var primevertical = 6378137 / Math.sqrt(1 - 0.006694 * Math.sin(latave) * Math.sin(latave));     
-
-                  //     //Hubenyの簡易式
-                  //     var x = meridian * latidiff;
-                  //     var y = primevertical * Math.cos(latave) * longdiff;
-
-                  //     return Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
-                  //   };
                   if (distance_near(latitude, longitude, article_latitude, article_longitude) >= 1000) {
-                    $(this).find('.some-distance').html('<li>' +  Math.floor(distance_near(latitude, longitude, article_latitude, article_longitude)/1000) + "km" + '</li>');
+                    $(this).find('.some-distance').html('<li><i class="fa fa-location-arrow">' +  Math.floor(distance_near(latitude, longitude, article_latitude, article_longitude)/1000) + "km" + '</i></li>');
                     } else {
-                    $(this).find('.some-distance').html('<li>' + Math.floor(distance_near(latitude, longitude, article_latitude, article_longitude)) + "m" + '</li>');
+                    $(this).find('.some-distance').html('<li><i class="fa fa-location-arrow">' + Math.floor(distance_near(latitude, longitude, article_latitude, article_longitude)) + "m" + '</i></li>');
                     }
                 })
 
-              // }
-
-              // var service = new google.maps.DistanceMatrixService();
-              // service.getDistanceMatrix(
-              //   {
-              //     origins: [new google.maps.LatLng(position.coords.latitude, position.coords.longitude)],
-            
-              //     travelMode: google.maps.TravelMode.WALKING,
-              //     unitSystem: google.maps.UnitSystem.METRIC,
-              //     avoidHighways: false,
-              //     avoidTolls: false
-              //   }, callback);
-
-              // $.ajax({
-              //    type: "GET",
-              //    url: "/",
-              //    data: "latitude="+position.coords.latitude+"&longitude="+position.coords.longitude,
-              // }).success(function(data){
-              // }).error(function(data){
-              //   console.log('error!');
-              // });
 
             } //success callback
 
@@ -321,6 +216,5 @@
                 window.location = $(this).find('a').attr('href');
                 return false;
              })
-          });
-   // });         
+  });         
 </script>

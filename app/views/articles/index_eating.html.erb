@@ -171,9 +171,9 @@ $(document).ready(function(){
                   var article_longitude = $(this).attr('data-article-longitude');
 
                   if (distance_near(latitude, longitude, article_latitude, article_longitude) >= 1000) {
-                    $(this).find('.some-distance').html('<li>' +  Math.floor(distance_near(latitude, longitude, article_latitude, article_longitude)/1000) + "km" + '</li>');
+                    $(this).find('.some-distance').html('<li><i class="fa fa-location-arrow">' +  Math.floor(distance_near(latitude, longitude, article_latitude, article_longitude)/1000) + "km" + '</i></li>');
                     } else {
-                    $(this).find('.some-distance').html('<li>' + Math.floor(distance_near(latitude, longitude, article_latitude, article_longitude)) + "m" + '</li>');
+                    $(this).find('.some-distance').html('<li><i class="fa fa-location-arrow">' + Math.floor(distance_near(latitude, longitude, article_latitude, article_longitude)) + "m" + '</i></li>');
                     }
                 })
 
