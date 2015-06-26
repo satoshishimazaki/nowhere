@@ -37,7 +37,7 @@ class ArticlesController < ApplicationController
   def index
       @articles = Article.all
       @articles = Article.where('created_at > ?', Time.now - 24*14.hours).order( created_at: :desc )
-      @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
+      # @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
       @time = Time.now
       # raise
       # render layout: 'index'
@@ -134,8 +134,8 @@ class ArticlesController < ApplicationController
     # ユーザーの現在地から近い順にStoresをとってくる
     article = Article.new(latitude: params[:latitude], longitude: params[:longitude])
     @articles = Article.by_distance(origin: article)
-    @articles = @articles.where('created_at > ?', Time.now - 24*14.hours).order( created_at: :desc )
-    @article_address = @articles.limit(15).map{|article| '"'+article.address+'"'}
+    @articles = @articles.where('created_at > ?', Time.now - 24*14.hours)
+    # @article_address = @articles.limit(15).map{|article| '"'+article.address+'"'}
     # @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
     # @articles = @stores.map { |store| store.articles }.map { |articles| articles }.map { |article| article }
     # logger.debug(@articles)
@@ -149,7 +149,7 @@ class ArticlesController < ApplicationController
     @articles = Article.within_box(distance: 1/1.6, latitude: params[:latitude], longitude: params[:longitude])
     # @articles = Article.by_distance(origin: article)
     @articles = @articles.where('created_at > ?', Time.now - 24*14.hours).order( created_at: :desc )
-    @article_address = @articles.limit(15).map{|article| '"'+article.address+'"'}
+    # @article_address = @articles.limit(15).map{|article| '"'+article.address+'"'}
     # @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
     # @articles = @stores.map { |store| store.articles }.map { |articles| articles }.map { |article| article }
     # logger.debug(@articles)

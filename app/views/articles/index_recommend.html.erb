@@ -94,7 +94,7 @@
                 
               <div id = 'container'>                               
               <% @articles.each_with_index do |article, index| %>  
-                <div class="rbox"> 
+                <div class="rbox" data-article-latitude="<%= article.latitude %>" data-article-longitude="<%= article.longitude %>"> 
                  <a href= 'articles/<%=article.id %>'>            
                   <div class="blog-box" id="article_<%= index %>">
                           <%= link_to article_path(article.id) do
@@ -145,8 +145,7 @@
                                       </li>
                                   </div>
                                 <% end %>
-                                  <div class='distance'>
-                                    <li><span id="article_distance_<%= index %>"></span></li>
+                                  <div class='some-distance'>
                                   </div>
                                 </ul>
                               </div>    
@@ -166,82 +165,29 @@
 
 
 <script type="text/javascript">
-  //  $(document).ready(function(){
-  //   $(".thumbnails img").MyThumbnail({
-  //     thumbWidth:150,
-  //     thumbHeight:150
-  //   });
-  // 　});
-   $(function(){
-          var map;
-          var geocoder;
-          var bounds = new google.maps.LatLngBounds();
-          var markersArray = [];
-
-          // var origin1 = position;
-          // var origin2 = 'Greenwich, England';
-          // var destinationA = <%= raw @article_address.to_json %>;
-          // var destinationB = new google.maps.LatLng(50.087, 14.421);
-
-          var destinationIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=D|FF0000|000000';
-          var originIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=O|FFFF00|000000';
-
-          // function initialize() {
-          //   var opts = {
-          //     center: new google.maps.LatLng(55.53, 9.4),
-          //     zoom: 10
-          //   };
-          //   map = new google.maps.Map(document.getElementById('map-canvas'), opts);
-          //   geocoder = new google.maps.Geocoder();
-          // }
-          // var $container = $('#container');　
-         
-          $(document).ready(function(){
-            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+$(document).ready(function(){
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
             /***** ユーザーの現在の位置情報を取得 *****/
             function successCallback(position) {
 
+                var latitude = position.coords.latitude
+                var longitude = position.coords.longitude
 
-              function callback(response, status) {
-                if (status != google.maps.DistanceMatrixStatus.OK) {
-                  alert('Error was: ' + status);
-                } else {
-                  var origins = response.originAddresses;
-                  var destinations = response.destinationAddresses;
-                  // var article = document.getElementById("#article_" + i);
-                  // article.innerHTML = '';
-                  // deleteOverlays();
+                $('.rbox').each(function(){
+                  // このなかで各記事に距離をいれる
+                  var article_latitude = $(this).attr('data-article-latitude');
+                  var article_longitude = $(this).attr('data-article-longitude');
 
-                  for (var i = 0; i < origins.length; i++) {
-                    var results = response.rows[i].elements;
-                    // addMarker(origins[i], false);
-                    for (var j = 0; j < results.length; j++) {
-                      // addMarker(destinations[j], true);
-                      var distance = results[j].distance.text;
-                       if ( distance.substring(0, distance.indexOf("m")) > 1) {
-                          $("#article_distance_" + j).html('<i class="fa fa-location-arrow"></i>'  + distance + '<br>')
-                        } else if ( distance.substring(0, distance.indexOf("k")) < 1) {
-                          $("#article_distance_" + j).html('<i class="fa fa-location-arrow"></i>'  + distance.substring(0, distance.indexOf("k")) * 1000 + 'm' + '<br>')
-                        } else {      
-                          $("#article_distance_" + j).html('<i class="fa fa-location-arrow"></i>' + distance + '<br>')
-                        }
+                  if (distance_near(latitude, longitude, article_latitude, article_longitude) >= 1000) {
+                    $(this).find('.some-distance').html('<li>' +  Math.floor(distance_near(latitude, longitude, article_latitude, article_longitude)/1000) + "km" + '</li>');
+                    } else {
+                    $(this).find('.some-distance').html('<li>' + Math.floor(distance_near(latitude, longitude, article_latitude, article_longitude)) + "m" + '</li>');
                     }
-                  }
-                }
-              }
+                })
 
-              var service = new google.maps.DistanceMatrixService();
-              service.getDistanceMatrix(
-                {
-                  origins: [new google.maps.LatLng(position.coords.latitude, position.coords.longitude)],
-                  destinations: [<%= raw @article_address.join(",") %>],
-                  travelMode: google.maps.TravelMode.WALKING,
-                  unitSystem: google.maps.UnitSystem.METRIC,
-                  avoidHighways: false,
-                  avoidTolls: false
-                }, callback);
-            }
+
+            } //success callback
 
             /***** 位置情報が取得できない場合 *****/
             function errorCallback(error) {
@@ -260,21 +206,24 @@
               }
               document.getElementById("show_result").innerHTML = err_msg;
               //デバッグ用→ document.getElementById("show_result").innerHTML = error.message;
-            }
-        
-              var $container = $('#container');
-                $container.imagesLoaded(function(){
-                  $('#container').masonry({ // id="container"の中の
-                      itemSelector : '.rbox', // class="item"に対して適用
-                      columnWidth: 0, //一列の幅サイズを指定
-                      isFitWidth: true, //親要素の幅サイズがピッタリ
-                  });
-                });
-               $('.box').click(function(){
-                  $(this).css("background", "#CCC")
-                  window.location = $(this).find('a').attr('href');
-                  return false;
-               })
-          });
-   });         
+            } 
+            
+            //marsony
+            var $container = $('#container');
+            $container.imagesLoaded(function(){
+              $('#container').masonry({ // id="container"の中の
+                  itemSelector : '.rbox', // class="item"に対して適用
+                  columnWidth: 0, //一列の幅サイズを指定
+                  isFitWidth: true, //親要素の幅サイズがピッタリ
+              });
+            });
+
+            //
+             $('.rbox').click(function(){
+                $(this).css("background", "#CCC")
+                // $(this).append("<div id='glayLayer'></div>")
+                window.location = $(this).find('a').attr('href');
+                return false;
+             })
+  });         
 </script>
