@@ -7,6 +7,10 @@ module ArticleHelper
     end
   end
 
+  def article_image_for_no
+    image_tag "no_image.png", :align => 'top'
+  end
+
 # 　def new_image_for(image_name, option = {})
 #     image_tag "icn_new_png", :height =>'50'
 #   end

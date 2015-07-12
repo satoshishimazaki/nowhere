@@ -6,4 +6,8 @@ module ArticleImageHelper
  #     image_tag "noimage.gif", option
  #    end
  # end
+   # def first_delete(image_name)
+   # 	 a = image_name
+   #   a.delete_at(0)
+   # end 
 end
