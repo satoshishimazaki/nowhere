@@ -36,7 +36,8 @@ class ArticlesController < ApplicationController
 
   def index
       @articles = Article.all
-      @articles = Article.where('created_at > ?', Time.now - 24*14.hours).order( created_at: :desc )
+      @articles = Article.order( created_at: :desc )
+      #@articles = Article.where('created_at > ?', Time.now - 24*14.hours).order( created_at: :desc )
       # @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
       @time = Time.now
       # raise
@@ -47,7 +48,7 @@ class ArticlesController < ApplicationController
 
   def index_gmap
       @articles = Article.all
-      @articles = Article.where('created_at > ?', Time.now - 24*14.hours)
+      #@articles = Article.where('created_at > ?', Time.now - 24*14.hours)
       @hash = Gmaps4rails.build_markers(@articles) do |article, marker|
         marker.lat article.latitude          
         marker.lng article.longitude
@@ -60,7 +61,8 @@ class ArticlesController < ApplicationController
       # end  
       # raise
       @articles = Article.all
-      @articles = Article.where('created_at > ?', Time.now - 24*14.hours).order( created_at: :desc )
+      @articles = Article.order( created_at: :desc )
+      #@articles = Article.where('created_at > ?', Time.now - 24*14.hours).order( created_at: :desc )
       @article_address = Article.select(:address).limit(15).map{|article| '"'+article.address+'"'}
       @time = Time.now
       render layout: 'otherapplication'
@@ -68,7 +70,8 @@ class ArticlesController < ApplicationController
 
   def index_eating
       @articles = Article.all
-      @articles = Article.where('created_at > ? AND category = ?', Time.now - 24*14.hours, '飲食').order( created_at: :desc )
+      @articles = Article.where('category = ?', '飲食').order( created_at: :desc )
+      #@articles = Article.where('created_at > ? AND category = ?', Time.now - 24*14.hours, '飲食').order( created_at: :desc )
       # raise
       @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
       render layout: 'otherapplication'
@@ -76,7 +79,8 @@ class ArticlesController < ApplicationController
 
   def index_shopping
       @articles = Article.all
-      @articles = Article.where('created_at > ? AND category = ?', Time.now - 24*14.hours, 'shopping').order( created_at: :desc )
+      @articles = Article.where('category = ?', 'shopping').order( created_at: :desc )
+      #@articles = Article.where('created_at > ? AND category = ?', Time.now - 24*14.hours, 'shopping').order( created_at: :desc )
       @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
       render layout: 'otherapplication'
   end
@@ -84,7 +88,8 @@ class ArticlesController < ApplicationController
   def index_other
       # @articles = 'nil'
       @articles = Article.all
-      @articles = Article.where('created_at > ? AND category = ?', Time.now - 24*14.hours, 'その他').order( created_at: :desc )
+      @articles = Article.where('category = ?', 'その他').order( created_at: :desc )
+      #@articles = Article.where('created_at > ? AND category = ?', Time.now - 24*14.hours, 'その他').order( created_at: :desc )
       @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
       render layout: 'otherapplication'
   end
@@ -92,14 +97,16 @@ class ArticlesController < ApplicationController
   def index_recommend
       # @articles = 'nil'
       @articles = Article.all
-      @articles = Article.where('created_at > ? AND recommend = ?', Time.now - 24*14.hours, '1').order( created_at: :desc )
+      @articles = Article.where('recommend = ?', '1').order( created_at: :desc )
+      #@articles = Article.where('created_at > ? AND recommend = ?', Time.now - 24*14.hours, '1').order( created_at: :desc )
       @article_address = Article.select(:address).limit(15).map{|article| '"'+article.address+'"'}
       render layout: 'otherapplication'
   end
 
   def index_station
       @articles = Article.all
-      @articles = Article.where('created_at > ? AND station = ?', Time.now - 24*14.hours, params[:station]).order( created_at: :desc )
+      @articles = Article.where('station = ?', params[:station]).order( created_at: :desc )
+      #@articles = Article.where('created_at > ? AND station = ?', Time.now - 24*14.hours, params[:station]).order( created_at: :desc )
       @article_address = Article.select(:address).limit(15).map{|article| '"'+article.address+'"'}
        render layout: 'otherapplication'
       # render '_category_index'
@@ -134,7 +141,7 @@ class ArticlesController < ApplicationController
     # ユーザーの現在地から近い順にStoresをとってくる
     article = Article.new(latitude: params[:latitude], longitude: params[:longitude])
     @articles = Article.by_distance(origin: article)
-    @articles = @articles.where('created_at > ?', Time.now - 24*14.hours)
+    #@articles = @articles.where('created_at > ?', Time.now - 24*14.hours)
     # @article_address = @articles.limit(15).map{|article| '"'+article.address+'"'}
     # @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
     # @articles = @stores.map { |store| store.articles }.map { |articles| articles }.map { |article| article }
@@ -148,7 +155,8 @@ class ArticlesController < ApplicationController
     # article = Article.new(latitude: params[:latitude], longitude: params[:longitude])
     @articles = Article.within_box(distance: 1/1.6, latitude: params[:latitude], longitude: params[:longitude])
     # @articles = Article.by_distance(origin: article)
-    @articles = @articles.where('created_at > ?', Time.now - 24*14.hours).order( created_at: :desc )
+    @articles = @articles.order( created_at: :desc )
+    #@articles = @articles.where('created_at > ?', Time.now - 24*14.hours).order( created_at: :desc )
     # @article_address = @articles.limit(15).map{|article| '"'+article.address+'"'}
     # @article_address = Article.select(:address).order(created_at: :desc).limit(15).map{|article| '"'+article.address+'"'}
     # @articles = @stores.map { |store| store.articles }.map { |articles| articles }.map { |article| article }
